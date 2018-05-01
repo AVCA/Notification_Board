@@ -1,0 +1,8 @@
+C:\Users\Ana\Dropbox\ITCM\6° semestre\Ingenieria en Software\Proyecto\Programa\Notification Board\Notification_Board\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Ana\Dropbox\ITCM\6° semestre\Ingenieria en Software\Proyecto\Programa\Notification Board\Notification_Board\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Ana\Dropbox\ITCM\6° semestre\Ingenieria en Software\Proyecto\Programa\Notification Board\Notification_Board\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
+C:\Users\Ana\Dropbox\ITCM\6° semestre\Ingenieria en Software\Proyecto\Programa\Notification Board\Notification_Board\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Ana\Dropbox\ITCM\6° semestre\Ingenieria en Software\Proyecto\Programa\Notification Board\Notification_Board\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Ana\Dropbox\ITCM\6° semestre\Ingenieria en Software\Proyecto\Programa\Notification Board\Notification_Board\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Ana\Dropbox\ITCM\6° semestre\Ingenieria en Software\Proyecto\Programa\Notification Board\Notification_Board\CapaDatos\bin\Debug\MySql.Data.xml
+C:\Users\Ana\Dropbox\ITCM\6° semestre\Ingenieria en Software\Proyecto\Programa\Notification Board\Notification_Board\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete

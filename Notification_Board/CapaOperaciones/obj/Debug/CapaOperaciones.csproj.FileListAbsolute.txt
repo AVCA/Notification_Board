@@ -20,3 +20,12 @@ C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\CapaOperaciones\
 C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\CapaOperaciones\obj\Debug\CapaOperaciones.csproj.CopyComplete
 C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\CapaOperaciones\obj\Debug\CapaOperaciones.dll
 C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\CapaOperaciones\obj\Debug\CapaOperaciones.pdb
+C:\Users\cvric\source\repos\Notification_Board\Notification_Board\CapaOperaciones\bin\Debug\CapaOperaciones.dll
+C:\Users\cvric\source\repos\Notification_Board\Notification_Board\CapaOperaciones\bin\Debug\CapaOperaciones.pdb
+C:\Users\cvric\source\repos\Notification_Board\Notification_Board\CapaOperaciones\bin\Debug\CapaDatos.dll
+C:\Users\cvric\source\repos\Notification_Board\Notification_Board\CapaOperaciones\bin\Debug\CapaDatos.pdb
+C:\Users\cvric\source\repos\Notification_Board\Notification_Board\CapaOperaciones\obj\Debug\CapaOperaciones.csprojResolveAssemblyReference.cache
+C:\Users\cvric\source\repos\Notification_Board\Notification_Board\CapaOperaciones\obj\Debug\CapaOperaciones.csproj.CoreCompileInputs.cache
+C:\Users\cvric\source\repos\Notification_Board\Notification_Board\CapaOperaciones\obj\Debug\CapaOperaciones.csproj.CopyComplete
+C:\Users\cvric\source\repos\Notification_Board\Notification_Board\CapaOperaciones\obj\Debug\CapaOperaciones.dll
+C:\Users\cvric\source\repos\Notification_Board\Notification_Board\CapaOperaciones\obj\Debug\CapaOperaciones.pdb

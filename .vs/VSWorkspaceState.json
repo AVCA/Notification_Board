@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Notification_Board",
+    "\\Notification_Board\\CapaDatos"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\Notification_Board\\escuela.sql",
   "PreviewInSolutionExplorer": false
 }

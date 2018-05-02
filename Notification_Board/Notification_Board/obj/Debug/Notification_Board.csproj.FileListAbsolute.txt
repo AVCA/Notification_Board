@@ -18,3 +18,23 @@ C:\Users\Ana\Dropbox\ITCM\6° semestre\Ingenieria en Software\Proyecto\Programa\
 C:\Users\Ana\Dropbox\ITCM\6° semestre\Ingenieria en Software\Proyecto\Programa\Notification Board\Notification_Board\Notification_Board\bin\Debug\MySql.Data.xml
 C:\Users\Ana\Dropbox\ITCM\6° semestre\Ingenieria en Software\Proyecto\Programa\Notification Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.Tablas.resources
 C:\Users\Ana\Dropbox\ITCM\6° semestre\Ingenieria en Software\Proyecto\Programa\Notification Board\Notification_Board\Notification_Board\bin\Debug\MySql.Data.dll
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\bin\Debug\Notification_Board.exe.config
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\bin\Debug\Notification_Board.exe
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\bin\Debug\Notification_Board.pdb
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\bin\Debug\CapaOperaciones.dll
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\bin\Debug\MySql.Data.dll
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\bin\Debug\CapaDatos.dll
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\bin\Debug\CapaOperaciones.pdb
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\bin\Debug\MySql.Data.xml
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\bin\Debug\CapaDatos.pdb
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.csprojResolveAssemblyReference.cache
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.Form1.resources
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.Tablas.resources
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.inicio.resources
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.Properties.Resources.resources
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.tv.resources
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.csproj.GenerateResource.cache
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.csproj.CoreCompileInputs.cache
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.csproj.CopyComplete
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.exe
+C:\Users\Ana\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.pdb

@@ -104,7 +104,7 @@ namespace Notification_Board
             this.ImageTimer.Stop();
             this.ImageTimer.Interval = int.Parse(row["duracion"].ToString()) * 1000;
             this.ImageTimer.Start();
-            String dir = "C:\\Fotos" + row["nombre"];
+            String dir = "C:\\Fotos\\" + row["nombre"];
             if (flag == true)
             {               
                 flag = false;     

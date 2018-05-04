@@ -120,7 +120,7 @@ namespace Notification_Board
 
         private void btn_avisos_Click(object sender, EventArgs e)
         {
-            AbrirFormHija(new Aviso("Archivo"));  
+            AbrirFormHija(new Aviso("Archivo"));   
         }
     }
 }

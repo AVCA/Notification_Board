@@ -123,7 +123,7 @@ namespace Notification_Board
                 limpiar();
                 Mostrar();
             }
-            if (editar == true)  
+            if (editar == true)   
             {
                 v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 ObjetoCN.Operaciones(titulo, "Update", v1_u, txt_v1.Text, txt_v2.Text, "", "");

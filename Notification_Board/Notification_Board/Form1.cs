@@ -112,5 +112,10 @@ namespace Notification_Board
         {
             AbrirFormHija(new Tablas("Materias"));
         }
+
+        private void btn_avisos_Click(object sender, EventArgs e)
+        {
+            AbrirFormHija(new Aviso("Archivo"));
+        }
     }
 }

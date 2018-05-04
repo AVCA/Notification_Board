@@ -12,7 +12,7 @@ namespace CapaDatos
 {
     public class CD_Conexion
     {
-        private MySqlConnection Conexion = new MySqlConnection("server=127.0.0.1; database=escuela; Uid=root; pwd=1219975;");
+        private MySqlConnection Conexion = new MySqlConnection("server=127.0.0.1; database=escuela; Uid=root; pwd=root;");
 
         public MySqlConnection AbrirConexion()
         {

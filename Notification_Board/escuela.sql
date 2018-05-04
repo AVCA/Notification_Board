@@ -49,7 +49,7 @@ create table Imparte(
     primary key (codDia, codHora, codSalon),
     foreign key (codDia) references Dia (codDia)
     on delete cascade on update cascade,
-    foreign key (codHora) references Horario (codDia)
+    foreign key (codHora) references Horario (codHora)
     on delete cascade on update cascade,
     foreign key (codSalon) references Salon (codSalon)
     on delete cascade on update cascade,
@@ -58,12 +58,27 @@ create table Imparte(
 );
 
 create table Asistencia(
-	codMateria int(4),
+	codDia int(1),
+    codHora int(2),
+    codSalon varchar(3),
     codProfesor int(4),
-    asistencia int(3),
-    primary key (codMateria, codProfesor),
-    foreign key (codMateria, codProfesor) references Impartido (codMateria, codProfesor)
+    fecha date,
+    primary key (codDia, codHora, codSalon),
+    foreign key (codDia) references Dia (codDia)
+    on delete cascade on update cascade,
+    foreign key (codHora) references Horario (codHora)
+    on delete cascade on update cascade,
+    foreign key (codSalon) references Salon (codSalon)
+    on delete cascade on update cascade,
+    foreign key (codProfesor) references Profesor (codProfesor)
     on delete cascade on update cascade
+);
+
+create table Archivos(
+	codArchivo int(4),
+    nombre varchar(500),
+    duracion int,
+    primary key (codArchivo)
 );
 
 insert into Salon(codSalon) values("FF1"), 
@@ -104,6 +119,10 @@ insert into Dia(codDia, nombre) values (1,"Lunes"),
                                        (3,"Miercoles"),
                                        (4,"Jueves"),
                                        (5,"Viernes");
+                                       
+insert into Archivos(codArchivo,nombre,duracion) values(1,"01.jpg",3),
+													   (2,"02.png",3),
+                                                       (3,"03.png",3);
 
 -- ================================== Son todos los Select (Estan por orden) ===============================================
 delimiter $$
@@ -158,9 +177,21 @@ begin
 end$$
 
 delimiter $$
+create procedure VerArchivos()
+begin
+	Select * from Archivos;
+end$$
+
+delimiter $$
 create procedure VerAsistencia()
 begin
-	Select * from Asistencia;
+	Select Profesor.nombre, Dia.nombre, Horario.nombre, Salon.codSalon, Asistencia.fecha 
+    from Asistencia join Profesor join Salon join Horario join Dia
+    on Asistencia.codProfesor=Profesor.codProfesor
+    and Asistencia.codDia=Dia.codDia
+    and Asistencia.codHora=Horario.codHora
+    and Asistencia.codSalon=Salon.codSalon
+    order by Profesor.nombre;
 end$$
 
 
@@ -208,15 +239,21 @@ begin
 end$$
 
 delimiter $$
-create procedure EliminarAsistencia(in codMat int(4), codProf int(4))
-begin
-	Delete from Asistencia where codMateria=codMat and codProfesor=codProf;
-end$$
-
-delimiter $$
 create procedure LimpiarAsistencia()
 begin
 	Delete from Asistencia;
+end$$
+
+delimiter $$
+create procedure EliminarArchivo(in codArch int(4))
+begin
+	Delete from Archivos where codArchivo=codArch;
+end$$
+
+delimiter $$
+create procedure EliminarAsistencia(in codD int(1), codHor int(2), codSal varchar(3))
+begin
+	Delete from Asistencia where codDia=codD and codHora=codHor and codSalon=codSal;
 end$$
 
 -- ============================================= Son todos los Insert (Estan por orden) =============================================
@@ -311,6 +348,32 @@ end if;
     return respuesta;
 end$$
 
+delimiter $$
+create function InsertarArchivo(codArch int(4), nomb char, dur int) returns varchar(4)
+begin
+  declare respuesta varchar(4);
+  if not exists(select * from Archivos where codArchivo=codArch) then
+	insert into Archivos values(codArch, nomb, dur);
+    set respuesta=1; -- Insercion Exitosa en Archivo
+else
+	set respuesta=0; -- Ya existe el archivo
+end if;
+    return respuesta;
+end$$
+
+delimiter $$
+create function InsertarAsistencia(codD int(1), codHor int(2), codSal varchar(3), codProf int(4), fech date) returns varchar(4)
+begin
+  declare respuesta varchar(4);
+  if not exists(select * from Asistencia where codDia=codD and codHors=codHor and codSalon=codSal) then
+	insert into Asistencia values(codD,codHor,codSal,codProf,fech);
+    set respuesta=1; -- Insercion Exitosa en Asistencia
+else
+	set respuesta=0; -- Ya existe esa combinacion
+end if;
+    return respuesta;
+end$$
+
 -- ============================================= Son todos los Update (Estan por orden) =============================================
 delimiter $$
 create function ActualizarProfesor(codProf int(4), codProfAct int(4), nombre varchar(60)) returns varchar(4)
@@ -366,6 +429,26 @@ begin
         end if;
     else
         set respuesta= -1; -- [ERROR] No existe el registro que se desea actualizar
+    end if;
+    return respuesta; 
+end $$
+
+delimiter $$
+create function ActualizarArchivo(codArch int(4), codArchAct int(4), nomb char, dur int) returns varchar(4)
+begin
+	declare respuesta varchar(4);
+	if exists(select * from Archivos where Archivos.codArchivo = codArch) then
+        if (codArch=codArchAct or not exists(select * from Archivos where Archivos.codArchivo = codArchAct)) then
+            update Archivos set Archivos.codArchivo=codArchAct,
+								Archivos.nombre=nomb,
+								Archivos.duracion=dur
+            where Archivos.codArchivo=codArch;
+            set respuesta=1; -- ¡Actualizacion exitosa!
+        else
+            set respuesta= -2; -- [ERROR] La clave del archivo ya existe
+        end if;
+    else
+        set respuesta= -1; -- [ERROR] No existe el archivo
     end if;
     return respuesta; 
 end $$

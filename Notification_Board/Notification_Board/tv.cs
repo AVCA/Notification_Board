@@ -23,8 +23,7 @@ namespace Notification_Board
         }
         void showOnScreen(int screenNumber)
         {
-            Screen[] screens = Screen.AllScreens;
-            Console.WriteLine(screens.Length + "Hola");
+            Screen[] screens = Screen.AllScreens;    
 
 
             if (screenNumber >= 0 && screenNumber < screens.Length)

@@ -16,5 +16,10 @@ namespace Notification_Board
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

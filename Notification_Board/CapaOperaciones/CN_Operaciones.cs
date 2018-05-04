@@ -12,6 +12,7 @@ namespace CapaOperaciones
 {
     public class CN_Operaciones
     {
+        public String respuesta;
         private CD_Operaciones objetoCD = new CD_Operaciones();
 
         public DataTable Mostrar(string titulo)
@@ -20,9 +21,17 @@ namespace CapaOperaciones
             tabla = objetoCD.Mostrar(titulo);
             return tabla;
         }
-        public void Operaciones(string tabla,string ope, string v1, string v2, string v3, string v4, string v5)
+        public String Operaciones(string tabla,string ope, string v1, string v2, string v3, string v4, string v5)
         {
-            objetoCD.Operaciones(tabla,ope,v1,v2,v3,v4,v5);
+            respuesta=objetoCD.Operaciones(tabla,ope,v1,v2,v3,v4,v5);
+            return respuesta;
+        }
+
+        public DataTable Llenar(string nombre)
+        {
+            DataTable tabla = new DataTable();
+            tabla = objetoCD.Llenar(nombre);
+            return tabla;
         }
     }
 }

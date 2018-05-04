@@ -33,8 +33,8 @@ namespace Notification_Board
             {
                 string name = txtNom.Text + ".jpg";
                 //Mi direccion de prueba
-                //string folder = "C:\\Users\\otame\\Desktop\\Materias";
-                string folder = "C:\\Fotos";
+                string folder = "C:\\Users\\otame\\Desktop\\Materias";
+                //string folder = "C:\\Program Files\\NotificationBoard\\img";
                 string path = System.IO.Path.Combine(folder, name);
                 Image a = pictureBox1.Image;
                 a.Save(path);

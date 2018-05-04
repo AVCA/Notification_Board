@@ -120,5 +120,10 @@ namespace Notification_Board
                 //this.pbxImagen2.BringToFront(); 
             }
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

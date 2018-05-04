@@ -29,11 +29,11 @@ namespace Notification_Board
         {
             titulo = t;
             InitializeComponent();
-           
         }
-
+            
         private void horarios_Load(object sender, EventArgs e)
         {
+            lbl_t.Text = titulo;
             Mostrar();
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = false;
@@ -49,6 +49,7 @@ namespace Notification_Board
         {
             CN_Operaciones ObjetoCN = new CN_Operaciones();
             dataGridView1.DataSource = ObjetoCN.Mostrar(titulo);
+           
         }
 
         private void mostrar_cb()
@@ -63,7 +64,7 @@ namespace Notification_Board
             switch (titulo)
             {
                 case "Profesor":
-                    lbl_titulo.Text = titulo;
+                    lbl_t.Text = titulo;
                     btn_agregar_p.Visible = true;
                     lbl_v1.Visible = true;
                     lbl_v1.Text = "Código:";
@@ -75,7 +76,7 @@ namespace Notification_Board
                     txt_v2.Text = "";
                     break;
                 case "Materias":
-                    lbl_titulo.Text = titulo;
+                    lbl_t.Text = titulo;
                     btn_agregar_p.Visible = true;
                     lbl_v1.Visible = true;
                     lbl_v1.Text = "Código:";
@@ -86,8 +87,37 @@ namespace Notification_Board
                     txt_v2.Visible = true;
                     txt_v2.Text = "";
                     break;
+                case "Impartido":
+                    lbl_t.Text = titulo;
+                    btn_v5.Visible = true;
+
+                    lbl_v1.Visible = true;
+                    lbl_v1.Text = "Código de Maestro:";
+
+                    cb_v1.Visible = true;
+
+                    lbl_v2.Visible = true;
+                    lbl_v2.Text = "Nombre:";
+
+                    txt_v2.Visible = true;
+                    txt_v2.Text = "Nombre del maestro";
+                    txt_v2.Enabled = false;
+
+                    lbl_v3.Visible = true;
+                    lbl_v3.Text = "Código de Materia:";
+
+                    cb_v3.Visible = true;
+
+                    lbl_v4.Visible = true;
+                    lbl_v4.Text = "Nombre:";
+
+                    txt_v4.Visible = true;
+                    txt_v4.Text = "Nombre de la materia";
+                    txt_v4.Enabled = false;
+
+                    break;
                 case "Horarios":
-                    lbl_titulo.Text = titulo;
+                    lbl_t.Text = titulo;
                     btn_v5.Visible = true;
 
                     lbl_v1.Visible = true;

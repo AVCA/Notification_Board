@@ -43,17 +43,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pbxImagen2 = new System.Windows.Forms.PictureBox();
             this.pbxImagen1 = new System.Windows.Forms.PictureBox();
             this.ImageTimer = new System.Windows.Forms.Timer(this.components);
-            this.pbxImagen2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btninicio)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxImagen1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagen1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -171,12 +171,20 @@
             this.panel3.Size = new System.Drawing.Size(380, 457);
             this.panel3.TabIndex = 3;
             // 
+            // pbxImagen2
+            // 
+            this.pbxImagen2.Location = new System.Drawing.Point(60, 62);
+            this.pbxImagen2.Name = "pbxImagen2";
+            this.pbxImagen2.Size = new System.Drawing.Size(320, 395);
+            this.pbxImagen2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxImagen2.TabIndex = 1;
+            this.pbxImagen2.TabStop = false;
+            // 
             // pbxImagen1
             // 
-            this.pbxImagen1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbxImagen1.Location = new System.Drawing.Point(0, 0);
+            this.pbxImagen1.Location = new System.Drawing.Point(28, 33);
             this.pbxImagen1.Name = "pbxImagen1";
-            this.pbxImagen1.Size = new System.Drawing.Size(380, 457);
+            this.pbxImagen1.Size = new System.Drawing.Size(352, 424);
             this.pbxImagen1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxImagen1.TabIndex = 0;
             this.pbxImagen1.TabStop = false;
@@ -184,16 +192,6 @@
             // ImageTimer
             // 
             this.ImageTimer.Tick += new System.EventHandler(this.ImageTimer_Tick);
-            // 
-            // pbxImagen2
-            // 
-            this.pbxImagen2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbxImagen2.Location = new System.Drawing.Point(0, 0);
-            this.pbxImagen2.Name = "pbxImagen2";
-            this.pbxImagen2.Size = new System.Drawing.Size(380, 457);
-            this.pbxImagen2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxImagen2.TabIndex = 1;
-            this.pbxImagen2.TabStop = false;
             // 
             // tv
             // 
@@ -205,6 +203,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "tv";
             this.Text = "p";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -215,8 +214,8 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxImagen1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagen1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -11,9 +11,17 @@ using System.Runtime.InteropServices;
 
 namespace Notification_Board
 {
-    public partial class Form1 : Form
+    public partial class GUI : Form
     {
-        public Form1()
+        // Variables:
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        public GUI()
         {
             InitializeComponent();
             AbrirFormHija(new inicio());
@@ -47,12 +55,7 @@ namespace Notification_Board
         {
             btninicio_Click(null, e);
         }
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
+        
         private void BarraTitulo_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -63,6 +66,7 @@ namespace Notification_Board
         {
             Application.Exit();
         }
+
         private void AbrirFormHija(object formhija)
         {
             if (this.panelContenedor.Controls.Count > 0)

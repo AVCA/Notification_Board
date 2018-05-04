@@ -176,19 +176,42 @@ namespace Notification_Board
         {
             CN_Operaciones ObjetoCN = new CN_Operaciones();
             tProfesor = ObjetoCN.Llenar("Profesor");
-            for (int i = 0; i < tProfesor.Rows.Count; i++)
+            if (titulo == "Horarios")
             {
-                cb_v5.Items.Add(tProfesor.Rows[i][1]);
+                for (int i = 0; i < tProfesor.Rows.Count; i++)
+                {
+                    cb_v5.Items.Add(tProfesor.Rows[i][1]);
+                }
             }
+            if (titulo == "Impartido")
+            {
+                for (int i = 0; i < tProfesor.Rows.Count; i++)
+                {
+                    cb_v1.Items.Clear();
+                    cb_v1.Items.Add(tProfesor.Rows[i][1]);
+                }
+            }
+            
         }
 
         private void CargarMaterias()
         {
             CN_Operaciones ObjetoCN = new CN_Operaciones();
             tMateria = ObjetoCN.Llenar("Materias");
-            for (int i = 0; i < tMateria.Rows.Count; i++)
+            if (titulo == "Horarios")
             {
-                cb_v4.Items.Add(tMateria.Rows[i][1]);
+                for (int i = 0; i < tMateria.Rows.Count; i++)
+                {
+                    cb_v4.Items.Add(tMateria.Rows[i][1]);
+                }
+            }
+            if (titulo == "Impartido")
+            {
+                for (int i = 0; i < tMateria.Rows.Count; i++)
+                {
+                    cb_v2.Items.Clear();
+                    cb_v2.Items.Add(tMateria.Rows[i][1]);
+                }
             }
         }
 

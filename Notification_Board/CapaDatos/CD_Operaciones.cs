@@ -107,6 +107,20 @@ namespace CapaDatos
                             break;
                     }
                     break;
+                case "Impartido":
+                    switch (operacion)
+                    {
+                        case "Insert":
+                            comando.CommandText = "select InsertarImpartido('" + v1 + "','" + v2 + "') as resp";
+                            break;
+                        case "Delete":
+                            comando.CommandText = "call EliminarImpartido('" + v1 + "','" + v2 + "')";
+                            break;
+                        case "Update":
+                            comando.CommandText = "select ActualizarImpartido('" + v1 + "','" + v2 + "','" + v3 + "','" + v4 + "' as resp";
+                            break;
+                    }
+                    break;
             }
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();

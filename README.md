@@ -31,22 +31,20 @@ Clase que permite ejecutar consultas SQL y obtener los registros correspondiente
 
 Metodo encargado de obtener los registros obtenidos de una consulta y almacenarlos dentro de un Objeto tabla para retornar la tabla.
 
-Recibe:
+__Recibe:__
 
-String tabla : Titulo de la seccion que solicita la tabla.
+- [ ] String tabla : Titulo de la seccion que solicita la tabla.
 
 - public DataTable Mostrar(string titulo);
 
 Metodo encargado de ejecutar instrucciones SQL para INSERT, DELETE y UPDATE
 mediante funciones o procedimientos. 
 
-Recibe:
+__Recibe:__
 
-String tabla : Titulo de la seccion que solicita la operacion.
-
-String operacion: Nombre de la operacion que se solicita ejecutar.
-
-String v1,v2,v3,v4,v5: Variables generales que reciben los valores a insertar.
+- [ ] String tabla : Titulo de la seccion que solicita la operacion.
+- [ ] String operacion: Nombre de la operacion que se solicita ejecutar.
+- [ ] String v1,v2,v3,v4,v5: Variables generales que reciben los valores a insertar.
 
 **Nota:**
 El metodo esta generalizado, es por esto que recibe 5 variables.

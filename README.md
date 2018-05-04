@@ -16,9 +16,11 @@ _public MySqlConnection AbrirConexion()
 _public MySqlConnection CerrarConexion()
 
 ### CD_Operaciones
-Clase que permite ejecutar consultas SQL y obtener los registros correspondientes a las tablas ocupadas
-**Variables_**
-_ private CD_Conexion conexion; // Objeto para la conexion
-_MySqlDataReader leer; // Variabble que almacena los registros obtenidos de las consultas a tablas
-_DataTable tabla; // Objeto Tabla que almacena los registros obtenidos en Leer
-_MySqlCommand comando; // Objeto Comando manejar la conexion a la BD y de ejecutar las instruccions SQL
+Clase que permite ejecutar consultas SQL y obtener los registros correspondientes a las tablas ocupadas.
+
+**Variables:**
+_private CD_Conexion conexion; // Objeto para la conexion.
+_MySqlDataReader leer; // Variabble que almacena los registros obtenidos de las consultas a tablas.
+_DataTable tabla; // Objeto Tabla que almacena los registros obtenidos en Leer.
+_MySqlCommand comando; // Objeto Comando manejar la conexion a la BD y de ejecutar las instruccions SQL.
+

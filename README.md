@@ -28,7 +28,7 @@ Clase que permite ejecutar consultas SQL y obtener los registros correspondiente
 - MySqlCommand comando; // Objeto Comando manejar la conexion a la BD y de ejecutar las instruccions SQL.
 
 **Metodos:**
----
+
 Metodo encargado de obtener los registros obtenidos de una consulta y almacenarlos dentro de un Objeto tabla para retornar la tabla.
 
 __Recibe:__

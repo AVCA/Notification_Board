@@ -3,3 +3,52 @@
 ################################################################################
 
 /Notification_Board/.vs/Notification_Board/v15/Server/sqlite3
+/.vs/
+*.dll
+*.pdb
+*.cache
+*.exe
+*.suo
+
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/Notification_Board/.vs/Notification_Board/v15/Server/sqlite3
+/.vs
+/.vs
+/.vs/slnx.sqlite
+/Notification_Board/.vs/Notification_Board/v15/.suo
+
+# ignore a file type
+*.json
+
+# add an exception (using !) to the preceding rule to track a specific file
+!package.json
+
+/Notification_Board/Notification_Board/obj/Release
+/.vs/slnx.sqlite
+/Notification_Board/.vs/Notification_Board/v15/.suo
+/Notification_Board/CapaDatos/bin/Debug/CapaDatos.dll
+/Notification_Board/CapaDatos/bin/Debug/CapaDatos.pdb
+/Notification_Board/CapaDatos/obj/Debug/CapaDatos.csprojResolveAssemblyReference.cache
+/Notification_Board/CapaDatos/obj/Debug/CapaDatos.dll
+/Notification_Board/CapaDatos/obj/Debug/CapaDatos.pdb
+/Notification_Board/CapaOperaciones/bin/Debug/CapaDatos.dll
+/Notification_Board/CapaOperaciones/bin/Debug/CapaDatos.pdb
+/Notification_Board/CapaOperaciones/bin/Debug/CapaOperaciones.dll
+/Notification_Board/CapaOperaciones/bin/Debug/CapaOperaciones.pdb
+/Notification_Board/CapaOperaciones/obj/Debug/CapaOperaciones.csprojResolveAssemblyReference.cache
+/Notification_Board/CapaOperaciones/obj/Debug/CapaOperaciones.dll
+/Notification_Board/CapaOperaciones/obj/Debug/CapaOperaciones.pdb
+/Notification_Board/Notification_Board/bin/Debug/CapaDatos.dll
+/Notification_Board/Notification_Board/bin/Debug/CapaDatos.pdb
+/Notification_Board/Notification_Board/bin/Debug/CapaOperaciones.dll
+/Notification_Board/Notification_Board/bin/Debug/CapaOperaciones.pdb
+/Notification_Board/Notification_Board/bin/Debug/Notification_Board.exe
+/Notification_Board/Notification_Board/bin/Debug/Notification_Board.pdb
+/Notification_Board/Notification_Board/obj/Debug/Notification_Board.csproj.CoreCompileInputs.cache
+/Notification_Board/Notification_Board/obj/Debug/Notification_Board.csproj.GenerateResource.cache
+/Notification_Board/Notification_Board/obj/Debug/Notification_Board.csprojResolveAssemblyReference.cache
+/Notification_Board/Notification_Board/obj/Debug/Notification_Board.exe
+/Notification_Board/Notification_Board/obj/Debug/Notification_Boa

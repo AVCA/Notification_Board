@@ -27,4 +27,15 @@ Clase que permite ejecutar consultas SQL y obtener los registros correspondiente
 - DataTable tabla; // Objeto Tabla que almacena los registros obtenidos en Leer.
 - MySqlCommand comando; // Objeto Comando manejar la conexion a la BD y de ejecutar las instruccions SQL.
 
+**Metodos:**
 
+Metodo encargado de obtener los registros obtenidos de una consulta y almacenarlos dentro de un Objeto tabla para retornar la tabla.
+Recibe:
+String tabla : Titulo de la seccion que solicita la tabla.
+- public DataTable Mostrar(string titulo);
+
+Metodo encargado de ejecutar instrucciones SQL para INSERT, DELETE y UPDATE
+mediante funciones o procedimientos. 
+Recibe:
+String tabla : Titulo de la seccion que solicita la operacion.
+String operacion: Nombre de la operacion que se solicita ejecutar.

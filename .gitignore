@@ -3,18 +3,6 @@
 ################################################################################
 
 /Notification_Board/.vs/Notification_Board/v15/Server/sqlite3
-/.vs/
-*.dll
-*.pdb
-*.cache
-*.exe
-*.suo
-
-﻿################################################################################
-# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
-################################################################################
-
-/Notification_Board/.vs/Notification_Board/v15/Server/sqlite3
 /.vs
 /.vs
 /.vs/slnx.sqlite

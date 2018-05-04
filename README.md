@@ -82,6 +82,8 @@ __Retorna:__
 
 - [ ] DataTable tabla: Tabla generada que contiene los registros de la consulta solicitada. Esta se cargara dentro de la interfaz que solicito la consulta.
 
+---
+
 - public void Operaciones(string tabla,string ope, string v1, string v2, string v3, string v4, string v5)
 
 Metodo encargado de obtener los valores necesarios para realizar una operacion SQL ademas del titutlo de la seccion y la operacion a realizar.

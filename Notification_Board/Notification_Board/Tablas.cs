@@ -13,10 +13,16 @@ namespace Notification_Board
 {
     public partial class Tablas : Form
     {
+        //Esto es un comentario que me pidio Ana que pusiera xD
         CN_Operaciones ObjetoCN = new CN_Operaciones();
-
-        public string titulo;
-        private string v1_u = null;
+        DataTable tDia = new DataTable();
+        DataTable tSalon = new DataTable();
+        DataTable tHora = new DataTable();
+        DataTable tProfesor = new DataTable();
+        DataTable tMateria = new DataTable();
+        public string diaAct, horaAct, salonAct, profesorAct, materiaAct;
+        public string titulo,respuesta;
+        private string v1_u = null,v2_u,v3_u;
         private bool editar = false;
 
         public Tablas(String t)
@@ -29,7 +35,14 @@ namespace Notification_Board
         private void horarios_Load(object sender, EventArgs e)
         {
             Mostrar();
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[1].Visible = false;
             Formulario();
+            CargarDia();
+            CargarHora();
+            CargarSalon();
+            CargarProfesor();
+            CargarMaterias();
         }
 
         private void Mostrar()
@@ -111,6 +124,56 @@ namespace Notification_Board
             }
         }
 
+        private void CargarDia()
+        {
+            CN_Operaciones ObjetoCN = new CN_Operaciones();
+            tDia = ObjetoCN.Llenar("Dia");
+            for(int i=0; i < tDia.Rows.Count; i++)
+            {
+                cb_v1.Items.Add(tDia.Rows[i][1]);
+            }
+        }
+
+        private void CargarHora()
+        {
+            CN_Operaciones ObjetoCN = new CN_Operaciones();
+            tHora = ObjetoCN.Llenar("Hora");
+            for (int i = 0; i < tHora.Rows.Count; i++)
+            {
+                cb_v2.Items.Add(tHora.Rows[i][1]);
+            }
+        }
+
+        private void CargarSalon()
+        {
+            CN_Operaciones ObjetoCN = new CN_Operaciones();
+            tSalon = ObjetoCN.Llenar("Salon");
+            for (int i = 0; i < tSalon.Rows.Count; i++)
+            {
+                cb_v3.Items.Add(tSalon.Rows[i][0]);
+            }
+        }
+
+        private void CargarProfesor()
+        {
+            CN_Operaciones ObjetoCN = new CN_Operaciones();
+            tProfesor = ObjetoCN.Llenar("Profesor");
+            for (int i = 0; i < tProfesor.Rows.Count; i++)
+            {
+                cb_v5.Items.Add(tProfesor.Rows[i][1]);
+            }
+        }
+
+        private void CargarMaterias()
+        {
+            CN_Operaciones ObjetoCN = new CN_Operaciones();
+            tMateria = ObjetoCN.Llenar("Materias");
+            for (int i = 0; i < tMateria.Rows.Count; i++)
+            {
+                cb_v4.Items.Add(tMateria.Rows[i][1]);
+            }
+        }
+
         private void btn_agregar_Click(object sender, EventArgs e)
         {
             if (txt_v1.Text != "" && txt_v2.Text != "" && txt_v3.Text != "" && txt_v4.Text != "" && txt_v5.Text != "") { 
@@ -165,6 +228,13 @@ namespace Notification_Board
                     txt_v1.Text = "";
                     txt_v2.Text = "";
                     break;
+                case "Horarios":
+                    CargarDia();
+                    CargarHora();
+                    CargarSalon();
+                    CargarMaterias();
+                    CargarProfesor();
+                    break;
             }
            
         }
@@ -185,13 +255,16 @@ namespace Notification_Board
                         ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
                         Mostrar();
                         break;
+                    case "Horarios":
+                        v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                        v2_u = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                        v3_u = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                        Console.WriteLine(v1_u,v2_u,v3_u);
+                        ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
+                        Mostrar();
+                        break;
                 }
             }
-        }
-
-        private void lbl_titulo_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -211,19 +284,29 @@ namespace Notification_Board
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void cb_v1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            diaAct = cb_v1.SelectedIndex.ToString();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void cb_v2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            horaAct = cb_v2.SelectedIndex.ToString();
         }
 
-        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        private void cb_v3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            salonAct = cb_v3.SelectedIndex.ToString();
+        }
 
+        private void cb_v4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            materiaAct = cb_v4.SelectedIndex.ToString();
+        }
+
+        private void cb_v5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            profesorAct = cb_v5.SelectedIndex.ToString();
         }
 
         private void btn_delete_Click_1(object sender, EventArgs e)
@@ -240,6 +323,14 @@ namespace Notification_Board
                     case "Materias":
                         v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                         ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
+                        Mostrar();
+                        break;
+                    case "Horarios":
+                        v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                        v2_u = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                        v3_u = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                        Console.WriteLine(v1_u, v2_u, v3_u);
+                        ObjetoCN.Operaciones(titulo, "Delete", v1_u, v2_u, v3_u, "", "");
                         Mostrar();
                         break;
                 }
@@ -267,37 +358,31 @@ namespace Notification_Board
             }
         }
 
-        private void btn_v5_Click(object sender, EventArgs e)
-        {
-            if (txt_v1.Text != "" && txt_v2.Text != "" && txt_v3.Text != "" && txt_v4.Text != "" && txt_v5.Text != "")
-            {
-                if (editar == false)
-                {
-                    ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, txt_v3.Text, txt_v4.Text, txt_v5.Text);
-                    limpiar();
-                    Mostrar();
-                }
-                if (editar == true)
-                {
-                    v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    ObjetoCN.Operaciones(titulo, "Update", v1_u, txt_v1.Text, txt_v2.Text, "", "");
-                    Mostrar();
-                    editar = false;
-                    limpiar();
-                    btn_agregar_p.Text = "Agregar";
-                }
-            }
-            dataGridView1.Refresh();
-        }
-
         private void btn_v5_Click_1(object sender, EventArgs e)
         {
+            if (cb_v1.SelectedItem != null && cb_v2.SelectedItem != null && cb_v3.SelectedItem != null && cb_v4.SelectedItem != null
+                && cb_v5.SelectedItem != null)
+            {
+                DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas agregar?", "Confirmar Accion", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
+                {
+                    String v1, v2, v3, v4, v5;
+                    v1 = Convert.ToString(tDia.Rows[Convert.ToInt32(diaAct)][0]);
+                    v2 = Convert.ToString(tHora.Rows[Convert.ToInt32(horaAct)][0]);
+                    v3 = Convert.ToString(tSalon.Rows[Convert.ToInt32(salonAct)][0]);
+                    v4 = Convert.ToString(tMateria.Rows[Convert.ToInt32(materiaAct)][0]);
+                    v5 = Convert.ToString(tProfesor.Rows[Convert.ToInt32(profesorAct)][0]);
 
-        }
-
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
+                    ObjetoCN.Operaciones(titulo, "Insert", v1, v2, v3, v4, v5);
+                    limpiar();
+                    Mostrar();
+                }
+                else
+                    MessageBox.Show("Se ha cancelado la acción.");
+            }   
+            else
+                MessageBox.Show("Por favor, seleccione un dato en cada uno de los campos.");
+            dataGridView1.Refresh();
         }
 
         private void btn_agregar_p_Click(object sender, EventArgs e)
@@ -306,18 +391,30 @@ namespace Notification_Board
             {
                 if (editar == false)
                 {
-                    ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, txt_v3.Text, txt_v4.Text, txt_v5.Text);
-                    limpiar();
-                    Mostrar();
+                    DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas agregar?", "Confirmar Accion", MessageBoxButtons.YesNo);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        respuesta = ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, txt_v3.Text, txt_v4.Text, txt_v5.Text);
+                        limpiar();
+                        Mostrar();
+                    }
+                    else
+                        MessageBox.Show("Se ha cancelado la acción.");
                 }
                 if (editar == true)
                 {
-                    v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    ObjetoCN.Operaciones(titulo, "Update", v1_u, txt_v1.Text, txt_v2.Text, "", "");
-                    Mostrar();
-                    editar = false;
-                    limpiar();
-                    btn_agregar_p.Text = "Agregar";
+                    DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas actualizar?", "Confirmar Accion", MessageBoxButtons.YesNo);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                        ObjetoCN.Operaciones(titulo, "Update", v1_u, txt_v1.Text, txt_v2.Text, "", "");
+                        Mostrar();
+                        editar = false;
+                        limpiar();
+                        btn_agregar_p.Text = "Agregar";
+                    }
+                    else
+                        MessageBox.Show("Se ha cancelado la acción.");
                 }
             }
             dataGridView1.Refresh();

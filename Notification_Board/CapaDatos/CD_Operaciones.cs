@@ -15,6 +15,7 @@ namespace CapaDatos
         MySqlDataReader leer;
         DataTable tabla = new DataTable();
         MySqlCommand comando = new MySqlCommand();
+        String respuesta="";
 
         public DataTable Mostrar(string titulo)
         {
@@ -28,7 +29,10 @@ namespace CapaDatos
                     comando.CommandText = "call VerMateria";
                     break;
                 case "Horarios":
-                    comando.CommandText = "call VerMateria";
+                    comando.CommandText = "call VerImparte";
+                    break;
+                case "Archivo":
+                    comando.CommandText = "call VerArchivos";
                     break;
             }
             
@@ -38,9 +42,7 @@ namespace CapaDatos
             return tabla;
         }
 
-        // select InsertarProfesor(02,'Maestro 2');
-
-        public void Operaciones(string tabla,string operacion, string v1, string v2, string v3, string v4, string v5)
+        public String Operaciones(string tabla,string operacion, string v1, string v2, string v3, string v4, string v5)
         {
             comando.Connection = conexion.AbrirConexion();
             switch (tabla)
@@ -49,13 +51,13 @@ namespace CapaDatos
                     switch (operacion)
                     {
                         case "Insert":
-                            comando.CommandText = "select InsertarProfesor('" + v1 + "','" + v2 + "')";
+                            comando.CommandText = "select InsertarProfesor('" + v1 + "','" + v2 + "') as resp";
                             break;
                         case "Delete":
                             comando.CommandText = "call EliminarProfesor('" + v1 + "')";
                             break;
                         case "Update":
-                            comando.CommandText = "select ActualizarProfesor('" + v1 + "','" +v2 + "','" + v3 + "')";
+                            comando.CommandText = "select ActualizarProfesor('" + v1 + "','" +v2 + "','" + v3 + "') as resp";
                             break;
                     }          
                     break;
@@ -63,13 +65,13 @@ namespace CapaDatos
                     switch (operacion)
                     {
                         case "Insert":
-                            comando.CommandText = "select InsertarMateria('" + v1 + "','" + v2 + "')";
+                            comando.CommandText = "select InsertarMateria('" + v1 + "','" + v2 + "') as resp";
                             break;
                         case "Delete":
                             comando.CommandText = "call EliminarMateria('" + v1 + "')";
                             break;
                         case "Update":
-                            comando.CommandText = "select ActualizarMateria('" + v1 + "','" + v2 + "','" + v3 + "')";
+                            comando.CommandText = "select ActualizarMateria('" + v1 + "','" + v2 + "','" + v3 + "') as resp";
                             break;
                     }
                     break;
@@ -77,7 +79,21 @@ namespace CapaDatos
                     switch (operacion)
                     {
                         case "Insert":
-                            comando.CommandText = "select InsertarMateria('" + v1 + "','" + v2 + "')";
+                            comando.CommandText = "select InsertarImparte('" + v1 + "','" + v2 + "','" + v3 + "','" + v4 + "','" + v5 + "') as resp";
+                            break;
+                        case "Delete":
+                            comando.CommandText = "call EliminarImparte('" + v1 + "','" + v2 + "','" + v3 + "')";
+                            break;
+                        case "Update":
+                            comando.CommandText = "select ActualizarMateria('" + v1 + "','" + v2 + "','" + v3 + "') as resp";
+                            break;
+                    }
+                    break;
+                case "Archivo":
+                    switch (operacion)
+                    {
+                        case "Insert":
+                            comando.CommandText = "select InsertarArchivo('" + v1 + "','" + v2 + "','" + v3 + "')";
                             break;
                         case "Delete":
                             comando.CommandText = "call EliminarMateria('" + v1 + "')";
@@ -91,6 +107,34 @@ namespace CapaDatos
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conexion.CerrarConexion();
+            return respuesta;
+        }
+
+        public DataTable Llenar(string titulo)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            switch (titulo)
+            {
+                case "Dia":
+                    comando.CommandText = "call VerDia";
+                    break;
+                case "Profesor":
+                    comando.CommandText = "call VerProfesor";
+                    break;
+                case "Materias":
+                    comando.CommandText = "call VerMateria";
+                    break;
+                case "Hora":
+                    comando.CommandText = "call VerHorario";
+                    break;
+                case "Salon":
+                    comando.CommandText = "call VerSalon";
+                    break;
+            }
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conexion.CerrarConexion();
+            return tabla;
         }
     }
 }

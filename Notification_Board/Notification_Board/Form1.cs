@@ -132,5 +132,10 @@ namespace Notification_Board
         {
             AbrirFormHija(new Aviso("Archivo"));
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormHija(new inicio());
+        }
     }
 }

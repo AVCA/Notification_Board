@@ -91,31 +91,17 @@ namespace Notification_Board
                     break;
                 case "Impartido":
                     lbl_t.Text = titulo;
-                    btn_v5.Visible = true;
+                    btn_agregar_p.Visible = true;
 
                     lbl_v1.Visible = true;
-                    lbl_v1.Text = "Código de Maestro:";
+                    lbl_v1.Text = "Maestro:";
 
                     cb_v1.Visible = true;
 
                     lbl_v2.Visible = true;
-                    lbl_v2.Text = "Nombre:";
+                    lbl_v2.Text = "Materia:";
 
-                    txt_v2.Visible = true;
-                    txt_v2.Text = "Nombre del maestro";
-                    txt_v2.Enabled = false;
-
-                    lbl_v3.Visible = true;
-                    lbl_v3.Text = "Código de Materia:";
-
-                    cb_v3.Visible = true;
-
-                    lbl_v4.Visible = true;
-                    lbl_v4.Text = "Nombre:";
-
-                    txt_v4.Visible = true;
-                    txt_v4.Text = "Nombre de la materia";
-                    txt_v4.Enabled = false;
+                    cb_v2.Visible = true;
 
                     break;
                 case "Horarios":

@@ -131,5 +131,23 @@
       <Name>CapaOperaciones</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inicio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proyeccion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Horario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Materia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avisos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ayuda.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

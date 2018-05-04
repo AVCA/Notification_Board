@@ -82,7 +82,7 @@ namespace Notification_Board
 
         private void tv_Load(object sender, EventArgs e)
         {   //Crea una conexion con la base de datos
-            MySqlConnection Conexion = new MySqlConnection("server=127.0.0.1; database=escuela; Uid=root; pwd=1219975;");
+            MySqlConnection Conexion = new MySqlConnection("server=127.0.0.1; database=escuela; Uid=root; pwd=root;");
             Conexion.Open();//Abre la conexion
             MySqlCommand comando = new MySqlCommand();//Objeto que ejecuta comandos de MySQL
             comando.Connection = Conexion;
@@ -104,7 +104,7 @@ namespace Notification_Board
             this.ImageTimer.Stop();
             this.ImageTimer.Interval = int.Parse(row["duracion"].ToString()) * 1000;
             this.ImageTimer.Start();
-            String dir = "C:\\Program Files\\NotificationBoard\\img\\" + row["nombre"];
+            String dir = "C:\\Fotos" + row["nombre"];
             if (flag == true)
             {               
                 flag = false;     

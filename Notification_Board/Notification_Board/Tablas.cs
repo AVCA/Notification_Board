@@ -13,6 +13,7 @@ namespace Notification_Board
 {
     public partial class Tablas : Form
     {
+        //Esto es un comentario que me pidio Ana que pusiera xD
         CN_Operaciones ObjetoCN = new CN_Operaciones();
         DataTable tDia = new DataTable();
         DataTable tSalon = new DataTable();

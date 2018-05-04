@@ -14,6 +14,7 @@ namespace Notification_Board
     public partial class Aviso : Form
     {
         public string titulo;
+
         public Aviso(String t)
         {
             titulo = t;
@@ -29,16 +30,16 @@ namespace Notification_Board
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (pictureBox1!=null && txtCod.Text!="" && txtNom.Text != "" && txtDur.Text != "")
+            if (pictureBox1!=null && txtCod.Text!="" && txtDur.Text != "")
             {
-                string name = txtNom.Text + ".jpg";
+                string name = label7.Text;
                 //Mi direccion de prueba
-                string folder = "C:\\Users\\otame\\Desktop\\Materias";
+                string folder = "C:\\Fotos";
                 //string folder = "C:\\Program Files\\NotificationBoard\\img";
                 string path = System.IO.Path.Combine(folder, name);
                 Image a = pictureBox1.Image;
                 a.Save(path);
-                ObjetoCN.Operaciones(titulo, "Insert", txtCod.Text, txtNom.Text, txtDur.Text, "", "");
+                ObjetoCN.Operaciones(titulo, "Insert", txtCod.Text, label7.Text, txtDur.Text, "", "");
                 Mostrar();   
                 
             }
@@ -65,10 +66,16 @@ namespace Notification_Board
             PictureBox p = sender as PictureBox;
             if (p != null)
             {
+                
                 open.Filter = "(*.jpg;*.jpeg;*.bmp;*.png;)| *.jpg;*.jpeg;*.bmp;*.png; ";
                 if (open.ShowDialog() == DialogResult.OK)
                 {
                     p.Image = Image.FromFile(open.FileName);
+                    string imagePath = open.FileName.ToString();
+                    string impath = imagePath.ToString();
+                    impath = impath.Substring(impath.LastIndexOf("\\"));
+                    impath = impath.Remove(0, 1);
+                    label7.Text = impath;
                 }
             }
         }

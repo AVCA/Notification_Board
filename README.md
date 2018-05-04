@@ -17,6 +17,8 @@ private MySqlConnection Conexion = new MySqlConnection("server=127.0.0.1; databa
 - public MySqlConnection AbrirConexion()
 - public MySqlConnection CerrarConexion()
 
+---
+
 ### CD_Operaciones
 Clase que permite ejecutar consultas SQL y obtener los registros correspondientes a las tablas ocupadas.
 
@@ -29,14 +31,18 @@ Clase que permite ejecutar consultas SQL y obtener los registros correspondiente
 
 **Metodos:**
 
+- public DataTable Mostrar(string titulo);
+
 Metodo encargado de obtener los registros obtenidos de una consulta y almacenarlos dentro de un Objeto tabla para retornar la tabla.
 
 __Recibe:__
 
 - [ ] String tabla : Titulo de la seccion que solicita la tabla.
 
-- public DataTable Mostrar(string titulo);
 ---
+
+- public void Operaciones(string tabla,string operacion, string v1, string v2, string v3, string v4, string v5)
+
 Metodo encargado de ejecutar instrucciones SQL para INSERT, DELETE y UPDATE
 mediante funciones o procedimientos. 
 
@@ -50,4 +56,4 @@ __Recibe:__
 El metodo esta generalizado, es por esto que recibe 5 variables.
 Si la inserccion solo ocupa dos valores los demas se dejan en blanco con "".
 
-- public void Operaciones(string tabla,string operacion, string v1, string v2, string v3, string v4, string v5)
+

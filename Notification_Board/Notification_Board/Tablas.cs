@@ -50,6 +50,7 @@ namespace Notification_Board
             switch (titulo)
             {
                 case "Profesor":
+                    label1.Text = titulo;
                     lbl_titulo.Text = titulo;
                     btn_agregar_p.Visible = true;
                     lbl_v1.Visible = true;
@@ -62,6 +63,7 @@ namespace Notification_Board
                     txt_v2.Text = "";
                     break;
                 case "Materias":
+                    label1.Text = titulo;
                     lbl_titulo.Text = titulo;
                     btn_agregar_p.Visible = true;
                     lbl_v1.Visible = true;
@@ -74,6 +76,7 @@ namespace Notification_Board
                     txt_v2.Text = "";
                     break;
                 case "Horarios":
+                    label1.Text = titulo;
                     lbl_titulo.Text = titulo;
                     btn_v5.Visible = true;
 

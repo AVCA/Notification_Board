@@ -92,3 +92,5 @@ C:\Users\otame\Source\Repos\Notification_Board\Notification_Board\Notification_B
 C:\Users\otame\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.csproj.CopyComplete
 C:\Users\otame\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.exe
 C:\Users\otame\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.pdb
+C:\Users\otame\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.Ayuda.resources
+C:\Users\otame\Source\Repos\Notification_Board\Notification_Board\Notification_Board\obj\Debug\Notification_Board.Aviso.resources

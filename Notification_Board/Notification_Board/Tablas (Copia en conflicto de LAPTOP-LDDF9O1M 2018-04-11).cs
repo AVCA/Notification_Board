@@ -50,11 +50,10 @@ namespace Notification_Board
             switch (titulo)
             {
                 case "Profesor":
-                    label1.Text = titulo;
                     lbl_titulo.Text = titulo;
                     btn_agregar_p.Visible = true;
                     lbl_v1.Visible = true;
-                    lbl_v1.Text = "Código:";
+                    lbl_v1.Text = "Codigo:";
                     txt_v1.Visible = true;
                     txt_v1.Text = "";
                     lbl_v2.Visible = true;
@@ -63,11 +62,10 @@ namespace Notification_Board
                     txt_v2.Text = "";
                     break;
                 case "Materias":
-                    label1.Text = titulo;
                     lbl_titulo.Text = titulo;
                     btn_agregar_p.Visible = true;
                     lbl_v1.Visible = true;
-                    lbl_v1.Text = "Código:";
+                    lbl_v1.Text = "Codigo:";
                     txt_v1.Visible = true;
                     txt_v1.Text = "";
                     lbl_v2.Visible = true;
@@ -76,12 +74,11 @@ namespace Notification_Board
                     txt_v2.Text = "";
                     break;
                 case "Horarios":
-                    label1.Text = titulo;
                     lbl_titulo.Text = titulo;
                     btn_v5.Visible = true;
 
                     lbl_v1.Visible = true;
-                    lbl_v1.Text = "Día:";
+                    lbl_v1.Text = "Dia:";
 
                     cb_v1.Visible = true;
                     // Cargar valores 
@@ -93,7 +90,7 @@ namespace Notification_Board
                     // Cargar valores 
 
                     lbl_v3.Visible = true;
-                    lbl_v3.Text = "Salón:";
+                    lbl_v3.Text = "Salon:";
 
                     cb_v3.Visible = true;
                     // Cargar valores 
@@ -123,7 +120,7 @@ namespace Notification_Board
                 limpiar();
                 Mostrar();
             }
-            if (editar == true)   
+            if (editar == true)
             {
                 v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 ObjetoCN.Operaciones(titulo, "Update", v1_u, txt_v1.Text, txt_v2.Text, "", "");
@@ -195,135 +192,6 @@ namespace Notification_Board
         private void lbl_titulo_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // Displays an OpenFileDialog so the user can select a Cursor.  
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Imagenes|*.jpg, .png";
-            openFileDialog1.Title = "Selecciona la imagen que desea cargar";
-
-            // Show the Dialog.  
-            // If the user clicked OK in the dialog and  
-            // a .CUR file was selected, open it.  
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                // Assign the cursor in the Stream to the Form's Cursor property.  
-                this.Cursor = new Cursor(openFileDialog1.OpenFile());
-            }
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btn_delete_Click_1(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.Rows.Count > 1)
-            {
-                switch (titulo)
-                {
-                    case "Profesor":
-                        v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                        ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
-                        Mostrar();
-                        break;
-                    case "Materias":
-                        v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                        ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
-                        Mostrar();
-                        break;
-                }
-            }
-        }
-
-        private void btn_update_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.Rows.Count > 0)
-            {
-                editar = true;
-                switch (titulo)
-                {
-                    case "Profesor":
-                        txt_v1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                        txt_v2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                        btn_agregar_p.Text = "Actualizar";
-                        break;
-                    case "Materias":
-                        txt_v1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                        txt_v2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                        btn_agregar_p.Text = "Actualizar";
-                        break;
-                }
-            }
-        }
-
-        private void btn_v5_Click(object sender, EventArgs e)
-        {
-            if (txt_v1.Text != "" && txt_v2.Text != "" && txt_v3.Text != "" && txt_v4.Text != "" && txt_v5.Text != "")
-            {
-                if (editar == false)
-                {
-                    ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, txt_v3.Text, txt_v4.Text, txt_v5.Text);
-                    limpiar();
-                    Mostrar();
-                }
-                if (editar == true)
-                {
-                    v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    ObjetoCN.Operaciones(titulo, "Update", v1_u, txt_v1.Text, txt_v2.Text, "", "");
-                    Mostrar();
-                    editar = false;
-                    limpiar();
-                    btn_agregar_p.Text = "Agregar";
-                }
-            }
-            dataGridView1.Refresh();
-        }
-
-        private void btn_v5_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btn_agregar_p_Click(object sender, EventArgs e)
-        {
-            if (txt_v1.Text != "" && txt_v2.Text != "" && txt_v3.Text != "" && txt_v4.Text != "" && txt_v5.Text != "")
-            {
-                if (editar == false)
-                {
-                    ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, txt_v3.Text, txt_v4.Text, txt_v5.Text);
-                    limpiar();
-                    Mostrar();
-                }
-                if (editar == true)
-                {
-                    v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    ObjetoCN.Operaciones(titulo, "Update", v1_u, txt_v1.Text, txt_v2.Text, "", "");
-                    Mostrar();
-                    editar = false;
-                    limpiar();
-                    btn_agregar_p.Text = "Agregar";
-                }
-            }
-            dataGridView1.Refresh();
         }
     }
 }

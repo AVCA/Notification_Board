@@ -235,6 +235,7 @@
             this.btn_ayuda.TabIndex = 9;
             this.btn_ayuda.Text = "Ayuda";
             this.btn_ayuda.UseVisualStyleBackColor = false;
+            this.btn_ayuda.Click += new System.EventHandler(this.btn_ayuda_Click);
             // 
             // panel4
             // 
@@ -260,6 +261,7 @@
             this.btn_avisos.TabIndex = 7;
             this.btn_avisos.Text = "Avisos";
             this.btn_avisos.UseVisualStyleBackColor = false;
+            this.btn_avisos.Click += new System.EventHandler(this.btn_avisos_Click);
             // 
             // panel3
             // 

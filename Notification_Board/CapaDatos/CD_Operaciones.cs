@@ -30,6 +30,9 @@ namespace CapaDatos
                 case "Horarios":
                     comando.CommandText = "call VerMateria";
                     break;
+                case "Archivo":
+                    comando.CommandText = "call VerArchivos";
+                    break;
             }
             
             leer = comando.ExecuteReader();
@@ -72,12 +75,26 @@ namespace CapaDatos
                             comando.CommandText = "select ActualizarMateria('" + v1 + "','" + v2 + "','" + v3 + "')";
                             break;
                     }
-                    break;
+                    break;  
                 case "Horarios":
                     switch (operacion)
                     {
                         case "Insert":
                             comando.CommandText = "select InsertarMateria('" + v1 + "','" + v2 + "')";
+                            break;
+                        case "Delete":
+                            comando.CommandText = "call EliminarMateria('" + v1 + "')";
+                            break;
+                        case "Update":
+                            comando.CommandText = "select ActualizarMateria('" + v1 + "','" + v2 + "','" + v3 + "')";
+                            break;
+                    }
+                    break;
+                case "Archivo":
+                    switch (operacion)
+                    {
+                        case "Insert":
+                            comando.CommandText = "select InsertarArchivo('" + v1 + "','" + v2 + "','" + v3 + "')";
                             break;
                         case "Delete":
                             comando.CommandText = "call EliminarMateria('" + v1 + "')";

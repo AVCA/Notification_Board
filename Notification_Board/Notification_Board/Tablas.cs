@@ -13,7 +13,6 @@ namespace Notification_Board
 {
     public partial class Tablas : Form
     {
-        //Esto es un comentario que me pidio Ana que pusiera xD
         CN_Operaciones ObjetoCN = new CN_Operaciones();
         DataTable tDia = new DataTable();
         DataTable tSalon = new DataTable();
@@ -35,8 +34,11 @@ namespace Notification_Board
         {
             lbl_t.Text = titulo;
             Mostrar();
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].Visible = false;
+            if (titulo == "Impartido")
+            {
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].Visible = false;
+            }
             Formulario();
             CargarDia();
             CargarHora();

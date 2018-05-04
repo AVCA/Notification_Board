@@ -75,7 +75,7 @@ namespace CapaDatos
                             comando.CommandText = "select ActualizarMateria('" + v1 + "','" + v2 + "','" + v3 + "')";
                             break;
                     }
-                    break; 
+                    break;  
                 case "Horarios":
                     switch (operacion)
                     {

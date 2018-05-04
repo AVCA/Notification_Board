@@ -39,7 +39,7 @@ namespace Notification_Board
                 Image a = pictureBox1.Image;
                 a.Save(path);
                 ObjetoCN.Operaciones(titulo, "Insert", txtCod.Text, txtNom.Text, txtDur.Text, "", "");
-                Mostrar(); 
+                Mostrar();  
                 
             }
             else

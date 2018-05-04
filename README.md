@@ -70,11 +70,25 @@ Clase que interviene entre la interfaz y CD_Operaciones. Se encarga de crear la 
 
 **Metodos:**
 
-- public DataTable Mostrar(string titulo);
+- public DataTable Mostrar(string titulo)
 
 Metodo encargado de obtener los registros obtenidos de una consulta y almacenarlos dentro de un Objeto tabla para retornar la tabla.
 
 __Recibe:__
 
-- [ ] String tabla : Titulo de la seccion que solicita la tabla.
+- [ ] String titulo : Titulo de la seccion que solicita la tabla.
+
+__Retorna:__
+
+- [ ] DataTable tabla: Tabla generada que contiene los registros de la consulta solicitada. Esta se cargara dentro de la interfaz que solicito la consulta.
+
+- public void Operaciones(string tabla,string ope, string v1, string v2, string v3, string v4, string v5)
+
+Metodo encargado de obtener los valores necesarios para realizar una operacion SQL ademas del titutlo de la seccion y la operacion a realizar.
+
+__Recibe:__
+
+- [ ] String tabla : Titulo de la seccion que solicita la operacion.
+- [ ] String ope: Nombre de la operacion que se solicita ejecutar.
+- [ ] String v1,v2,v3,v4,v5: Variables generales que reciben los valores a insertar.
 

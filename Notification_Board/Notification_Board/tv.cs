@@ -16,13 +16,13 @@ namespace Notification_Board
     public partial class tv : Form
     {   //Atributos de la clase
         public DataTable tabla; //Tabla para almacenar consulta
-        public bool flag=true; //Bandera de control
+        public bool flag = true; //Bandera de control
         public int numRows;    //Almacena el numero de filas
         public int count = 0;  //Contador para iteracion
 
         public tv()
         {   //Atributos del form
-            this.StartPosition = FormStartPosition.Manual;                
+            this.StartPosition = FormStartPosition.Manual;
             this.showOnScreen(1); //Manda form a segunda pantalla            
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
@@ -81,7 +81,8 @@ namespace Notification_Board
         }
 
         private void tv_Load(object sender, EventArgs e)
-        {   //Crea una conexion con la base de datos
+        {
+            //Crea una conexion con la base de datos
             MySqlConnection Conexion = new MySqlConnection("server=127.0.0.1; database=escuela; Uid=root; pwd=root;");
             Conexion.Open();//Abre la conexion
             MySqlCommand comando = new MySqlCommand();//Objeto que ejecuta comandos de MySQL
@@ -89,41 +90,71 @@ namespace Notification_Board
             comando.CommandText = "call VerArchivos";//Asigna el comando
             MySqlDataReader leer = comando.ExecuteReader();//Ejecuta el comando
             tabla = new DataTable();
-            tabla.Load(leer);//Guarda el resultado en el DataTable global            
+            tabla.Load(leer);//Guarda el resultado en el DataTable global    
+            //Rellena la tabla
+            DateTime ahora = DateTime.Now;
+            int dia = (int)ahora.DayOfWeek;
+            int hora = ahora.Hour;
+            comando.CommandText = "call VerPorHora(" + dia + "," + hora + ")";
+            this.HourTimer.Interval = 30000;
+            this.HourTimer.Start();
+            leer = comando.ExecuteReader();
+            DataTable tabla2 = new DataTable();
+            tabla2.Load(leer);
+            this.dataGridView1.DataSource = tabla2;
             Conexion.Close();
-            numRows=tabla.Rows.Count;            
-            dataGridView1.DataSource = tabla;            
-            this.ImageTimer.Interval = 100;
-            this.ImageTimer.Start();
+            numRows = tabla.Rows.Count;
+            if (numRows != 0)
+            {
+                this.ImageTimer.Interval = 100;
+                this.ImageTimer.Start();
+            }
         }
 
         private void ImageTimer_Tick(object sender, EventArgs e)
         {
-            DataRow row;count = (count+1) % numRows;
+            DataRow row; count = (count + 1) % numRows;
             row = tabla.Rows[count];
             this.ImageTimer.Stop();
-            this.ImageTimer.Interval = int.Parse(row["duracion"].ToString()) * 1000;
+            this.ImageTimer.Interval = int.Parse(row["Duracion_Seg"].ToString()) * 1000;
             this.ImageTimer.Start();
-            String dir = "C:\\Fotos\\" + row["nombre"];
+            String dir = "C:\\Fotos\\" + row["Direccion_Archivo"];
             if (flag == true)
-            {               
-                flag = false;     
+            {
+                flag = false;
                 this.pbxImagen1.Image = Image.FromFile(dir);
                 this.pbxImagen1.BringToFront();
                 Util.Animate(this.pbxImagen1, Util.Effect.Roll, 250, 360);
             }
             else
-            {              
-                flag=true;  
+            {
+                flag = true;
                 this.pbxImagen2.Image = Image.FromFile(dir);
                 Util.Animate(this.pbxImagen1, Util.Effect.Roll, 250, 360);
                 //this.pbxImagen2.BringToFront(); 
             }
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void HourTimer_Tick(object sender, EventArgs e)
         {
+            if (DateTime.Now.Minute == 0)
+            {
+                //Crea una conexion con la base de datos
+                MySqlConnection Conexion = new MySqlConnection("server=127.0.0.1; database=escuela; Uid=root; pwd=root;");
+                Conexion.Open();//Abre la conexion
+                DateTime ahora = DateTime.Now;
+                int dia = (int)ahora.DayOfWeek;
+                int hora = ahora.Hour;
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = "call VerPorHora(" + dia + "," + hora + ")";
+                MySqlDataReader leer = comando.ExecuteReader();
+                leer = comando.ExecuteReader();
+                DataTable tabla2 = new DataTable();
+                tabla2.Load(leer);
+                this.dataGridView1.DataSource = tabla2;
+                Conexion.Close();
 
+            }
         }
     }
 }

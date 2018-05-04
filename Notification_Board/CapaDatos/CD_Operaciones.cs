@@ -34,6 +34,10 @@ namespace CapaDatos
                 case "Archivo":
                     comando.CommandText = "call VerArchivos";
                     break;
+                case "Impartido":
+                    comando.CommandText = "call VerImpartido";
+                    break;
+
             }
             
             leer = comando.ExecuteReader();

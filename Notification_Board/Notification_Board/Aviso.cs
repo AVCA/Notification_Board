@@ -32,6 +32,7 @@ namespace Notification_Board
             if (pictureBox1!=null && txtCod.Text!="" && txtNom.Text != "" && txtDur.Text != "")
             {
                 string name = txtNom.Text + ".jpg";
+                //Mi direccion de prueba
                 //string folder = "C:\\Users\\otame\\Desktop\\Materias";
                 string folder = "C:\\Program Files\\NotificationBoard\\img";
                 string path = System.IO.Path.Combine(folder, name);

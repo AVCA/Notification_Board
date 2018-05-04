@@ -44,7 +44,8 @@ __Recibe:__
 - public void Operaciones(string tabla,string operacion, string v1, string v2, string v3, string v4, string v5)
 
 Metodo encargado de ejecutar instrucciones SQL para INSERT, DELETE y UPDATE
-mediante funciones o procedimientos. 
+mediante funciones o procedimientos.
+Dependiendo de la tabla y la operacion ejecuta la instruccion correspondiente mediante un switch.
 
 __Recibe:__
 
@@ -55,5 +56,6 @@ __Recibe:__
 **Nota:**
 El metodo esta generalizado, es por esto que recibe 5 variables.
 Si la inserccion solo ocupa dos valores los demas se dejan en blanco con "".
+
 
 

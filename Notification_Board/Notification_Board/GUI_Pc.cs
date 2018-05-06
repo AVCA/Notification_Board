@@ -11,12 +11,12 @@ using System.Runtime.InteropServices;
 
 namespace Notification_Board
 {
-    public partial class Form1 : Form
+    public partial class GUI_Pc : Form
     {
-        public Form1()
+        public GUI_Pc()
         {
             InitializeComponent();
-            AbrirFormHija(new inicio());
+            AbrirFormHija(new Inicio());
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -78,9 +78,9 @@ namespace Notification_Board
 
         private void btnproductos_Click(object sender, EventArgs e)
         {
-            tv form = new tv();
+            GUI_Tv form = new GUI_Tv();
             form.Show();
-            AbrirFormHija(new tv());
+            AbrirFormHija(new GUI_Tv());
         }
 
         private void btninicio_Click(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace Notification_Board
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AbrirFormHija(new inicio());
+            AbrirFormHija(new Inicio());
         }
 
         private void BTNventas_Click(object sender, EventArgs e)
@@ -135,7 +135,7 @@ namespace Notification_Board
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            AbrirFormHija(new inicio());
+            AbrirFormHija(new Inicio());
         }
     }
 }

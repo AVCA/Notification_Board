@@ -282,29 +282,37 @@ namespace Notification_Board
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.Rows.Count > 1)
+            DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas eliminarlo?", "Confirmar", MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.Yes)
             {
-                switch (titulo)
+                if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.Rows.Count > 1)
                 {
-                    case "Profesor":
-                        v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                        ObjetoCN.Operaciones(titulo, "Delete", v1_u,"","","","");
-                        Mostrar();
-                        break;
-                    case "Materias":
-                        v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                        ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
-                        Mostrar();
-                        break;
-                    case "Horarios":
-                        v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                        v2_u = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                        v3_u = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                        Console.WriteLine(v1_u,v2_u,v3_u);
-                        ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
-                        Mostrar();
-                        break;
+                    switch (titulo)
+                    {
+                        case "Profesor":
+                            v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                            ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
+                            Mostrar();
+                            break;
+                        case "Materias":
+                            v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                            ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
+                            Mostrar();
+                            break;
+                        case "Horarios":
+                            v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                            v2_u = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                            v3_u = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                            Console.WriteLine(v1_u, v2_u, v3_u);
+                            ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
+                            Mostrar();
+                            break;
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Se ha cancelado la acción.");
             }
         }
 
@@ -352,29 +360,37 @@ namespace Notification_Board
 
         private void btn_delete_Click_1(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedCells.Count > 0 && dataGridView1.Rows.Count > 1)
+            DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas eliminarlo?", "Confirmar", MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.Yes)
             {
-                switch (titulo)
+                if (dataGridView1.Rows.Count > 0)
                 {
-                    case "Profesor":
-                        v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                        ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
-                        Mostrar();
-                        break;
-                    case "Materias":
-                        v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                        ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
-                        Mostrar();
-                        break;
-                    case "Horarios":
-                        v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                        v2_u = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                        v3_u = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                        Console.WriteLine(v1_u, v2_u, v3_u);
-                        ObjetoCN.Operaciones(titulo, "Delete", v1_u, v2_u, v3_u, "", "");
-                        Mostrar();
-                        break;
+                    switch (titulo)
+                    {
+                        case "Profesor":
+                            v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                            ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
+                            Mostrar();
+                            break;
+                        case "Materias":
+                            v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                            ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
+                            Mostrar();
+                            break;
+                        case "Horarios":
+                            v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                            v2_u = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                            v3_u = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                            Console.WriteLine(v1_u, v2_u, v3_u);
+                            ObjetoCN.Operaciones(titulo, "Delete", v1_u, v2_u, v3_u, "", "");
+                            Mostrar();
+                            break;
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Se ha cancelado la acción.");
             }
         }
 
@@ -436,6 +452,14 @@ namespace Notification_Board
                     if (resultado == DialogResult.Yes)
                     {
                         respuesta = ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, txt_v3.Text, txt_v4.Text, txt_v5.Text);
+                        if (respuesta=="ERROR")
+                        {
+                            MessageBox.Show("ERROR: Inserccion fallida");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se inserto correctamente");
+                        }
                         limpiar();
                         Mostrar();
                     }
@@ -457,6 +481,10 @@ namespace Notification_Board
                     else
                         MessageBox.Show("Se ha cancelado la acción.");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios.");
             }
             dataGridView1.Refresh();
         }

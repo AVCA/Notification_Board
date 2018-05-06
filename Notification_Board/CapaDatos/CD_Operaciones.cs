@@ -46,7 +46,7 @@ namespace CapaDatos
             return tabla;
         }
 
-        public String Operaciones(string tabla,string operacion, string v1, string v2, string v3, string v4, string v5)
+        public String Operaciones(string tabla, string operacion, string v1, string v2, string v3, string v4, string v5)
         {
             comando.Connection = conexion.AbrirConexion();
             switch (tabla)
@@ -61,9 +61,9 @@ namespace CapaDatos
                             comando.CommandText = "call EliminarProfesor('" + v1 + "')";
                             break;
                         case "Update":
-                            comando.CommandText = "select ActualizarProfesor('" + v1 + "','" +v2 + "','" + v3 + "') as resp";
+                            comando.CommandText = "select ActualizarProfesor('" + v1 + "','" + v2 + "','" + v3 + "') as resp";
                             break;
-                    }          
+                    }
                     break;
                 case "Materias":
                     switch (operacion)
@@ -122,7 +122,13 @@ namespace CapaDatos
                     }
                     break;
             }
+            try { 
             comando.ExecuteNonQuery();
+            }
+            catch
+            {
+                respuesta = "ERROR";
+            }
             comando.Parameters.Clear();
             conexion.CerrarConexion();
             return respuesta;

@@ -1,6 +1,6 @@
 ﻿namespace Notification_Board
 {
-    partial class tv
+    partial class GUI_Tv
     {
         /// <summary>
         /// Required designer variable.

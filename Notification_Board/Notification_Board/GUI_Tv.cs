@@ -13,14 +13,14 @@ using System.Windows.Forms;
 
 namespace Notification_Board
 {
-    public partial class tv : Form
+    public partial class GUI_Tv : Form
     {   //Atributos de la clase
         public DataTable tabla; //Tabla para almacenar consulta
         public bool flag = true; //Bandera de control
         public int numRows;    //Almacena el numero de filas
         public int count = 0;  //Contador para iteracion
 
-        public tv()
+        public GUI_Tv()
         {   //Atributos del form
             this.StartPosition = FormStartPosition.Manual;
             this.showOnScreen(1); //Manda form a segunda pantalla            

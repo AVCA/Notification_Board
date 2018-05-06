@@ -20,7 +20,7 @@
 - [ ] Mostrar salones disponibles
 - [x] Registrar horario
 - [x] Eliminar horario
-- [ ] Actualizar horario
+- [x] Actualizar horario
 - [ ] Registro de asistencia del maestro
 - [ ] Generar un reporte de asistencias de los maestros
 

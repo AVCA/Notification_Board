@@ -12,7 +12,7 @@
 - [ ] Registrar asistencia del maestro
 - [ ] Consultar reporte de asistencias
 
-### Diagrama de casos de uso:
+### Requisitos especificos:
 - [ ] Autentificar administrador
 - [x] Generar altas de avisos
 - [ ] Generar bajas de avisos

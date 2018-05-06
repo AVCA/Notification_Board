@@ -5,7 +5,7 @@
 - [x] Alta de Avisos
 - [x] Baja de Avisos
 - [x] Actualizacion de Avisos
-- [ ] Consular salones disponibles
+- [ ] Consular salones disponibles [RICARDO]
 - [x] Alta de horario
 - [x] Baja de horario
 - [ ] Actualizacion de horario
@@ -17,7 +17,7 @@
 - [x] Generar altas de avisos
 - [x] Generar bajas de avisos
 - [x] Actualizar los avisos
-- [ ] Mostrar salones disponibles
+- [ ] Mostrar salones disponibles [RICARDO]
 - [x] Registrar horario
 - [x] Eliminar horario
 - [x] Actualizar horario

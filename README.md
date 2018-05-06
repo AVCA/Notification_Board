@@ -2,27 +2,27 @@
 ## COSAS PENDIENTES:
 
 ### Diagrama de casos de uso:
-[x] Alta de Avisos
-[ ] Baja de Avisos
-[ ] Actualizacion de Avisos
-[ ] Consular salones disponibles
-[x] Alta de horario
-[x] Baja de horario
-[ ] Actualizacion de horario
-[ ] Registrar asistencia del maestro
-[ ] Consultar reporte de asistencias
+- [x] Alta de Avisos
+- [ ] Baja de Avisos
+- [ ] Actualizacion de Avisos
+- [ ] Consular salones disponibles
+- [x] Alta de horario
+- [x] Baja de horario
+- [ ] Actualizacion de horario
+- [ ] Registrar asistencia del maestro
+- [ ] Consultar reporte de asistencias
 
 ### Diagrama de casos de uso:
-[ ] Autentificar administrador
-[x] Generar altas de avisos
-[ ] Generar bajas de avisos
-[ ] Actualizar los avisos
-[ ] Mostrar salones disponibles
-[x] Registrar horario
-[x] Eliminar horario
-[ ] Actualizar horario
-[ ] Registro de asistencia del maestro
-[ ] Generar un reporte de asistencias de los maestros
+- [ ] Autentificar administrador
+- [x] Generar altas de avisos
+- [ ] Generar bajas de avisos
+- [ ] Actualizar los avisos
+- [ ] Mostrar salones disponibles
+- [x] Registrar horario
+- [x] Eliminar horario
+- [ ] Actualizar horario
+- [ ] Registro de asistencia del maestro
+- [ ] Generar un reporte de asistencias de los maestros
 
 ---
 ## CapaDatos
@@ -47,7 +47,7 @@ private MySqlConnection Conexion = new MySqlConnection("server=127.0.0.1; databa
 ### CD_Operaciones
 Clase que permite ejecutar consultas SQL y obtener los registros correspondientes a las tablas ocupadas.
 
-**Variables:**
+**Variables:** 
 
 - private CD_Conexion conexion; // Objeto para la conexion.
 - MySqlDataReader leer; // Variabble que almacena los registros obtenidos de las consultas a tablas.

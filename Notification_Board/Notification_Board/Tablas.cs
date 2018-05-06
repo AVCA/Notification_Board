@@ -104,9 +104,37 @@ namespace Notification_Board
                     cb_v2.Visible = true;
 
                     break;
+                case "Archivo":
+                    lbl_t.Text = titulo;
+                    btn_agregar_archivo.Visible = true;
+
+                    lbl_v1.Visible = true;
+                    lbl_v1.Text = "Código:";
+
+                    txt_v1.Visible = true;
+                    txt_v1.Text = "";
+
+                    lbl_v2.Visible = true;
+                    lbl_v2.Text = "Nombre:";
+
+                    txt_v2.Visible = true;
+                    txt_v2.Enabled = false;
+                    txt_v2.Text = "";
+
+                    lbl_v3.Visible = true;
+                    lbl_v3.Text = "Duración:";
+
+                    txt_v3.Visible = true;
+                    txt_v3.Text = "Horas";
+                    txt_v3.Enabled = true;
+
+                    pictureBox1.Visible = true;
+
+                    break;
                 case "Horarios":
                     lbl_t.Text = titulo;
                     btn_v5.Visible = true;
+                    btn_v5.Dock = DockStyle.None;
 
                     lbl_v1.Visible = true;
                     lbl_v1.Text = "Día:";
@@ -134,6 +162,8 @@ namespace Notification_Board
 
                     lbl_v5.Visible = true;
                     lbl_v5.Text = "Profesor:";
+
+                    lbl_5.Visible = true;
 
                     cb_v5.Visible = true;
                     // Cargar valores 
@@ -341,6 +371,52 @@ namespace Notification_Board
         private void cb_v2_SelectedIndexChanged(object sender, EventArgs e)
         {
             horaAct = cb_v2.SelectedIndex.ToString();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            PictureBox p = sender as PictureBox;
+            if (p != null)
+            {
+
+                open.Filter = "(*.jpg;*.jpeg;*.bmp;*.png;)| *.jpg;*.jpeg;*.bmp;*.png; ";
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    p.Image = Image.FromFile(open.FileName);
+                    string imagePath = open.FileName.ToString();
+                    string impath = imagePath.ToString();
+                    impath = impath.Substring(impath.LastIndexOf("\\"));
+                    impath = impath.Remove(0, 1);
+                    txt_v2.Text = impath;
+                }
+            }
+        }
+
+        private void btn_v4_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1 != null && txt_v1.Text != "" && txt_v2.Text != "" && txt_v3.Text != "")
+            {
+                string name = txt_v2.Text;
+                //Mi direccion de prueba
+                string folder = "C:\\Fotos";
+                //string folder = "C:\\Program Files\\NotificationBoard\\img";
+                string path = System.IO.Path.Combine(folder, name);
+                Image a = pictureBox1.Image;
+                a.Save(path);
+                ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, txt_v3.Text, "", "");
+                Mostrar();
+
+            }
+            else
+            {
+                MessageBox.Show("Elige una imagen");
+            }
+        }
+
+        private void lbl_v5_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void cb_v3_SelectedIndexChanged(object sender, EventArgs e)

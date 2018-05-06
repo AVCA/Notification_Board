@@ -10,7 +10,7 @@
 - [x] Baja de horario
 - [ ] Actualizacion de horario
 - [ ] Registrar asistencia del maestro
-- [ ] Consultar reporte de asistencias
+- [x] Consultar reporte de asistencias
 
 ### Requisitos especificos:
 - [ ] Autentificar administrador
@@ -20,9 +20,9 @@
 - [ ] Mostrar salones disponibles [RICARDO]
 - [x] Registrar horario
 - [x] Eliminar horario
-- [x] Actualizar horario
+- [ ] Actualizar horario
 - [ ] Registro de asistencia del maestro
-- [ ] Generar un reporte de asistencias de los maestros
+- [x] Generar un reporte de asistencias de los maestros
 
 ---
 ## CapaDatos

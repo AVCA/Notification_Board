@@ -209,7 +209,7 @@ begin
 end$$
 
 delimiter $$
-create procedure EliminarImpartido(in codProf int(4), codMat int(4))
+create procedure EliminarImpartido(codMat int(4), in codProf int(4) )
 begin
 	Delete from Impartido where codProfesor=codProf and codMateria=codMat;
 end$$

@@ -1,5 +1,30 @@
 # Notification_Board
+## COSAS PENDIENTES:
 
+### Diagrama de casos de uso:
+[x] Alta de Avisos
+[ ] Baja de Avisos
+[ ] Actualizacion de Avisos
+[ ] Consular salones disponibles
+[x] Alta de horario
+[x] Baja de horario
+[ ] Actualizacion de horario
+[ ] Registrar asistencia del maestro
+[ ] Consultar reporte de asistencias
+
+### Diagrama de casos de uso:
+[ ] Autentificar administrador
+[x] Generar altas de avisos
+[ ] Generar bajas de avisos
+[ ] Actualizar los avisos
+[ ] Mostrar salones disponibles
+[x] Registrar horario
+[x] Eliminar horario
+[ ] Actualizar horario
+[ ] Registro de asistencia del maestro
+[ ] Generar un reporte de asistencias de los maestros
+
+---
 ## CapaDatos
 ### CD_Conexion
 Clase que permite la conexion de la BD MYSQL a C#.

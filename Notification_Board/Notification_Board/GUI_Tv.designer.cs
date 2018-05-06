@@ -166,7 +166,7 @@
             this.tableLayoutPanel1.TabIndex = 4;
             //this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // panel5
+            // panel_2
             // 
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.panel3);

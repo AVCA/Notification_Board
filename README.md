@@ -3,8 +3,8 @@
 
 ### Diagrama de casos de uso:
 - [x] Alta de Avisos
-- [ ] Baja de Avisos
-- [ ] Actualizacion de Avisos
+- [x] Baja de Avisos
+- [x] Actualizacion de Avisos
 - [ ] Consular salones disponibles
 - [x] Alta de horario
 - [x] Baja de horario
@@ -15,8 +15,8 @@
 ### Requisitos especificos:
 - [ ] Autentificar administrador
 - [x] Generar altas de avisos
-- [ ] Generar bajas de avisos
-- [ ] Actualizar los avisos
+- [x] Generar bajas de avisos
+- [x] Actualizar los avisos
 - [ ] Mostrar salones disponibles
 - [x] Registrar horario
 - [x] Eliminar horario

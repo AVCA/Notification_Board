@@ -37,7 +37,7 @@ namespace Notification_Board
             if (titulo == "Impartido")
             {
                 dataGridView1.Columns[0].Visible = false;
-                dataGridView1.Columns[1].Visible = false;
+                dataGridView1.Columns[2].Visible = false;
             }
             Formulario();
             CargarDia();
@@ -94,12 +94,12 @@ namespace Notification_Board
                     btn_agregar_p.Visible = true;
 
                     lbl_v1.Visible = true;
-                    lbl_v1.Text = "Maestro:";
+                    lbl_v1.Text = "Materia:";
 
                     cb_v1.Visible = true;
 
                     lbl_v2.Visible = true;
-                    lbl_v2.Text = "Materia:";
+                    lbl_v2.Text = "Profesor:";
 
                     cb_v2.Visible = true;
 
@@ -215,10 +215,12 @@ namespace Notification_Board
             }
             if (titulo == "Impartido")
             {
+                cb_v2.Items.Clear();
+                cb_v4.Items.Clear();
                 for (int i = 0; i < tProfesor.Rows.Count; i++)
                 {
-                    cb_v1.Items.Clear();
-                    cb_v1.Items.Add(tProfesor.Rows[i][1]);
+                    cb_v2.Items.Add(tProfesor.Rows[i][1]);
+                    cb_v4.Items.Add(tProfesor.Rows[i][0]);
                 }
             }
             
@@ -237,10 +239,13 @@ namespace Notification_Board
             }
             if (titulo == "Impartido")
             {
+                cb_v1.Items.Clear();
+                cb_v3.Items.Clear();
                 for (int i = 0; i < tMateria.Rows.Count; i++)
                 {
-                    cb_v2.Items.Clear();
-                    cb_v2.Items.Add(tMateria.Rows[i][1]);
+                   
+                    cb_v1.Items.Add(tMateria.Rows[i][1]);
+                    cb_v3.Items.Add(tMateria.Rows[i][0]);
                 }
             }
         }
@@ -445,12 +450,12 @@ namespace Notification_Board
                     {
                         case "Profesor":
                             v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                            ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
+                            respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
                             Mostrar();
                             break;
                         case "Materias":
                             v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                            ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
+                            respuesta =  ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
                             Mostrar();
                             break;
                         case "Horarios":
@@ -458,9 +463,23 @@ namespace Notification_Board
                             v2_u = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                             v3_u = dataGridView1.CurrentRow.Cells[6].Value.ToString();
                             Console.WriteLine(v1_u, v2_u, v3_u);
-                            ObjetoCN.Operaciones(titulo, "Delete", v1_u, v2_u, v3_u, "", "");
+                            respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, v2_u, v3_u, "", "");
                             Mostrar();
                             break;
+                        case "Impartido":
+                            v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                            v2_u = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                            respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, v2_u, "", "", "");
+                            Mostrar();
+                            break;
+                    }
+                    if (respuesta == "ERROR")
+                    {
+                        MessageBox.Show("ERROR: Eliminacion fallida");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se elimino correctamente");
                     }
                 }
             }
@@ -520,14 +539,26 @@ namespace Notification_Board
 
         private void btn_agregar_p_Click(object sender, EventArgs e)
         {
-            if (txt_v1.Text != "" && txt_v2.Text != "" && txt_v3.Text != "" && txt_v4.Text != "" && txt_v5.Text != "")
+            if (cb_v1.SelectedIndex != -1 && cb_v2.SelectedIndex != -1 && txt_v1.Text != "" && txt_v2.Text != "" && txt_v3.Text != "" && txt_v4.Text != "" && txt_v5.Text != "")
             {
                 if (editar == false)
                 {
                     DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas agregar?", "Confirmar Accion", MessageBoxButtons.YesNo);
                     if (resultado == DialogResult.Yes)
                     {
-                        respuesta = ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, txt_v3.Text, txt_v4.Text, txt_v5.Text);
+                        if (titulo == "Impartido")
+                        {
+                            cb_v3.SelectedIndex = cb_v1.SelectedIndex;
+                            cb_v4.SelectedIndex = cb_v2.SelectedIndex;
+                            MessageBox.Show(cb_v3.Text);
+                            MessageBox.Show(cb_v4.Text);
+
+                            respuesta = ObjetoCN.Operaciones(titulo, "Insert", cb_v3.Text, cb_v4.Text, txt_v3.Text, txt_v4.Text, txt_v5.Text);
+                        }
+                        else
+                        {
+                            respuesta = ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, txt_v3.Text, txt_v4.Text, txt_v5.Text);
+                        }
                         if (respuesta=="ERROR")
                         {
                             MessageBox.Show("ERROR: Inserccion fallida");

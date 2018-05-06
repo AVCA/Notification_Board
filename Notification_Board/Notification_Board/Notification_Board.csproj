@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aviso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Aviso.designer.cs">
-      <DependentUpon>Aviso.cs</DependentUpon>
-    </Compile>
     <Compile Include="Ayuda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,9 +78,6 @@
     <Compile Include="GUI_Tv.designer.cs">
       <DependentUpon>GUI_Tv.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Aviso.resx">
-      <DependentUpon>Aviso.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Ayuda.resx">
       <DependentUpon>Ayuda.cs</DependentUpon>
     </EmbeddedResource>

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbl_titulo = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_t = new System.Windows.Forms.Label();
@@ -41,6 +41,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_v1 = new System.Windows.Forms.Label();
+            this.lbl_v2 = new System.Windows.Forms.Label();
+            this.lbl_v3 = new System.Windows.Forms.Label();
+            this.lbl_v4 = new System.Windows.Forms.Label();
+            this.lbl_v5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.cb_v2 = new System.Windows.Forms.ComboBox();
             this.txt_v2 = new System.Windows.Forms.TextBox();
@@ -52,24 +57,19 @@
             this.cb_v4 = new System.Windows.Forms.ComboBox();
             this.txt_v4 = new System.Windows.Forms.TextBox();
             this.btn_v4 = new System.Windows.Forms.Button();
+            this.btn_agregar_archivo = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.cb_v5 = new System.Windows.Forms.ComboBox();
             this.txt_v5 = new System.Windows.Forms.TextBox();
+            this.lbl_5 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.cb_v1 = new System.Windows.Forms.ComboBox();
             this.txt_v1 = new System.Windows.Forms.TextBox();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_v5 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbl_formulario = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_agregar_archivo = new System.Windows.Forms.Button();
-            this.lbl_5 = new System.Windows.Forms.Label();
-            this.lbl_v5 = new System.Windows.Forms.Label();
-            this.lbl_v4 = new System.Windows.Forms.Label();
-            this.lbl_v3 = new System.Windows.Forms.Label();
-            this.lbl_v2 = new System.Windows.Forms.Label();
-            this.lbl_v1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -82,8 +82,8 @@
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_titulo
@@ -145,7 +145,7 @@
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(104, 44);
             this.btn_update.TabIndex = 8;
-            this.btn_update.Text = "Editar";
+            this.btn_update.Text = "Actualizar";
             this.btn_update.UseVisualStyleBackColor = true;
             this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
@@ -157,7 +157,7 @@
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(97, 44);
             this.btn_delete.TabIndex = 7;
-            this.btn_delete.Text = "Eliminar";
+            this.btn_delete.Text = "Bajas";
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click_1);
             // 
@@ -181,14 +181,14 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(146)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(146)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeight = 30;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -199,19 +199,19 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.AppWorkspace;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.AppWorkspace;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(605, 428);
             this.dataGridView1.TabIndex = 3;
@@ -257,6 +257,67 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(359, 485);
             this.tableLayoutPanel2.TabIndex = 24;
+            // 
+            // lbl_v1
+            // 
+            this.lbl_v1.AutoSize = true;
+            this.lbl_v1.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_v1.ForeColor = System.Drawing.Color.White;
+            this.lbl_v1.Location = new System.Drawing.Point(3, 0);
+            this.lbl_v1.Name = "lbl_v1";
+            this.lbl_v1.Size = new System.Drawing.Size(32, 22);
+            this.lbl_v1.TabIndex = 4;
+            this.lbl_v1.Text = "v1:";
+            this.lbl_v1.Visible = false;
+            // 
+            // lbl_v2
+            // 
+            this.lbl_v2.AutoSize = true;
+            this.lbl_v2.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_v2.ForeColor = System.Drawing.Color.White;
+            this.lbl_v2.Location = new System.Drawing.Point(3, 40);
+            this.lbl_v2.Name = "lbl_v2";
+            this.lbl_v2.Size = new System.Drawing.Size(32, 22);
+            this.lbl_v2.TabIndex = 6;
+            this.lbl_v2.Text = "v2:";
+            this.lbl_v2.Visible = false;
+            // 
+            // lbl_v3
+            // 
+            this.lbl_v3.AutoSize = true;
+            this.lbl_v3.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_v3.ForeColor = System.Drawing.Color.White;
+            this.lbl_v3.Location = new System.Drawing.Point(3, 80);
+            this.lbl_v3.Name = "lbl_v3";
+            this.lbl_v3.Size = new System.Drawing.Size(32, 22);
+            this.lbl_v3.TabIndex = 8;
+            this.lbl_v3.Text = "v3:";
+            this.lbl_v3.Visible = false;
+            // 
+            // lbl_v4
+            // 
+            this.lbl_v4.AutoSize = true;
+            this.lbl_v4.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_v4.ForeColor = System.Drawing.Color.White;
+            this.lbl_v4.Location = new System.Drawing.Point(3, 120);
+            this.lbl_v4.Name = "lbl_v4";
+            this.lbl_v4.Size = new System.Drawing.Size(32, 22);
+            this.lbl_v4.TabIndex = 10;
+            this.lbl_v4.Text = "v4:";
+            this.lbl_v4.Visible = false;
+            // 
+            // lbl_v5
+            // 
+            this.lbl_v5.AutoSize = true;
+            this.lbl_v5.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_v5.ForeColor = System.Drawing.Color.White;
+            this.lbl_v5.Location = new System.Drawing.Point(3, 160);
+            this.lbl_v5.Name = "lbl_v5";
+            this.lbl_v5.Size = new System.Drawing.Size(32, 22);
+            this.lbl_v5.TabIndex = 12;
+            this.lbl_v5.Text = "v5:";
+            this.lbl_v5.Visible = false;
+            this.lbl_v5.Click += new System.EventHandler(this.lbl_v5_Click);
             // 
             // panel5
             // 
@@ -378,6 +439,18 @@
             this.btn_v4.Visible = false;
             this.btn_v4.Click += new System.EventHandler(this.btn_v4_Click);
             // 
+            // btn_agregar_archivo
+            // 
+            this.btn_agregar_archivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_agregar_archivo.Location = new System.Drawing.Point(0, 0);
+            this.btn_agregar_archivo.Name = "btn_agregar_archivo";
+            this.btn_agregar_archivo.Size = new System.Drawing.Size(237, 34);
+            this.btn_agregar_archivo.TabIndex = 18;
+            this.btn_agregar_archivo.Text = "Agregar";
+            this.btn_agregar_archivo.UseVisualStyleBackColor = true;
+            this.btn_agregar_archivo.Visible = false;
+            this.btn_agregar_archivo.Click += new System.EventHandler(this.btn_v4_Click);
+            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.cb_v5);
@@ -409,6 +482,17 @@
             this.txt_v5.TabIndex = 13;
             this.txt_v5.Text = ".";
             this.txt_v5.Visible = false;
+            // 
+            // lbl_5
+            // 
+            this.lbl_5.AutoSize = true;
+            this.lbl_5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_5.Location = new System.Drawing.Point(0, 0);
+            this.lbl_5.Name = "lbl_5";
+            this.lbl_5.Size = new System.Drawing.Size(261, 13);
+            this.lbl_5.TabIndex = 23;
+            this.lbl_5.Text = "Haz click en el recuadro para seleccionar una imagen";
+            this.lbl_5.Visible = false;
             // 
             // panel9
             // 
@@ -451,6 +535,19 @@
             this.panel10.Size = new System.Drawing.Size(237, 263);
             this.panel10.TabIndex = 6;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 34);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(237, 229);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // btn_v5
             // 
             this.btn_v5.Dock = System.Windows.Forms.DockStyle.Top;
@@ -484,103 +581,6 @@
             this.lbl_formulario.TabIndex = 4;
             this.lbl_formulario.Text = "Altas:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 34);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(237, 229);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // btn_agregar_archivo
-            // 
-            this.btn_agregar_archivo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_agregar_archivo.Location = new System.Drawing.Point(0, 0);
-            this.btn_agregar_archivo.Name = "btn_agregar_archivo";
-            this.btn_agregar_archivo.Size = new System.Drawing.Size(237, 34);
-            this.btn_agregar_archivo.TabIndex = 18;
-            this.btn_agregar_archivo.Text = "Agregar";
-            this.btn_agregar_archivo.UseVisualStyleBackColor = true;
-            this.btn_agregar_archivo.Visible = false;
-            this.btn_agregar_archivo.Click += new System.EventHandler(this.btn_v4_Click);
-            // 
-            // lbl_5
-            // 
-            this.lbl_5.AutoSize = true;
-            this.lbl_5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_5.Location = new System.Drawing.Point(0, 0);
-            this.lbl_5.Name = "lbl_5";
-            this.lbl_5.Size = new System.Drawing.Size(261, 13);
-            this.lbl_5.TabIndex = 23;
-            this.lbl_5.Text = "Haz click en el recuadro para seleccionar una imagen";
-            this.lbl_5.Visible = false;
-            // 
-            // lbl_v5
-            // 
-            this.lbl_v5.AutoSize = true;
-            this.lbl_v5.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_v5.ForeColor = System.Drawing.Color.White;
-            this.lbl_v5.Location = new System.Drawing.Point(3, 160);
-            this.lbl_v5.Name = "lbl_v5";
-            this.lbl_v5.Size = new System.Drawing.Size(32, 22);
-            this.lbl_v5.TabIndex = 12;
-            this.lbl_v5.Text = "v5:";
-            this.lbl_v5.Visible = false;
-            this.lbl_v5.Click += new System.EventHandler(this.lbl_v5_Click);
-            // 
-            // lbl_v4
-            // 
-            this.lbl_v4.AutoSize = true;
-            this.lbl_v4.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_v4.ForeColor = System.Drawing.Color.White;
-            this.lbl_v4.Location = new System.Drawing.Point(3, 120);
-            this.lbl_v4.Name = "lbl_v4";
-            this.lbl_v4.Size = new System.Drawing.Size(32, 22);
-            this.lbl_v4.TabIndex = 10;
-            this.lbl_v4.Text = "v4:";
-            this.lbl_v4.Visible = false;
-            // 
-            // lbl_v3
-            // 
-            this.lbl_v3.AutoSize = true;
-            this.lbl_v3.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_v3.ForeColor = System.Drawing.Color.White;
-            this.lbl_v3.Location = new System.Drawing.Point(3, 80);
-            this.lbl_v3.Name = "lbl_v3";
-            this.lbl_v3.Size = new System.Drawing.Size(32, 22);
-            this.lbl_v3.TabIndex = 8;
-            this.lbl_v3.Text = "v3:";
-            this.lbl_v3.Visible = false;
-            // 
-            // lbl_v2
-            // 
-            this.lbl_v2.AutoSize = true;
-            this.lbl_v2.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_v2.ForeColor = System.Drawing.Color.White;
-            this.lbl_v2.Location = new System.Drawing.Point(3, 40);
-            this.lbl_v2.Name = "lbl_v2";
-            this.lbl_v2.Size = new System.Drawing.Size(32, 22);
-            this.lbl_v2.TabIndex = 6;
-            this.lbl_v2.Text = "v2:";
-            this.lbl_v2.Visible = false;
-            // 
-            // lbl_v1
-            // 
-            this.lbl_v1.AutoSize = true;
-            this.lbl_v1.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_v1.ForeColor = System.Drawing.Color.White;
-            this.lbl_v1.Location = new System.Drawing.Point(3, 0);
-            this.lbl_v1.Name = "lbl_v1";
-            this.lbl_v1.Size = new System.Drawing.Size(32, 22);
-            this.lbl_v1.TabIndex = 4;
-            this.lbl_v1.Text = "v1:";
-            this.lbl_v1.Visible = false;
-            // 
             // Tablas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -613,9 +613,9 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

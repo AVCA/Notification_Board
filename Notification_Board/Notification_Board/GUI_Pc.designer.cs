@@ -1,6 +1,6 @@
 ﻿namespace Notification_Board
 {
-    partial class Form1
+    partial class GUI_Pc
     {
         /// <summary>
         /// Variable del diseñador requerida.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_Pc));
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
@@ -264,7 +264,7 @@
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button1.Size = new System.Drawing.Size(154, 41);
-            this.button1.TabIndex = 23;
+            this.button1.TabIndex = 1;
             this.button1.Text = "Inicio";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -294,7 +294,7 @@
             this.btnproductos.Name = "btnproductos";
             this.btnproductos.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnproductos.Size = new System.Drawing.Size(154, 41);
-            this.btnproductos.TabIndex = 1;
+            this.btnproductos.TabIndex = 2;
             this.btnproductos.Text = "Iniciar proyección";
             this.btnproductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnproductos.UseVisualStyleBackColor = false;
@@ -331,7 +331,7 @@
             this.btn_profesores.Name = "btn_profesores";
             this.btn_profesores.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_profesores.Size = new System.Drawing.Size(154, 41);
-            this.btn_profesores.TabIndex = 5;
+            this.btn_profesores.TabIndex = 4;
             this.btn_profesores.Text = "Profesores";
             this.btn_profesores.UseVisualStyleBackColor = false;
             this.btn_profesores.Click += new System.EventHandler(this.button3_Click);
@@ -350,7 +350,7 @@
             this.btn_materias.Name = "btn_materias";
             this.btn_materias.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_materias.Size = new System.Drawing.Size(154, 41);
-            this.btn_materias.TabIndex = 21;
+            this.btn_materias.TabIndex = 5;
             this.btn_materias.Text = "Materias";
             this.btn_materias.UseVisualStyleBackColor = false;
             this.btn_materias.Click += new System.EventHandler(this.btn_materias_Click);
@@ -386,7 +386,7 @@
             this.btn_ayuda.Name = "btn_ayuda";
             this.btn_ayuda.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_ayuda.Size = new System.Drawing.Size(154, 41);
-            this.btn_ayuda.TabIndex = 9;
+            this.btn_ayuda.TabIndex = 8;
             this.btn_ayuda.Text = "Ayuda";
             this.btn_ayuda.UseVisualStyleBackColor = false;
             this.btn_ayuda.Click += new System.EventHandler(this.btn_ayuda_Click);
@@ -405,7 +405,7 @@
             this.btn_Imparte.Name = "btn_Imparte";
             this.btn_Imparte.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_Imparte.Size = new System.Drawing.Size(154, 41);
-            this.btn_Imparte.TabIndex = 24;
+            this.btn_Imparte.TabIndex = 6;
             this.btn_Imparte.Text = "Impartido";
             this.btn_Imparte.UseVisualStyleBackColor = false;
             this.btn_Imparte.Click += new System.EventHandler(this.btn_Imparte_Click);
@@ -522,7 +522,7 @@
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
-            // Form1
+            // GUI_Pc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -531,7 +531,7 @@
             this.Controls.Add(this.MenuVertical);
             this.Controls.Add(this.BarraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "GUI_Pc";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.BarraTitulo.ResumeLayout(false);

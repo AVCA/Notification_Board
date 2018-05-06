@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Notification_Board
 {
-    public partial class inicio : Form
+    public partial class Inicio : Form
     {
-        public inicio()
+        public Inicio()
         {
             InitializeComponent();
         }

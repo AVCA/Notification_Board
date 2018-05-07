@@ -5,7 +5,7 @@
 - [x] Alta de Avisos
 - [x] Baja de Avisos
 - [x] Actualizacion de Avisos
-- [ ] Consular salones disponibles [RICARDO]
+- [x] Consular salones disponibles [RICARDO]
 - [x] Alta de horario
 - [x] Baja de horario
 - [ ] Actualizacion de horario
@@ -13,11 +13,11 @@
 - [x] Consultar reporte de asistencias
 
 ### Requisitos especificos:
-- [ ] Autentificar administrador
+- [x] Autentificar administrador
 - [x] Generar altas de avisos
 - [x] Generar bajas de avisos
 - [x] Actualizar los avisos
-- [ ] Mostrar salones disponibles [RICARDO]
+- [x] Mostrar salones disponibles [RICARDO]
 - [x] Registrar horario
 - [x] Eliminar horario
 - [ ] Actualizar horario

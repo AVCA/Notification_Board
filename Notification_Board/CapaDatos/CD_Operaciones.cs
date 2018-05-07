@@ -37,7 +37,9 @@ namespace CapaDatos
                 case "Impartido":
                     comando.CommandText = "call VerImpartido";
                     break;
-
+                case "Asistencia":
+                    comando.CommandText = "call VerImparte";
+                    break;
             }
             
             leer = comando.ExecuteReader();
@@ -121,6 +123,14 @@ namespace CapaDatos
                             break;
                     }
                     break;
+                case "Asistencia":
+                    switch (operacion)
+                    {
+                        case "Insert":
+                            comando.CommandText = "select InsertarAsistencia('" + v1 + "','" + v2 + "','" + v3 + "','" + v4 + "','" + v5 + "') as resp";
+                            break;
+                    }
+                    break;
             }
             try { 
             comando.ExecuteNonQuery();
@@ -155,6 +165,16 @@ namespace CapaDatos
                     comando.CommandText = "call VerSalon";
                     break;
             }
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conexion.CerrarConexion();
+            return tabla;
+        }
+
+        public DataTable Asistencia(string v1, string v2)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "call VerPorHora(" + v1 + "," + v2 + ")";
             leer = comando.ExecuteReader();
             tabla.Load(leer);
             conexion.CerrarConexion();

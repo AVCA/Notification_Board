@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -35,6 +36,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_t = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_asistencia = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -70,6 +72,8 @@
             this.btn_v5 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbl_formulario = new System.Windows.Forms.Label();
+            this.HourTimer = new System.Windows.Forms.Timer(this.components);
+            this.btn_Generar_Reporte = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -129,6 +133,8 @@
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.btn_Generar_Reporte);
+            this.panel1.Controls.Add(this.btn_asistencia);
             this.panel1.Controls.Add(this.btn_update);
             this.panel1.Controls.Add(this.btn_delete);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -136,6 +142,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(605, 44);
             this.panel1.TabIndex = 3;
+            // 
+            // btn_asistencia
+            // 
+            this.btn_asistencia.AutoSize = true;
+            this.btn_asistencia.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_asistencia.Location = new System.Drawing.Point(201, 0);
+            this.btn_asistencia.Name = "btn_asistencia";
+            this.btn_asistencia.Size = new System.Drawing.Size(104, 44);
+            this.btn_asistencia.TabIndex = 9;
+            this.btn_asistencia.Text = "Marcar Asistencia";
+            this.btn_asistencia.UseVisualStyleBackColor = true;
+            this.btn_asistencia.Click += new System.EventHandler(this.btn_asistencia_Click);
             // 
             // btn_update
             // 
@@ -317,7 +335,6 @@
             this.lbl_v5.TabIndex = 12;
             this.lbl_v5.Text = "v5:";
             this.lbl_v5.Visible = false;
-            this.lbl_v5.Click += new System.EventHandler(this.lbl_v5_Click);
             // 
             // panel5
             // 
@@ -580,6 +597,18 @@
             this.lbl_formulario.TabIndex = 4;
             this.lbl_formulario.Text = "Altas:";
             // 
+            // btn_Generar_Reporte
+            // 
+            this.btn_Generar_Reporte.AutoSize = true;
+            this.btn_Generar_Reporte.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_Generar_Reporte.Location = new System.Drawing.Point(305, 0);
+            this.btn_Generar_Reporte.Name = "btn_Generar_Reporte";
+            this.btn_Generar_Reporte.Size = new System.Drawing.Size(104, 44);
+            this.btn_Generar_Reporte.TabIndex = 10;
+            this.btn_Generar_Reporte.Text = "Generar reporte";
+            this.btn_Generar_Reporte.UseVisualStyleBackColor = true;
+            this.btn_Generar_Reporte.Click += new System.EventHandler(this.btn_Generar_Reporte_Click);
+            // 
             // Tablas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -660,5 +689,8 @@
         private System.Windows.Forms.Label lbl_v3;
         private System.Windows.Forms.Label lbl_v4;
         private System.Windows.Forms.Label lbl_v5;
+        private System.Windows.Forms.Button btn_asistencia;
+        private System.Windows.Forms.Timer HourTimer;
+        private System.Windows.Forms.Button btn_Generar_Reporte;
     }
 }

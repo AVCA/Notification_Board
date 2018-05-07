@@ -437,7 +437,6 @@
             this.btn_v4.Text = "Agregar";
             this.btn_v4.UseVisualStyleBackColor = true;
             this.btn_v4.Visible = false;
-            this.btn_v4.Click += new System.EventHandler(this.btn_v4_Click);
             // 
             // btn_agregar_archivo
             // 

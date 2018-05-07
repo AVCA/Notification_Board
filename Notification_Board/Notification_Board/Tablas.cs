@@ -311,6 +311,11 @@ namespace Notification_Board
                     CargarMaterias();
                     CargarProfesor();
                     break;
+                case "Archivo":
+                    txt_v1.Text = "";
+                    txt_v2.Text = "";
+                    txt_v3.Text = "Horas";
+                    break;
             }
            
         }
@@ -338,7 +343,6 @@ namespace Notification_Board
                             v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                             v2_u = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                             v3_u = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                            Console.WriteLine(v1_u, v2_u, v3_u);
                             ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
                             Mostrar();
                             break;
@@ -351,20 +355,76 @@ namespace Notification_Board
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_v4_Click(object sender, EventArgs e)
         {
-            // Displays an OpenFileDialog so the user can select a Cursor.  
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Imagenes|*.jpg, .png";
-            openFileDialog1.Title = "Selecciona la imagen que desea cargar";
-
-            // Show the Dialog.  
-            // If the user clicked OK in the dialog and  
-            // a .CUR file was selected, open it.  
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (pictureBox1 != null && txt_v1.Text != "" && txt_v2.Text != "" && txt_v3.Text != "")
             {
-                // Assign the cursor in the Stream to the Form's Cursor property.  
-                this.Cursor = new Cursor(openFileDialog1.OpenFile());
+                if (editar == false)
+                {
+                    DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas agregar?", "Confirmar Accion", MessageBoxButtons.YesNo);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        string name = txt_v2.Text;
+                        //Mi direccion de prueba
+                        string folder = "C:\\Fotos";
+                        //string folder = "C:\\Program Files\\NotificationBoard\\img";
+                        string path = System.IO.Path.Combine(folder, name);
+                        Image a = pictureBox1.Image;
+                        try
+                        {
+                            a.Save(path);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("x");
+                        }
+                        respuesta = ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, txt_v3.Text, "", "");
+                        if (respuesta == "ERROR")
+                        {
+                            MessageBox.Show(respuesta);
+                        }
+                        else
+                        {
+                            MessageBox.Show(respuesta);
+                        }
+                        limpiar();
+                        Mostrar();
+                    }
+                    else
+                        MessageBox.Show("Se ha cancelado la acción.");
+                }
+                if (editar == true)
+                {
+                    DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas editar?", "Confirmar Accion", MessageBoxButtons.YesNo);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                        respuesta = ObjetoCN.Operaciones(titulo, "Update", v1_u, txt_v1.Text, txt_v2.Text, txt_v3.Text, "");
+                        if (respuesta == "ERROR")
+                        {
+                            MessageBox.Show(respuesta);
+                        }
+                        else
+                        {
+                            MessageBox.Show(respuesta);
+                        }
+                        Mostrar();
+                        editar = false;
+                        limpiar();
+                        btn_agregar_archivo.Text = "Guardar";
+                    }
+                    else { 
+                    MessageBox.Show("Se ha cancelado la acción.");
+                        Mostrar();
+                        editar = false;
+                        limpiar();
+                        btn_agregar_archivo.Text = "Guardar";
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Elige una imagen");
             }
         }
 
@@ -395,27 +455,6 @@ namespace Notification_Board
                     impath = impath.Remove(0, 1);
                     txt_v2.Text = impath;
                 }
-            }
-        }
-
-        private void btn_v4_Click(object sender, EventArgs e)
-        {
-            if (pictureBox1 != null && txt_v1.Text != "" && txt_v2.Text != "" && txt_v3.Text != "")
-            {
-                string name = txt_v2.Text;
-                //Mi direccion de prueba
-                string folder = "C:\\Fotos";
-                //string folder = "C:\\Program Files\\NotificationBoard\\img";
-                string path = System.IO.Path.Combine(folder, name);
-                Image a = pictureBox1.Image;
-                a.Save(path);
-                ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, txt_v3.Text, "", "");
-                Mostrar();
-
-            }
-            else
-            {
-                MessageBox.Show("Elige una imagen");
             }
         }
 
@@ -462,7 +501,6 @@ namespace Notification_Board
                             v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                             v2_u = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                             v3_u = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                            Console.WriteLine(v1_u, v2_u, v3_u);
                             respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, v2_u, v3_u, "", "");
                             Mostrar();
                             break;
@@ -470,6 +508,11 @@ namespace Notification_Board
                             v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                             v2_u = dataGridView1.CurrentRow.Cells[2].Value.ToString();
                             respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, v2_u, "", "", "");
+                            Mostrar();
+                            break;
+                        case "Archivo":
+                            v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                            respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
                             Mostrar();
                             break;
                     }
@@ -506,6 +549,12 @@ namespace Notification_Board
                         txt_v2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                         btn_agregar_p.Text = "Actualizar";
                         break;
+                    case "Archivo":
+                        txt_v1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                        txt_v2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                        txt_v3.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                        btn_agregar_archivo.Text = "Actualizar";
+                        break;
                 }
             }
         }
@@ -539,7 +588,7 @@ namespace Notification_Board
 
         private void btn_agregar_p_Click(object sender, EventArgs e)
         {
-            if (cb_v1.SelectedIndex != -1 && cb_v2.SelectedIndex != -1 && txt_v1.Text != "" && txt_v2.Text != "" && txt_v3.Text != "" && txt_v4.Text != "" && txt_v5.Text != "")
+            if (txt_v1.Text != "" && txt_v2.Text != "" && txt_v3.Text != "" && txt_v4.Text != "" && txt_v5.Text != "")
             {
                 if (editar == false)
                 {
@@ -548,12 +597,18 @@ namespace Notification_Board
                     {
                         if (titulo == "Impartido")
                         {
-                            cb_v3.SelectedIndex = cb_v1.SelectedIndex;
-                            cb_v4.SelectedIndex = cb_v2.SelectedIndex;
-                            MessageBox.Show(cb_v3.Text);
-                            MessageBox.Show(cb_v4.Text);
-
-                            respuesta = ObjetoCN.Operaciones(titulo, "Insert", cb_v3.Text, cb_v4.Text, txt_v3.Text, txt_v4.Text, txt_v5.Text);
+                            if (cb_v1.SelectedIndex != -1 && cb_v2.SelectedIndex != -1)
+                            {
+                                cb_v3.SelectedIndex = cb_v1.SelectedIndex;
+                                cb_v4.SelectedIndex = cb_v2.SelectedIndex;
+                                respuesta = ObjetoCN.Operaciones(titulo, "Insert", cb_v3.Text, cb_v4.Text, txt_v3.Text, txt_v4.Text, txt_v5.Text);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Existen campos vacios.");
+                                respuesta = "ERROR";
+                            }
+                           
                         }
                         else
                         {

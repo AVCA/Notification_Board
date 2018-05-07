@@ -116,9 +116,9 @@ namespace Notification_Board
             DataRow row; count = (count + 1) % numRows;
             row = tabla.Rows[count];
             this.ImageTimer.Stop();
-            this.ImageTimer.Interval = int.Parse(row["Duracion_Seg"].ToString()) * 1000;
+            this.ImageTimer.Interval = int.Parse(row[2].ToString()) * 1000;
             this.ImageTimer.Start();
-            String dir = "C:\\Fotos\\" + row["Direccion_Archivo"];
+            String dir = "C:\\Fotos\\" + row[1];
             if (flag == true)
             {
                 flag = false;

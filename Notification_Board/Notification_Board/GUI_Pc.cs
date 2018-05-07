@@ -140,7 +140,7 @@ namespace Notification_Board
 
         private void btn_Asistencia_Click(object sender, EventArgs e)
         {
-            sub_GUI(new Reportes("Asistencias"));
+            sub_GUI(new Tablas("Asistencia"));
         }
     }
 }

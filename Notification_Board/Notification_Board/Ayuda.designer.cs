@@ -35,6 +35,9 @@
             this.btnMat = new System.Windows.Forms.Button();
             this.btnAvi = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnImp = new System.Windows.Forms.Button();
+            this.btnAsist = new System.Windows.Forms.Button();
+            this.btnCon = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblResp = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -56,9 +59,9 @@
             // 
             this.btnHor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnHor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHor.Location = new System.Drawing.Point(3, 23);
+            this.btnHor.Location = new System.Drawing.Point(3, 18);
             this.btnHor.Name = "btnHor";
-            this.btnHor.Size = new System.Drawing.Size(159, 67);
+            this.btnHor.Size = new System.Drawing.Size(159, 38);
             this.btnHor.TabIndex = 3;
             this.btnHor.Text = "Horarios";
             this.btnHor.UseVisualStyleBackColor = true;
@@ -68,9 +71,9 @@
             // 
             this.btnProy.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnProy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProy.Location = new System.Drawing.Point(3, 116);
+            this.btnProy.Location = new System.Drawing.Point(3, 77);
             this.btnProy.Name = "btnProy";
-            this.btnProy.Size = new System.Drawing.Size(159, 67);
+            this.btnProy.Size = new System.Drawing.Size(159, 38);
             this.btnProy.TabIndex = 4;
             this.btnProy.Text = "Proyección";
             this.btnProy.UseVisualStyleBackColor = true;
@@ -80,9 +83,9 @@
             // 
             this.btnProf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnProf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProf.Location = new System.Drawing.Point(3, 209);
+            this.btnProf.Location = new System.Drawing.Point(3, 136);
             this.btnProf.Name = "btnProf";
-            this.btnProf.Size = new System.Drawing.Size(159, 67);
+            this.btnProf.Size = new System.Drawing.Size(159, 38);
             this.btnProf.TabIndex = 5;
             this.btnProf.Text = "Profesores";
             this.btnProf.UseVisualStyleBackColor = true;
@@ -92,9 +95,9 @@
             // 
             this.btnMat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMat.Location = new System.Drawing.Point(3, 302);
+            this.btnMat.Location = new System.Drawing.Point(3, 195);
             this.btnMat.Name = "btnMat";
-            this.btnMat.Size = new System.Drawing.Size(159, 67);
+            this.btnMat.Size = new System.Drawing.Size(159, 38);
             this.btnMat.TabIndex = 6;
             this.btnMat.Text = "Materias";
             this.btnMat.UseVisualStyleBackColor = true;
@@ -104,9 +107,9 @@
             // 
             this.btnAvi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAvi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAvi.Location = new System.Drawing.Point(3, 395);
+            this.btnAvi.Location = new System.Drawing.Point(3, 254);
             this.btnAvi.Name = "btnAvi";
-            this.btnAvi.Size = new System.Drawing.Size(159, 67);
+            this.btnAvi.Size = new System.Drawing.Size(159, 38);
             this.btnAvi.TabIndex = 7;
             this.btnAvi.Text = "Avisos";
             this.btnAvi.UseVisualStyleBackColor = true;
@@ -117,6 +120,9 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.btnImp, 0, 15);
+            this.tableLayoutPanel1.Controls.Add(this.btnAsist, 0, 13);
+            this.tableLayoutPanel1.Controls.Add(this.btnCon, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.btnHor, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnProy, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.btnAvi, 0, 9);
@@ -125,20 +131,63 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 42);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 11;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowCount = 17;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49953F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49953F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49953F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49953F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49953F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49953F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49953F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50328F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(185, 488);
             this.tableLayoutPanel1.TabIndex = 9;
+            // 
+            // btnImp
+            // 
+            this.btnImp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnImp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImp.Location = new System.Drawing.Point(3, 431);
+            this.btnImp.Name = "btnImp";
+            this.btnImp.Size = new System.Drawing.Size(159, 38);
+            this.btnImp.TabIndex = 10;
+            this.btnImp.Text = "Impartido";
+            this.btnImp.UseVisualStyleBackColor = true;
+            this.btnImp.Click += new System.EventHandler(this.btnImp_Click);
+            // 
+            // btnAsist
+            // 
+            this.btnAsist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAsist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsist.Location = new System.Drawing.Point(3, 372);
+            this.btnAsist.Name = "btnAsist";
+            this.btnAsist.Size = new System.Drawing.Size(159, 38);
+            this.btnAsist.TabIndex = 9;
+            this.btnAsist.Text = "Asistencia";
+            this.btnAsist.UseVisualStyleBackColor = true;
+            this.btnAsist.Click += new System.EventHandler(this.btnAsist_Click);
+            // 
+            // btnCon
+            // 
+            this.btnCon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCon.Location = new System.Drawing.Point(3, 313);
+            this.btnCon.Name = "btnCon";
+            this.btnCon.Size = new System.Drawing.Size(159, 38);
+            this.btnCon.TabIndex = 8;
+            this.btnCon.Text = "Consultar Salones";
+            this.btnCon.UseVisualStyleBackColor = true;
+            this.btnCon.Click += new System.EventHandler(this.btnCon_Click);
             // 
             // panel1
             // 
@@ -191,5 +240,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblResp;
+        private System.Windows.Forms.Button btnImp;
+        private System.Windows.Forms.Button btnAsist;
+        private System.Windows.Forms.Button btnCon;
     }
 }

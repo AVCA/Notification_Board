@@ -64,11 +64,7 @@ create table Asistencia(
     codProfesor int(4),
     fecha date,
     primary key (codDia, codHora, codSalon),
-    foreign key (codDia) references Dia (codDia)
-    on delete cascade on update cascade,
-    foreign key (codHora) references Horario (codHora)
-    on delete cascade on update cascade,
-    foreign key (codSalon) references Salon (codSalon)
+    foreign key (codDia, codHora, codSalon) references Imparte (codDia, codHora, codSalon)
     on delete cascade on update cascade,
     foreign key (codProfesor) references Profesor (codProfesor)
     on delete cascade on update cascade
@@ -112,7 +108,9 @@ insert into Horario(codHora, nombre) values(07,"07:00"),
                                            (19,"19:00"),
                                            (20,"20:00"),
                                            (21,"21:00"),
-                                           (22,"22:00");
+                                           (22,"22:00"),
+                                           (24,"24:00"),
+                                           (00,"00:00");
 
 insert into Dia(codDia, nombre) values (1,"Lunes"),
 									   (2,"Martes"),
@@ -166,7 +164,9 @@ insert into Imparte(codDia, codHora, codSalon, codMateria, codProfesor) values (
                                                                                (1,09,"FF4",2008,1008),
                                                                                (1,13,"FFD",2005,1010),
                                                                                (1,11,"FF2",2009,1009),
-                                                                               (1,16,"FF5",2007,1007);
+                                                                               (1,16,"FF5",2007,1007),
+                                                                               (1,00,"FF6",2002,1002),
+                                                                               (1,00,"FF7",2008,1008);
 
 insert into Imparte(codDia, codHora, codSalon, codMateria, codProfesor) values (5,08,"FF6",2001,1000),
 																			   (5,09,"FF1",2000,1001),
@@ -178,6 +178,9 @@ insert into Imparte(codDia, codHora, codSalon, codMateria, codProfesor) values (
                                                                                (5,13,"FFD",2005,1010),
                                                                                (5,11,"FF2",2009,1009),
                                                                                (5,16,"FF5",2007,1007);
+
+insert into Asistencia(codDia, codHora, codSalon, codProfesor, fecha) values (5,08,"FF6",1000,'2016-04-25'),
+																			 (1,00,"FF6",1002,'2016-05-07');
 
 -- ================================== Son todos los Select (Estan por orden) ===============================================
 delimiter $$
@@ -207,7 +210,6 @@ begin
 	Select Salon.codSalon as Codigo_Salon from Salon;
 end$$
 
-delimiter $$
 create procedure VerSalonesLibres(in codD int(1), codH int(2))	
 begin
 	select Salon.codSalon as Salon
@@ -246,7 +248,7 @@ end$$
 delimiter $$
 create procedure VerArchivos()
 begin
-	Select codArchivo as Codigo, nombre as Direccion_Archivo, duracion as Duracion_Seg from Archivos;
+	Select codArchivo as Codigo, nombre as Direccion_Archivo, duracion as Duracion from Archivos;
 end$$
 
 delimiter $$
@@ -265,8 +267,9 @@ end$$
 delimiter $$
 create procedure VerPorHora(in codD int(1), codH int(2))
 begin
-	Select Dia.nombre as Dia, Horario.nombre as Hora, Salon.codSalon as Salon, 
-    Profesor.nombre as Profesor, Materia.nombre as Materia
+	Select Dia.nombre as Dia, Horario.nombre as Hora, Salon.codSalon as Salon,
+    Profesor.nombre as Profesor, Materia.nombre as Materia, Dia.codDia, Horario.codHora, 
+    Salon.codSalon, Profesor.codProfesor
     from Imparte join Materia join Profesor join Salon join Horario join Dia
     on Imparte.codDia=Dia.codDia
     and Imparte.codHora=Horario.codHora
@@ -452,9 +455,13 @@ delimiter $$
 create function InsertarAsistencia(codD int(1), codHor int(2), codSal varchar(3), codProf int(4), fech date) returns varchar(4)
 begin
   declare respuesta varchar(4);
-  if not exists(select * from Asistencia where codDia=codD and codHors=codHor and codSalon=codSal) then
-	insert into Asistencia values(codD,codHor,codSal,codProf,fech);
-    set respuesta=1; -- Insercion Exitosa en Asistencia
+  if not exists(select * from Asistencia where codDia=codD and codHora=codHor and codSalon=codSal) then
+	if exists(select * from Imparte where codDia=codD and codHora=codHor and codSalon=codSal) then
+		insert into Asistencia values(codD,codHor,codSal,codProf,fech);
+		set respuesta=1; -- Insercion Exitosa en Asistencia
+	else
+		set respuesta=-1; -- No existe registro de ese horario
+	end if;
 else
 	set respuesta=0; -- Ya existe esa combinacion
 end if;

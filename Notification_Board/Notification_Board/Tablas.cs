@@ -46,6 +46,14 @@ namespace Notification_Board
             CargarSalon();
             CargarProfesor();
             CargarMaterias();
+            if (titulo == "Impartido")
+            {
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[2].Visible = false;
+            }
+
+            if (titulo == "Asistencia")
+                LlenarAsistencia();
         }
 
         private void Mostrar()
@@ -60,6 +68,32 @@ namespace Notification_Board
             CN_Operaciones ObjetoCN = new CN_Operaciones();
             cb_v1.DataSource = ObjetoCN.Mostrar(titulo);
            
+        }
+
+        private void LlenarAsistencia()
+        {
+            if (titulo == "Asistencia")
+            {
+
+                //Crea una conexion con la base de datos
+                DateTime ahora = DateTime.Now;
+                int dia = (int)ahora.DayOfWeek;
+                int hora = ahora.Hour;
+                dataGridView1.DataSource = ObjetoCN.Asistencia(dia.ToString(), hora.ToString());
+                this.HourTimer.Interval = 30000;
+                this.HourTimer.Start();
+
+                DataGridViewButtonColumn colAsis = new DataGridViewButtonColumn(); //Creacion del boton dentro del DGV
+                colAsis.Text = "Asistencia";
+                colAsis.UseColumnTextForButtonValue = true;
+                colAsis.FlatStyle = FlatStyle.Flat;
+                colAsis.Width = 30;
+                dataGridView1.Columns.Add(colAsis);
+                dataGridView1.Columns[5].Visible = false;
+                dataGridView1.Columns[6].Visible = false;
+                dataGridView1.Columns[7].Visible = false;
+                dataGridView1.Columns[8].Visible = false;
+            }
         }
 
         private void Formulario()
@@ -169,6 +203,12 @@ namespace Notification_Board
                     cb_v5.Visible = true;
                     // Cargar valores 
 
+                    break;
+                case "Asistencia":
+                    lbl_t.Text = titulo;
+                    btn_asistencia.Visible = true;
+                    btn_delete.Visible = false;
+                    btn_update.Visible = false;
                     break;
             }
         }
@@ -459,9 +499,40 @@ namespace Notification_Board
             }
         }
 
+        private void btn_asistencia_Click(object sender, EventArgs e)
+        {
+            String v1, v2, v3, v4, v5;
+            v1 = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            v2 = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            v3 = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+            v4 = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+            v5 = DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day;
+            Console.WriteLine(v1 + ".." + v2 + ".." + v3 + ".." + v4 + ".." + v5);
+            respuesta = ObjetoCN.Operaciones(titulo, "Insert", v1, v2, v3, v4, v5);
+            dataGridView1.CurrentRow.Cells[0].Value = "En clase";
+        }
+
         private void lbl_v5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Generar_Reporte_Click(object sender, EventArgs e)
+        {
+            sub_GUI(new Reportes("Reportes"));
+        }
+
+        // Metodo que permite mostrar la seccion seleccionada
+        private void sub_GUI(object subForm)
+        {
+            if (this.Controls.Count > 0)
+                this.Controls.RemoveAt(0);
+            Form fh = subForm as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.Controls.Add(fh);
+            this.Tag = fh;
+            fh.Show();
         }
 
         private void cb_v3_SelectedIndexChanged(object sender, EventArgs e)

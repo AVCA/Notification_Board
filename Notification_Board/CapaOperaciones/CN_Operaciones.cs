@@ -33,5 +33,11 @@ namespace CapaOperaciones
             tabla = objetoCD.Llenar(nombre);
             return tabla;
         }
+        public DataTable Asistencia(string v1, string v2)
+        {
+            DataTable tabla = new DataTable();
+            tabla = objetoCD.Asistencia(v1, v2);
+            return tabla;
+        }
     }
 }

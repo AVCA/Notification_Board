@@ -16,7 +16,7 @@ namespace Notification_Board
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GUI_Pc());
+            Application.Run(new LogIn());
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaOperaciones;
+using System.IO;
 
 namespace Notification_Board
 {
@@ -513,6 +514,14 @@ namespace Notification_Board
                         case "Archivo":
                             v1_u = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                             respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
+                            if (titulo == "Archivo")
+                            {
+                                string folder = "C:\\Fotos";
+                                string name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                                MessageBox.Show(name);
+                                string path = System.IO.Path.Combine(folder, name);
+                                File.Delete(path);
+                            }
                             Mostrar();
                             break;
                     }

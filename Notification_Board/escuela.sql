@@ -1,152 +1,202 @@
 create database escuela;
 use escuela;
 
--- TABLAS --
-create table Profesor (
-    codProfesor int(4),
+create table Profesor(
+	codProfesor int(4),
     nombre varchar(60),
     primary key (codProfesor)
-);
+); 
 
-create table Materia (
-    codMateria int(4),
+create table Materia(
+	codMateria int(4),
     nombre varchar(50),
     primary key (codMateria)
 );
 
-create table Impartido (
-    codMateria int(4),
+create table Impartido(
+	codMateria int(4),
     codProfesor int(4),
-    primary key (codMateria , codProfesor),
-    foreign key (codMateria)
-        references Materia (codMateria)
-        on delete cascade on update cascade,
-    foreign key (codProfesor)
-        references Profesor (codProfesor)
-        on delete cascade on update cascade
+    primary key (codMateria,codProfesor),
+    foreign key (codMateria) references Materia (codMateria)
+    on delete cascade on update cascade,
+    foreign key (codProfesor) references Profesor (codProfesor)
+    on delete cascade on update cascade
 );
 
-create table Salon (
-    codSalon varchar(3),
+create table Salon(
+	codSalon varchar(3),
     primary key (codSalon)
 );
 
-create table Horario (
-    codHora int(2),
+create table Horario(
+	codHora int(2),
     nombre varchar(10),
     primary key (codHora)
 );
 
-create table Dia (
-    codDia int(1),
+create table Dia(
+	codDia int(1),
     nombre varchar(10),
     primary key (codDia)
 );
 
-create table Imparte (
-    codDia int(1),
+create table Imparte(
+	codDia int(1),
     codHora int(2),
     codSalon varchar(3),
     codMateria int(4),
     codProfesor int(4),
-    primary key (codDia , codHora , codSalon),
-    foreign key (codDia)
-        references Dia (codDia)
-        on delete cascade on update cascade,
-    foreign key (codHora)
-        references Horario (codHora)
-        on delete cascade on update cascade,
-    foreign key (codSalon)
-        references Salon (codSalon)
-        on delete cascade on update cascade,
-    foreign key (codMateria , codProfesor)
-        references Impartido (codMateria , codProfesor)
-        on delete cascade on update cascade
+    primary key (codDia, codHora, codSalon),
+    foreign key (codDia) references Dia (codDia)
+    on delete cascade on update cascade,
+    foreign key (codHora) references Horario (codHora)
+    on delete cascade on update cascade,
+    foreign key (codSalon) references Salon (codSalon)
+    on delete cascade on update cascade,
+    foreign key (codMateria, codProfesor) references Impartido (codMateria, codProfesor)
+    on delete cascade on update cascade
 );
 
-create table Asistencia (
-    codDia int(1),
+create table Asistencia(
+	codDia int(1),
     codHora int(2),
     codSalon varchar(3),
     codProfesor int(4),
     fecha date,
-    primary key (codDia , codHora , codSalon),
-    foreign key (codDia)
-        references Dia (codDia)
-        on delete cascade on update cascade,
-    foreign key (codHora)
-        references Horario (codHora)
-        on delete cascade on update cascade,
-    foreign key (codSalon)
-        references Salon (codSalon)
-        on delete cascade on update cascade,
-    foreign key (codProfesor)
-        references Profesor (codProfesor)
-        on delete cascade on update cascade
+    primary key (codDia, codHora, codSalon),
+    foreign key (codDia) references Dia (codDia)
+    on delete cascade on update cascade,
+    foreign key (codHora) references Horario (codHora)
+    on delete cascade on update cascade,
+    foreign key (codSalon) references Salon (codSalon)
+    on delete cascade on update cascade,
+    foreign key (codProfesor) references Profesor (codProfesor)
+    on delete cascade on update cascade
 );
 
-create table Archivos (
-    codArchivo int(4),
+create table Archivos(
+	codArchivo int(4),
     nombre varchar(500),
     duracion int,
     primary key (codArchivo)
 );
 
--- ================================== INSERTS ===============================================
+insert into Salon(codSalon) values("FF1"), 
+								  ("FF2"), 
+                                  ("FF3"), 
+                                  ("FF4"), 
+                                  ("FF5"), 
+                                  ("FF6"), 
+                                  ("FF7"), 
+                                  ("FF8"), 
+                                  ("FF9"), 
+                                  ("FFA"), 
+                                  ("FFB"), 
+                                  ("FFC"), 
+                                  ("FFD"), 
+                                  ("AUD"), 
+                                  ("TIT");
 
-insert into Salon(codSalon) values("FF1"),("FF2"),("FF3"),("FF4"),("FF5"),("FF6"),
-("FF7"),("FF8"),("FF9"),("FFA"),("FFB"),("FFC"),("FFD"),("AUD"),("TIT");
+insert into Horario(codHora, nombre) values(07,"07:00"),
+										   (08,"08:00"),
+                                           (09,"09:00"),
+                                           (10,"10:00"),
+                                           (11,"11:00"),
+                                           (12,"12:00"),
+                                           (13,"13:00"),
+                                           (14,"14:00"),
+                                           (15,"15:00"),
+                                           (16,"16:00"),
+                                           (17,"17:00"),
+                                           (18,"18:00"),
+                                           (19,"19:00"),
+                                           (20,"20:00"),
+                                           (21,"21:00"),
+                                           (22,"22:00");
 
-insert into Horario(codHora, nombre) values(07,"07:00"),(08,"08:00"),(09,"09:00"),
-(10,"10:00"),(11,"11:00"),(12,"12:00"),(13,"13:00"),(14,"14:00"),(15,"15:00"),
-(16,"16:00"),(17,"17:00"),(18,"18:00"),(19,"19:00"),(20,"20:00"),(21,"21:00"),(22,"22:00");
-
-insert into Dia(codDia, nombre) values (1,"Lunes"),(2,"Martes"),(3,"Miercoles"),(4,"Jueves"),(5,"Viernes");
+insert into Dia(codDia, nombre) values (1,"Lunes"),
+									   (2,"Martes"),
+                                       (3,"Miercoles"),
+                                       (4,"Jueves"),
+                                       (5,"Viernes");
 
 insert into Profesor(codProfesor,nombre) values (1000,"Laura Taide Contreras Alvarez"),
-(1001,"Luis Francisco Cruces Alcantar"),(1002,"Graciela Mora Otero"),(1003,"Andres Berlanga Tellez Giron"),
-(1004,"Guadalupe Castilla Vazquez"),(1005,"Armando Becerra del Angel"),
-(1006,"Emilio Rocha Castan"),(1007,"Laura Cruz Reyes"),(1008,"Maria del Carmen de la Cruz Perez"),
-(1009,"Martha Bernanda Mojica Mata"),(1010,"Paula Araceli Aguilar Alcala");
+												(1001,"Luis Francisco Cruces Alcantar"),
+                                                (1002,"Graciela Mora Otero"),
+                                                (1003,"Andres Berlanga Tellez Giron"),
+                                                (1004,"Guadalupe Castilla Vazquez"),
+                                                (1005,"Armando Becerra del Angel"),
+                                                (1006,"Emilio Rocha Castan"),
+                                                (1007,"Laura Cruz Reyes"),
+                                                (1008,"Maria del Carmen de la Cruz Perez"),
+                                                (1009,"Martha Bernanda Mojica Mata"),
+                                                (1010,"Paula Araceli Aguilar Alcala");
 
-insert into Materia(codMateria,nombre) values (2000,"Taller de Investigacion 1"),(2001,"Ingenieria de Software"),
-(2002,"Simulacion"),(2003,"Administracion de Base de Datos"),(2004,"Modelos Matematicos y Algoritmos"),
-(2005,"Lenguajes y Automatas 1"),(2006,"Lenguajes de Interfaz"),(2007,"Mineria de Datos"),
-(2008,"Fundamentos de Base de Datos"),(2009,"Redes de Computadoras"),(2010,"Lenguajes y Automatas 2");
+insert into Materia(codMateria,nombre) values (2000,"Taller de Investigacion 1"),
+											  (2001,"Ingenieria de Software"),
+                                              (2002,"Simulacion"),
+                                              (2003,"Administracion de Base de Datos"),
+                                              (2004,"Modelos Matematicos y Algoritmos"),
+                                              (2005,"Lenguajes y Automatas 1"),
+                                              (2006,"Lenguajes de Interfaz"),
+                                              (2007,"Mineria de Datos"),
+                                              (2008,"Fundamentos de Base de Datos"),
+                                              (2009,"Redes de Computadoras"),
+                                              (2010,"Lenguajes y Automatas 2");
 
-insert into Impartido(codMateria, codProfesor) values (2000,1001),(2001,1000),(2002,1002),(2003,1003),
-(2004,1004),(2005,1005),(2005,1010),(2006,1006),(2007,1007),(2008,1008),(2009,1009),(2010,1010);
+insert into Impartido(codMateria, codProfesor) values (2000,1001),
+													  (2001,1000),
+                                                      (2002,1002),
+                                                      (2003,1003),
+                                                      (2004,1004),
+                                                      (2005,1005),
+                                                      (2005,1010),
+                                                      (2006,1006),
+                                                      (2007,1007),
+                                                      (2008,1008),
+                                                      (2009,1009),
+                                                      (2010,1010);
 
 insert into Imparte(codDia, codHora, codSalon, codMateria, codProfesor) values (1,08,"FF6",2001,1000),
-(1,09,"FF1",2000,1001),(1,10,"FFC",2002,1002),(1,11,"FF6",2003,1003),(1,14,"FFD",2004,1004),
-(1,16,"FF3",2005,1005),(1,09,"FF4",2008,1008),(1,13,"FFD",2005,1010),(1,11,"FF2",2009,1009),
-(1,16,"FF5",2007,1007);
+																			   (1,09,"FF1",2000,1001),
+                                                                               (1,10,"FFC",2002,1002),
+                                                                               (1,11,"FF6",2003,1003),
+                                                                               (1,14,"FFD",2004,1004),
+                                                                               (1,16,"FF3",2005,1005),
+                                                                               (1,09,"FF4",2008,1008),
+                                                                               (1,13,"FFD",2005,1010),
+                                                                               (1,11,"FF2",2009,1009),
+                                                                               (1,16,"FF5",2007,1007);
 
 insert into Imparte(codDia, codHora, codSalon, codMateria, codProfesor) values (5,08,"FF6",2001,1000),
-(5,09,"FF1",2000,1001),(5,10,"FFC",2002,1002),(5,11,"FF6",2003,1003),(5,14,"FFD",2004,1004),
-(5,16,"FF3",2005,1005),(5,09,"FF4",2008,1008),(5,13,"FFD",2005,1010),(5,11,"FF2",2009,1009),
-(5,16,"FF5",2007,1007);
+																			   (5,09,"FF1",2000,1001),
+                                                                               (5,10,"FFC",2002,1002),
+                                                                               (5,11,"FF6",2003,1003),
+                                                                               (5,14,"FFD",2004,1004),
+                                                                               (5,16,"FF3",2005,1005),
+                                                                               (5,09,"FF4",2008,1008),
+                                                                               (5,13,"FFD",2005,1010),
+                                                                               (5,11,"FF2",2009,1009),
+                                                                               (5,16,"FF5",2007,1007);
 
-insert into Archivos(codArchivo,nombre,duracion) values(1,"01.jpg",3);
-
--- ================================== SELECT ===============================================
+-- ================================== Son todos los Select (Estan por orden) ===============================================
 delimiter $$
 create procedure VerProfesor()
 begin
-  Select Profesor.codProfesor as Código, Profesor.nombre as Nombre from Profesor;
+  Select Profesor.codProfesor as Codigo, Profesor.nombre as Nombre from Profesor;
 end$$
 
 delimiter $$
 create procedure VerMateria()
 begin
-	Select Materia.codMateria as Código, Materia.nombre as Nombre from Materia;
+	Select Materia.codMateria as Codigo, Materia.nombre as Nombre from Materia;
 end$$
 
 delimiter $$
 create procedure VerImpartido()
 begin
-	Select Profesor.codProfesor as Código_Profesor, Profesor.nombre as Nombre_Profesor, 
-    Materia.codMateria as Código_Materia, Materia.nombre as Materia_Nombre 
+	Select Profesor.codProfesor as Codigo_Profesor, Profesor.nombre as Nombre_Profesor, 
+    Materia.codMateria as Codigo_Materia, Materia.nombre as Materia_Nombre 
     from Profesor join Materia join Impartido
     on Impartido.codMateria=Materia.codMateria and Impartido.codProfesor=Profesor.codProfesor;
 end$$
@@ -154,26 +204,36 @@ end$$
 delimiter $$
 create procedure VerSalon()
 begin
-	Select Salon.codSalon as Código_Salon from Salon;
+	Select Salon.codSalon as Codigo_Salon from Salon;
+end$$
+
+delimiter $$
+create procedure VerSalonesLibres(in codD int(1), codH int(2))	
+begin
+	select Salon.codSalon as Salon
+    from Salon
+    where codSalon not in( Select codSalon from Imparte 
+		  Where codDia=codD and codHora=codH);
+	
 end$$
 
 delimiter $$
 create procedure VerHorario()
 begin
-	Select Horario.codHora as Código, Horario.nombre as Nombre from Horario;
+	Select Horario.codHora as Codigo, Horario.nombre as Nombre from Horario;
 end$$
 
 delimiter $$
 create procedure VerDia()
 begin
-	Select Dia.codDia as Código, Dia.nombre as Nombre from Dia;
+	Select Dia.codDia as Codigo, Dia.nombre as Nombre from Dia;
 end$$
 
 delimiter $$
 create procedure VerImparte()
 begin
 	Select Dia.codDia, Horario.codHora, Profesor.nombre as Profesor, Materia.nombre as Materia, 
-    Dia.nombre as Día, Horario.nombre as Hora, Salon.codSalon as Salón
+    Dia.nombre as Dia, Horario.nombre as Hora, Salon.codSalon as Salon
     from Imparte join Profesor join Materia join Salon join Horario join Dia
     on Imparte.codProfesor=Profesor.codProfesor
     and Imparte.codMateria=Materia.codMateria
@@ -186,14 +246,14 @@ end$$
 delimiter $$
 create procedure VerArchivos()
 begin
-	Select codArchivo as Código, nombre as Dirección_Archivo, duracion as Duración_Seg from Archivos;
+	Select codArchivo as Codigo, nombre as Direccion_Archivo, duracion as Duracion_Seg from Archivos;
 end$$
 
 delimiter $$
 create procedure VerAsistencia()
 begin
-	Select Profesor.nombre as Profesor, Dia.nombre as Día, Horario.nombre as Hora, 
-    Salon.codSalon as Salón, Asistencia.fecha as Fecha 
+	Select Profesor.nombre as Profesor, Dia.nombre as Dia, Horario.nombre as Hora, 
+    Salon.codSalon as Salon, Asistencia.fecha as Fecha 
     from Asistencia join Profesor join Salon join Horario join Dia
     on Asistencia.codProfesor=Profesor.codProfesor
     and Asistencia.codDia=Dia.codDia
@@ -205,7 +265,7 @@ end$$
 delimiter $$
 create procedure VerPorHora(in codD int(1), codH int(2))
 begin
-	Select Dia.nombre as Día, Horario.nombre as Hora, Salon.codSalon as Salón, 
+	Select Dia.nombre as Dia, Horario.nombre as Hora, Salon.codSalon as Salon, 
     Profesor.nombre as Profesor, Materia.nombre as Materia
     from Imparte join Materia join Profesor join Salon join Horario join Dia
     on Imparte.codDia=Dia.codDia
@@ -218,7 +278,7 @@ begin
     order by Imparte.codSalon;
 end$$
 
--- ================================== DELETE ===============================================
+-- ================================== Son todos los Delete (Estan por orden) ===============================================
 delimiter $$
 create procedure EliminarProfesor(in codProf int(4))
 begin
@@ -279,7 +339,7 @@ begin
 	Delete from Asistencia where codDia=codD and codHora=codHor and codSalon=codSal;
 end$$
 
--- ============================================= INSERT =============================================
+-- ============================================= Son todos los Insert (Estan por orden) =============================================
 delimiter $$
 create function InsertarProfesor(codProf int(4), nomb varchar(60)) returns varchar(4)
 begin
@@ -401,7 +461,7 @@ end if;
     return respuesta;
 end$$
 
--- ============================================= UPDATE =============================================
+-- ============================================= Son todos los Update (Estan por orden) =============================================
 delimiter $$
 create function ActualizarProfesor(codProf int(4), codProfAct int(4), nombre varchar(60)) returns varchar(4)
 begin
@@ -475,6 +535,33 @@ begin
         end if;
     else
         set respuesta= -1; -- [ERROR] No existe el archivo
+    end if;
+    return respuesta; 
+end $$
+
+delimiter $$
+create function ActualizarHorario(codD int(1), codH int(2), codS varchar(3), codDAct int(1), 
+	codHAct int(2), codSAct varchar(3), codMAct int(4), codPAct int(4)) returns varchar(4)
+begin
+	declare respuesta varchar(4);
+    if exists(select * from Imparte where codDia=codD and codHora=codH and codSalon=codS) then
+		if exists(select * from Impartido where codMateria=codMAct and codProfesor=codPAct) then
+			if ((codM=codMAct and codP=codPAct) or not exists(select * from Imparte where codDia=codDAct and codHora=codHAct and codSalon=codSAct)) then
+				update Imparte set codDia=codDAct,
+								   codHora=codHAct,
+                                   codSalon=codSAct,
+                                   codMateria=codMAct,
+                                   codProfesor=codPAct
+				where codDia=codD and codHora=codH and codSalon=codS;
+				set respuesta=1; -- ¡Actualizacion exitosa!
+			else
+				set respuesta= -3; -- [ERROR] La clave del archivo ya existe
+			end if;
+		else
+			set respuesta=-2; -- No existe la combinacion Materia/Profesor
+        end if;
+    else
+        set respuesta= -1; -- [ERROR] No existe el registro del Horario
     end if;
     return respuesta; 
 end $$

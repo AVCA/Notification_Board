@@ -337,6 +337,7 @@
             this.btn_Salones.TabIndex = 38;
             this.btn_Salones.Text = "Consultar salones disponibles";
             this.btn_Salones.UseVisualStyleBackColor = false;
+            this.btn_Salones.Click += new System.EventHandler(this.btn_Salones_Click);
             // 
             // panel_Salones
             // 
@@ -607,6 +608,7 @@
             this.btn_Asistencia.TabIndex = 41;
             this.btn_Asistencia.Text = "Asistencias";
             this.btn_Asistencia.UseVisualStyleBackColor = false;
+            this.btn_Asistencia.Click += new System.EventHandler(this.btn_Asistencia_Click);
             // 
             // panel_Subinterfaz
             // 

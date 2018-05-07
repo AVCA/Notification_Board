@@ -132,5 +132,15 @@ namespace Notification_Board
         {
             sub_GUI(new Tablas("Archivo"));
         }
+
+        private void btn_Salones_Click(object sender, EventArgs e)
+        {
+            sub_GUI(new Reportes("Salones"));
+        }
+
+        private void btn_Asistencia_Click(object sender, EventArgs e)
+        {
+            sub_GUI(new Reportes("Asistencias"));
+        }
     }
 }

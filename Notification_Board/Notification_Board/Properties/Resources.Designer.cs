@@ -103,6 +103,26 @@ namespace Notification_Board.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo3_1000 {
+            get {
+                object obj = ResourceManager.GetObject("Logo3_1000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo4_1000 {
+            get {
+                object obj = ResourceManager.GetObject("Logo4_1000", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Materia {
             get {
                 object obj = ResourceManager.GetObject("Materia", resourceCulture);

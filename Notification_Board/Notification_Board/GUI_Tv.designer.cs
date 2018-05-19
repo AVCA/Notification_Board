@@ -42,6 +42,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.HourTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -51,7 +52,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.HourTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // panel1
@@ -122,7 +122,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(445, 512);
+            this.panel3.Size = new System.Drawing.Size(444, 512);
             this.panel3.TabIndex = 3;
             // 
             // pbxImagen2
@@ -130,7 +130,7 @@
             this.pbxImagen2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbxImagen2.Location = new System.Drawing.Point(0, 0);
             this.pbxImagen2.Name = "pbxImagen2";
-            this.pbxImagen2.Size = new System.Drawing.Size(445, 512);
+            this.pbxImagen2.Size = new System.Drawing.Size(444, 512);
             this.pbxImagen2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxImagen2.TabIndex = 1;
             this.pbxImagen2.TabStop = false;
@@ -140,7 +140,7 @@
             this.pbxImagen1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbxImagen1.Location = new System.Drawing.Point(0, 0);
             this.pbxImagen1.Name = "pbxImagen1";
-            this.pbxImagen1.Size = new System.Drawing.Size(445, 512);
+            this.pbxImagen1.Size = new System.Drawing.Size(444, 512);
             this.pbxImagen1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxImagen1.TabIndex = 0;
             this.pbxImagen1.TabStop = false;
@@ -164,16 +164,15 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(926, 518);
             this.tableLayoutPanel1.TabIndex = 4;
-            //this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // panel_2
+            // panel5
             // 
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.panel3);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(478, 3);
+            this.panel5.Location = new System.Drawing.Point(479, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(445, 512);
+            this.panel5.Size = new System.Drawing.Size(444, 512);
             this.panel5.TabIndex = 4;
             // 
             // panel6
@@ -182,14 +181,14 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(445, 24);
+            this.panel6.Size = new System.Drawing.Size(444, 24);
             this.panel6.TabIndex = 4;
             // 
             // HourTimer
             // 
             this.HourTimer.Tick += new System.EventHandler(this.HourTimer_Tick);
             // 
-            // tv
+            // GUI_Tv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,7 +196,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "tv";
+            this.Name = "GUI_Tv";
             this.Text = "p";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.tv_Load);

@@ -36,6 +36,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_t = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Generar_Reporte = new System.Windows.Forms.Button();
             this.btn_asistencia = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
@@ -73,7 +74,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbl_formulario = new System.Windows.Forms.Label();
             this.HourTimer = new System.Windows.Forms.Timer(this.components);
-            this.btn_Generar_Reporte = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -142,6 +142,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(605, 44);
             this.panel1.TabIndex = 3;
+            // 
+            // btn_Generar_Reporte
+            // 
+            this.btn_Generar_Reporte.AutoSize = true;
+            this.btn_Generar_Reporte.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_Generar_Reporte.Location = new System.Drawing.Point(305, 0);
+            this.btn_Generar_Reporte.Name = "btn_Generar_Reporte";
+            this.btn_Generar_Reporte.Size = new System.Drawing.Size(104, 44);
+            this.btn_Generar_Reporte.TabIndex = 10;
+            this.btn_Generar_Reporte.Text = "Generar reporte";
+            this.btn_Generar_Reporte.UseVisualStyleBackColor = true;
+            this.btn_Generar_Reporte.Click += new System.EventHandler(this.btn_Generar_Reporte_Click);
             // 
             // btn_asistencia
             // 
@@ -596,18 +608,6 @@
             this.lbl_formulario.Size = new System.Drawing.Size(99, 43);
             this.lbl_formulario.TabIndex = 4;
             this.lbl_formulario.Text = "Altas:";
-            // 
-            // btn_Generar_Reporte
-            // 
-            this.btn_Generar_Reporte.AutoSize = true;
-            this.btn_Generar_Reporte.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_Generar_Reporte.Location = new System.Drawing.Point(305, 0);
-            this.btn_Generar_Reporte.Name = "btn_Generar_Reporte";
-            this.btn_Generar_Reporte.Size = new System.Drawing.Size(104, 44);
-            this.btn_Generar_Reporte.TabIndex = 10;
-            this.btn_Generar_Reporte.Text = "Generar reporte";
-            this.btn_Generar_Reporte.UseVisualStyleBackColor = true;
-            this.btn_Generar_Reporte.Click += new System.EventHandler(this.btn_Generar_Reporte_Click);
             // 
             // Tablas
             // 

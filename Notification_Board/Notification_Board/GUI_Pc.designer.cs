@@ -30,48 +30,44 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI_Pc));
             this.panel_Barra = new System.Windows.Forms.Panel();
+            this.panel_Menu = new System.Windows.Forms.Panel();
+            this.panel_botones = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_Inicio = new System.Windows.Forms.Button();
+            this.panel_Inicio = new System.Windows.Forms.Panel();
+            this.btn_Iniciar_Proyeccion = new System.Windows.Forms.Button();
+            this.panel_Iniciar_Proyeccion = new System.Windows.Forms.Panel();
+            this.btn_Salones = new System.Windows.Forms.Button();
+            this.panel_Salones = new System.Windows.Forms.Panel();
+            this.btn_Informacion = new System.Windows.Forms.Button();
+            this.panel_Informacion = new System.Windows.Forms.Panel();
+            this.panel_Avisos = new System.Windows.Forms.Panel();
+            this.btn_Avisos = new System.Windows.Forms.Button();
+            this.panel_Imparte = new System.Windows.Forms.Panel();
+            this.btn_Imparte = new System.Windows.Forms.Button();
+            this.btn_Materias = new System.Windows.Forms.Button();
+            this.panel_Materias = new System.Windows.Forms.Panel();
+            this.btn_Profesores = new System.Windows.Forms.Button();
+            this.panel_Profesores = new System.Windows.Forms.Panel();
+            this.btn_Horarios = new System.Windows.Forms.Button();
+            this.panel_Horarios = new System.Windows.Forms.Panel();
+            this.panel_Asistencia = new System.Windows.Forms.Panel();
+            this.btn_Asistencia = new System.Windows.Forms.Button();
+            this.panel_Subinterfaz = new System.Windows.Forms.Panel();
+            this.pb_Inicio = new System.Windows.Forms.PictureBox();
+            this.pc_Iniciar_Proyeccion = new System.Windows.Forms.PictureBox();
+            this.pc_Salones = new System.Windows.Forms.PictureBox();
+            this.pc_Informacion = new System.Windows.Forms.PictureBox();
+            this.pc_Avisos = new System.Windows.Forms.PictureBox();
+            this.pc_Imparte = new System.Windows.Forms.PictureBox();
+            this.pc_Materias = new System.Windows.Forms.PictureBox();
+            this.pc_Profesores = new System.Windows.Forms.PictureBox();
+            this.pc_Horarios = new System.Windows.Forms.PictureBox();
+            this.pc_Asistencia = new System.Windows.Forms.PictureBox();
             this.btn_Restaurar = new System.Windows.Forms.PictureBox();
             this.btn_Minimizar = new System.Windows.Forms.PictureBox();
             this.btn_Maximizar = new System.Windows.Forms.PictureBox();
             this.btn_Cerrar = new System.Windows.Forms.PictureBox();
-            this.panel_Menu = new System.Windows.Forms.Panel();
-            this.panel_botones = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_Inicio = new System.Windows.Forms.Button();
-            this.pb_Inicio = new System.Windows.Forms.PictureBox();
-            this.panel_Inicio = new System.Windows.Forms.Panel();
-            this.btn_Iniciar_Proyeccion = new System.Windows.Forms.Button();
-            this.pc_Iniciar_Proyeccion = new System.Windows.Forms.PictureBox();
-            this.panel_Iniciar_Proyeccion = new System.Windows.Forms.Panel();
-            this.pc_Salones = new System.Windows.Forms.PictureBox();
-            this.btn_Salones = new System.Windows.Forms.Button();
-            this.panel_Salones = new System.Windows.Forms.Panel();
-            this.btn_Informacion = new System.Windows.Forms.Button();
-            this.pc_Informacion = new System.Windows.Forms.PictureBox();
-            this.panel_Informacion = new System.Windows.Forms.Panel();
-            this.panel_Avisos = new System.Windows.Forms.Panel();
-            this.pc_Avisos = new System.Windows.Forms.PictureBox();
-            this.btn_Avisos = new System.Windows.Forms.Button();
-            this.pc_Imparte = new System.Windows.Forms.PictureBox();
-            this.panel_Imparte = new System.Windows.Forms.Panel();
-            this.btn_Imparte = new System.Windows.Forms.Button();
-            this.btn_Materias = new System.Windows.Forms.Button();
-            this.pc_Materias = new System.Windows.Forms.PictureBox();
-            this.panel_Materias = new System.Windows.Forms.Panel();
-            this.btn_Profesores = new System.Windows.Forms.Button();
-            this.pc_Profesores = new System.Windows.Forms.PictureBox();
-            this.panel_Profesores = new System.Windows.Forms.Panel();
-            this.btn_Horarios = new System.Windows.Forms.Button();
-            this.pc_Horarios = new System.Windows.Forms.PictureBox();
-            this.panel_Horarios = new System.Windows.Forms.Panel();
-            this.panel_Asistencia = new System.Windows.Forms.Panel();
-            this.pc_Asistencia = new System.Windows.Forms.PictureBox();
-            this.btn_Asistencia = new System.Windows.Forms.Button();
-            this.panel_Subinterfaz = new System.Windows.Forms.Panel();
             this.panel_Barra.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Restaurar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Minimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Maximizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             this.panel_Menu.SuspendLayout();
             this.panel_botones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Inicio)).BeginInit();
@@ -84,6 +80,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pc_Profesores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pc_Horarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pc_Asistencia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Restaurar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Minimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Maximizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Barra
@@ -99,59 +99,6 @@
             this.panel_Barra.Size = new System.Drawing.Size(1300, 38);
             this.panel_Barra.TabIndex = 0;
             this.panel_Barra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
-            // 
-            // btn_Restaurar
-            // 
-            this.btn_Restaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Restaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Restaurar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Restaurar.Image")));
-            this.btn_Restaurar.Location = new System.Drawing.Point(1221, 6);
-            this.btn_Restaurar.Name = "btn_Restaurar";
-            this.btn_Restaurar.Size = new System.Drawing.Size(25, 25);
-            this.btn_Restaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_Restaurar.TabIndex = 3;
-            this.btn_Restaurar.TabStop = false;
-            this.btn_Restaurar.Visible = false;
-            this.btn_Restaurar.Click += new System.EventHandler(this.btn_Restaurar_Click);
-            // 
-            // btn_Minimizar
-            // 
-            this.btn_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Minimizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Minimizar.Image")));
-            this.btn_Minimizar.Location = new System.Drawing.Point(1180, 6);
-            this.btn_Minimizar.Name = "btn_Minimizar";
-            this.btn_Minimizar.Size = new System.Drawing.Size(25, 25);
-            this.btn_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_Minimizar.TabIndex = 2;
-            this.btn_Minimizar.TabStop = false;
-            this.btn_Minimizar.Click += new System.EventHandler(this.btn_Minimizar_Click);
-            // 
-            // btn_Maximizar
-            // 
-            this.btn_Maximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Maximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Maximizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Maximizar.Image")));
-            this.btn_Maximizar.Location = new System.Drawing.Point(1221, 6);
-            this.btn_Maximizar.Name = "btn_Maximizar";
-            this.btn_Maximizar.Size = new System.Drawing.Size(25, 25);
-            this.btn_Maximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_Maximizar.TabIndex = 1;
-            this.btn_Maximizar.TabStop = false;
-            this.btn_Maximizar.Click += new System.EventHandler(this.btn_Maximizar_Click);
-            // 
-            // btn_Cerrar
-            // 
-            this.btn_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
-            this.btn_Cerrar.Location = new System.Drawing.Point(1262, 6);
-            this.btn_Cerrar.Name = "btn_Cerrar";
-            this.btn_Cerrar.Size = new System.Drawing.Size(25, 25);
-            this.btn_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_Cerrar.TabIndex = 0;
-            this.btn_Cerrar.TabStop = false;
-            this.btn_Cerrar.Click += new System.EventHandler(this.btn_Cerrar_Click);
             // 
             // panel_Menu
             // 
@@ -247,17 +194,6 @@
             this.btn_Inicio.UseVisualStyleBackColor = false;
             this.btn_Inicio.Click += new System.EventHandler(this.btn_Inicio_Click);
             // 
-            // pb_Inicio
-            // 
-            this.pb_Inicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pb_Inicio.Image = global::Notification_Board.Properties.Resources.Inicio;
-            this.pb_Inicio.Location = new System.Drawing.Point(15, 38);
-            this.pb_Inicio.Name = "pb_Inicio";
-            this.pb_Inicio.Size = new System.Drawing.Size(42, 29);
-            this.pb_Inicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_Inicio.TabIndex = 0;
-            this.pb_Inicio.TabStop = false;
-            // 
             // panel_Inicio
             // 
             this.panel_Inicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(0)))));
@@ -288,17 +224,6 @@
             this.btn_Iniciar_Proyeccion.UseVisualStyleBackColor = false;
             this.btn_Iniciar_Proyeccion.Click += new System.EventHandler(this.btn_GUI_Tv_Click);
             // 
-            // pc_Iniciar_Proyeccion
-            // 
-            this.pc_Iniciar_Proyeccion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pc_Iniciar_Proyeccion.Image = global::Notification_Board.Properties.Resources.proyeccion;
-            this.pc_Iniciar_Proyeccion.Location = new System.Drawing.Point(15, 93);
-            this.pc_Iniciar_Proyeccion.Name = "pc_Iniciar_Proyeccion";
-            this.pc_Iniciar_Proyeccion.Size = new System.Drawing.Size(42, 29);
-            this.pc_Iniciar_Proyeccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pc_Iniciar_Proyeccion.TabIndex = 25;
-            this.pc_Iniciar_Proyeccion.TabStop = false;
-            // 
             // panel_Iniciar_Proyeccion
             // 
             this.panel_Iniciar_Proyeccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(0)))));
@@ -307,18 +232,6 @@
             this.panel_Iniciar_Proyeccion.Name = "panel_Iniciar_Proyeccion";
             this.panel_Iniciar_Proyeccion.Size = new System.Drawing.Size(6, 29);
             this.panel_Iniciar_Proyeccion.TabIndex = 32;
-            // 
-            // pc_Salones
-            // 
-            this.pc_Salones.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pc_Salones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pc_Salones.Image = global::Notification_Board.Properties.Resources.Horario;
-            this.pc_Salones.Location = new System.Drawing.Point(15, 148);
-            this.pc_Salones.Name = "pc_Salones";
-            this.pc_Salones.Size = new System.Drawing.Size(42, 29);
-            this.pc_Salones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pc_Salones.TabIndex = 37;
-            this.pc_Salones.TabStop = false;
             // 
             // btn_Salones
             // 
@@ -366,17 +279,6 @@
             this.btn_Informacion.UseVisualStyleBackColor = false;
             this.btn_Informacion.Click += new System.EventHandler(this.btn_Ayuda_Click);
             // 
-            // pc_Informacion
-            // 
-            this.pc_Informacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pc_Informacion.Image = global::Notification_Board.Properties.Resources.Ayuda;
-            this.pc_Informacion.Location = new System.Drawing.Point(15, 533);
-            this.pc_Informacion.Name = "pc_Informacion";
-            this.pc_Informacion.Size = new System.Drawing.Size(42, 29);
-            this.pc_Informacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pc_Informacion.TabIndex = 31;
-            this.pc_Informacion.TabStop = false;
-            // 
             // panel_Informacion
             // 
             this.panel_Informacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(0)))));
@@ -392,17 +294,6 @@
             this.panel_Avisos.Name = "panel_Avisos";
             this.panel_Avisos.Size = new System.Drawing.Size(6, 29);
             this.panel_Avisos.TabIndex = 34;
-            // 
-            // pc_Avisos
-            // 
-            this.pc_Avisos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pc_Avisos.Image = global::Notification_Board.Properties.Resources.Avisos;
-            this.pc_Avisos.Location = new System.Drawing.Point(15, 478);
-            this.pc_Avisos.Name = "pc_Avisos";
-            this.pc_Avisos.Size = new System.Drawing.Size(42, 29);
-            this.pc_Avisos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pc_Avisos.TabIndex = 30;
-            this.pc_Avisos.TabStop = false;
             // 
             // btn_Avisos
             // 
@@ -421,17 +312,6 @@
             this.btn_Avisos.Text = "Avisos";
             this.btn_Avisos.UseVisualStyleBackColor = false;
             this.btn_Avisos.Click += new System.EventHandler(this.btn_Avisos_Click);
-            // 
-            // pc_Imparte
-            // 
-            this.pc_Imparte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pc_Imparte.Image = global::Notification_Board.Properties.Resources.Materia;
-            this.pc_Imparte.Location = new System.Drawing.Point(15, 423);
-            this.pc_Imparte.Name = "pc_Imparte";
-            this.pc_Imparte.Size = new System.Drawing.Size(42, 29);
-            this.pc_Imparte.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pc_Imparte.TabIndex = 29;
-            this.pc_Imparte.TabStop = false;
             // 
             // panel_Imparte
             // 
@@ -479,17 +359,6 @@
             this.btn_Materias.UseVisualStyleBackColor = false;
             this.btn_Materias.Click += new System.EventHandler(this.btn_Materias_Click);
             // 
-            // pc_Materias
-            // 
-            this.pc_Materias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pc_Materias.Image = ((System.Drawing.Image)(resources.GetObject("pc_Materias.Image")));
-            this.pc_Materias.Location = new System.Drawing.Point(15, 368);
-            this.pc_Materias.Name = "pc_Materias";
-            this.pc_Materias.Size = new System.Drawing.Size(42, 29);
-            this.pc_Materias.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pc_Materias.TabIndex = 28;
-            this.pc_Materias.TabStop = false;
-            // 
             // panel_Materias
             // 
             this.panel_Materias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(0)))));
@@ -515,17 +384,6 @@
             this.btn_Profesores.Text = "Profesores";
             this.btn_Profesores.UseVisualStyleBackColor = false;
             this.btn_Profesores.Click += new System.EventHandler(this.btn_Profesor_Click);
-            // 
-            // pc_Profesores
-            // 
-            this.pc_Profesores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pc_Profesores.Image = ((System.Drawing.Image)(resources.GetObject("pc_Profesores.Image")));
-            this.pc_Profesores.Location = new System.Drawing.Point(15, 313);
-            this.pc_Profesores.Name = "pc_Profesores";
-            this.pc_Profesores.Size = new System.Drawing.Size(42, 29);
-            this.pc_Profesores.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pc_Profesores.TabIndex = 27;
-            this.pc_Profesores.TabStop = false;
             // 
             // panel_Profesores
             // 
@@ -553,17 +411,6 @@
             this.btn_Horarios.UseVisualStyleBackColor = false;
             this.btn_Horarios.Click += new System.EventHandler(this.btn_Horarios_Click);
             // 
-            // pc_Horarios
-            // 
-            this.pc_Horarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pc_Horarios.Image = global::Notification_Board.Properties.Resources.Horario;
-            this.pc_Horarios.Location = new System.Drawing.Point(15, 258);
-            this.pc_Horarios.Name = "pc_Horarios";
-            this.pc_Horarios.Size = new System.Drawing.Size(42, 29);
-            this.pc_Horarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pc_Horarios.TabIndex = 26;
-            this.pc_Horarios.TabStop = false;
-            // 
             // panel_Horarios
             // 
             this.panel_Horarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(0)))));
@@ -579,18 +426,6 @@
             this.panel_Asistencia.Name = "panel_Asistencia";
             this.panel_Asistencia.Size = new System.Drawing.Size(6, 29);
             this.panel_Asistencia.TabIndex = 39;
-            // 
-            // pc_Asistencia
-            // 
-            this.pc_Asistencia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pc_Asistencia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pc_Asistencia.Image = global::Notification_Board.Properties.Resources.Horario;
-            this.pc_Asistencia.Location = new System.Drawing.Point(15, 203);
-            this.pc_Asistencia.Name = "pc_Asistencia";
-            this.pc_Asistencia.Size = new System.Drawing.Size(42, 29);
-            this.pc_Asistencia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pc_Asistencia.TabIndex = 40;
-            this.pc_Asistencia.TabStop = false;
             // 
             // btn_Asistencia
             // 
@@ -620,6 +455,171 @@
             this.panel_Subinterfaz.Size = new System.Drawing.Size(1080, 612);
             this.panel_Subinterfaz.TabIndex = 4;
             // 
+            // pb_Inicio
+            // 
+            this.pb_Inicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pb_Inicio.Image = global::Notification_Board.Properties.Resources.Inicio;
+            this.pb_Inicio.Location = new System.Drawing.Point(15, 38);
+            this.pb_Inicio.Name = "pb_Inicio";
+            this.pb_Inicio.Size = new System.Drawing.Size(42, 29);
+            this.pb_Inicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Inicio.TabIndex = 0;
+            this.pb_Inicio.TabStop = false;
+            // 
+            // pc_Iniciar_Proyeccion
+            // 
+            this.pc_Iniciar_Proyeccion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pc_Iniciar_Proyeccion.Image = global::Notification_Board.Properties.Resources.proyeccion;
+            this.pc_Iniciar_Proyeccion.Location = new System.Drawing.Point(15, 93);
+            this.pc_Iniciar_Proyeccion.Name = "pc_Iniciar_Proyeccion";
+            this.pc_Iniciar_Proyeccion.Size = new System.Drawing.Size(42, 29);
+            this.pc_Iniciar_Proyeccion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pc_Iniciar_Proyeccion.TabIndex = 25;
+            this.pc_Iniciar_Proyeccion.TabStop = false;
+            // 
+            // pc_Salones
+            // 
+            this.pc_Salones.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pc_Salones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pc_Salones.Image = global::Notification_Board.Properties.Resources.Horario;
+            this.pc_Salones.Location = new System.Drawing.Point(15, 148);
+            this.pc_Salones.Name = "pc_Salones";
+            this.pc_Salones.Size = new System.Drawing.Size(42, 29);
+            this.pc_Salones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pc_Salones.TabIndex = 37;
+            this.pc_Salones.TabStop = false;
+            // 
+            // pc_Informacion
+            // 
+            this.pc_Informacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pc_Informacion.Image = global::Notification_Board.Properties.Resources.Ayuda;
+            this.pc_Informacion.Location = new System.Drawing.Point(15, 533);
+            this.pc_Informacion.Name = "pc_Informacion";
+            this.pc_Informacion.Size = new System.Drawing.Size(42, 29);
+            this.pc_Informacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pc_Informacion.TabIndex = 31;
+            this.pc_Informacion.TabStop = false;
+            // 
+            // pc_Avisos
+            // 
+            this.pc_Avisos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pc_Avisos.Image = global::Notification_Board.Properties.Resources.Avisos;
+            this.pc_Avisos.Location = new System.Drawing.Point(15, 478);
+            this.pc_Avisos.Name = "pc_Avisos";
+            this.pc_Avisos.Size = new System.Drawing.Size(42, 29);
+            this.pc_Avisos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pc_Avisos.TabIndex = 30;
+            this.pc_Avisos.TabStop = false;
+            // 
+            // pc_Imparte
+            // 
+            this.pc_Imparte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pc_Imparte.Image = global::Notification_Board.Properties.Resources.Materia;
+            this.pc_Imparte.Location = new System.Drawing.Point(15, 423);
+            this.pc_Imparte.Name = "pc_Imparte";
+            this.pc_Imparte.Size = new System.Drawing.Size(42, 29);
+            this.pc_Imparte.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pc_Imparte.TabIndex = 29;
+            this.pc_Imparte.TabStop = false;
+            // 
+            // pc_Materias
+            // 
+            this.pc_Materias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pc_Materias.Image = ((System.Drawing.Image)(resources.GetObject("pc_Materias.Image")));
+            this.pc_Materias.Location = new System.Drawing.Point(15, 368);
+            this.pc_Materias.Name = "pc_Materias";
+            this.pc_Materias.Size = new System.Drawing.Size(42, 29);
+            this.pc_Materias.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pc_Materias.TabIndex = 28;
+            this.pc_Materias.TabStop = false;
+            // 
+            // pc_Profesores
+            // 
+            this.pc_Profesores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pc_Profesores.Image = ((System.Drawing.Image)(resources.GetObject("pc_Profesores.Image")));
+            this.pc_Profesores.Location = new System.Drawing.Point(15, 313);
+            this.pc_Profesores.Name = "pc_Profesores";
+            this.pc_Profesores.Size = new System.Drawing.Size(42, 29);
+            this.pc_Profesores.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pc_Profesores.TabIndex = 27;
+            this.pc_Profesores.TabStop = false;
+            // 
+            // pc_Horarios
+            // 
+            this.pc_Horarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pc_Horarios.Image = global::Notification_Board.Properties.Resources.Horario;
+            this.pc_Horarios.Location = new System.Drawing.Point(15, 258);
+            this.pc_Horarios.Name = "pc_Horarios";
+            this.pc_Horarios.Size = new System.Drawing.Size(42, 29);
+            this.pc_Horarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pc_Horarios.TabIndex = 26;
+            this.pc_Horarios.TabStop = false;
+            // 
+            // pc_Asistencia
+            // 
+            this.pc_Asistencia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pc_Asistencia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pc_Asistencia.Image = global::Notification_Board.Properties.Resources.Horario;
+            this.pc_Asistencia.Location = new System.Drawing.Point(15, 203);
+            this.pc_Asistencia.Name = "pc_Asistencia";
+            this.pc_Asistencia.Size = new System.Drawing.Size(42, 29);
+            this.pc_Asistencia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pc_Asistencia.TabIndex = 40;
+            this.pc_Asistencia.TabStop = false;
+            // 
+            // btn_Restaurar
+            // 
+            this.btn_Restaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Restaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Restaurar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Restaurar.Image")));
+            this.btn_Restaurar.Location = new System.Drawing.Point(1221, 6);
+            this.btn_Restaurar.Name = "btn_Restaurar";
+            this.btn_Restaurar.Size = new System.Drawing.Size(25, 25);
+            this.btn_Restaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_Restaurar.TabIndex = 3;
+            this.btn_Restaurar.TabStop = false;
+            this.btn_Restaurar.Visible = false;
+            this.btn_Restaurar.Click += new System.EventHandler(this.btn_Restaurar_Click);
+            // 
+            // btn_Minimizar
+            // 
+            this.btn_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Minimizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Minimizar.Image")));
+            this.btn_Minimizar.Location = new System.Drawing.Point(1180, 6);
+            this.btn_Minimizar.Name = "btn_Minimizar";
+            this.btn_Minimizar.Size = new System.Drawing.Size(25, 25);
+            this.btn_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_Minimizar.TabIndex = 2;
+            this.btn_Minimizar.TabStop = false;
+            this.btn_Minimizar.Click += new System.EventHandler(this.btn_Minimizar_Click);
+            // 
+            // btn_Maximizar
+            // 
+            this.btn_Maximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Maximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Maximizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Maximizar.Image")));
+            this.btn_Maximizar.Location = new System.Drawing.Point(1221, 6);
+            this.btn_Maximizar.Name = "btn_Maximizar";
+            this.btn_Maximizar.Size = new System.Drawing.Size(25, 25);
+            this.btn_Maximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_Maximizar.TabIndex = 1;
+            this.btn_Maximizar.TabStop = false;
+            this.btn_Maximizar.Click += new System.EventHandler(this.btn_Maximizar_Click);
+            // 
+            // btn_Cerrar
+            // 
+            this.btn_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
+            this.btn_Cerrar.Location = new System.Drawing.Point(1262, 6);
+            this.btn_Cerrar.Name = "btn_Cerrar";
+            this.btn_Cerrar.Size = new System.Drawing.Size(25, 25);
+            this.btn_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_Cerrar.TabIndex = 0;
+            this.btn_Cerrar.TabStop = false;
+            this.btn_Cerrar.Click += new System.EventHandler(this.btn_Cerrar_Click);
+            // 
             // GUI_Pc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -629,14 +629,11 @@
             this.Controls.Add(this.panel_Menu);
             this.Controls.Add(this.panel_Barra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GUI_Pc";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.GUI_Pc_Load);
             this.panel_Barra.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Restaurar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Minimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Maximizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).EndInit();
             this.panel_Menu.ResumeLayout(false);
             this.panel_botones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_Inicio)).EndInit();
@@ -649,6 +646,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pc_Profesores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pc_Horarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pc_Asistencia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Restaurar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Minimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Maximizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).EndInit();
             this.ResumeLayout(false);
 
         }

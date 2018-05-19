@@ -1,6 +1,17 @@
 # Notification_Board
 ## COSAS PENDIENTES:
 
+### Observaciones:
+- [ ] Iniciar proyeccion: No comprendo como se mostraran los horarios.
+- [ ] Consultar salones: No comprendo como se mostraran los salones disponibles. Aun tengo que mejorar su diseño.
+- [ ] Asistencia: No comprendo como funciona. Al momento de abrir la seccion informacion innescesaria por un segundo.
+- [ ] Horarios: No me permite actualizar.
+- [ ] Profesores:
+- [ ] Materias:
+- [ ] Impartido: No me permite actualizar. Si elimino una tupla no afecta a otra tabla?
+- [ ] Avisos: Pendiente, tengo qe realizar unas modificaciones que me encargo Andres.
+- [ ] Ayuda: 
+
 ### Diagrama de casos de uso:
 - [x] Alta de Avisos
 - [x] Baja de Avisos

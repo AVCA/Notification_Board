@@ -6,11 +6,12 @@
 - [ ] Consultar salones: No comprendo como se mostraran los salones disponibles. Aun tengo que mejorar su diseño.
 - [ ] Asistencia: No comprendo como funciona. Al momento de abrir la seccion informacion innescesaria por un segundo.
 - [ ] Horarios: No me permite actualizar.
-- [ ] Profesores:
-- [ ] Materias:
+- [x] Profesores:
+- [x] Materias:
 - [ ] Impartido: No me permite actualizar. Si elimino una tupla no afecta a otra tabla?
 - [ ] Avisos: Pendiente, tengo qe realizar unas modificaciones que me encargo Andres.
-- [ ] Ayuda: 
+- [x] Ayuda: 
+- [ ] FORMULARIOS: No se porque en todos los formularios hay un boton de generar reporte y asistencia. No se en donde deben de estar esos botones.
 
 ### Diagrama de casos de uso:
 - [x] Alta de Avisos
@@ -22,6 +23,7 @@
 - [ ] Actualizacion de horario
 - [ ] Registrar asistencia del maestro
 - [x] Consultar reporte de asistencias
+
 
 ### Requisitos especificos:
 - [x] Autentificar administrador

@@ -195,6 +195,15 @@ begin
 	Select Materia.codMateria as Codigo, Materia.nombre as Nombre from Materia;
 end$$
 
+drop procedure if exists VerMateria_Impartidas;
+delimiter $$
+create procedure VerMateria_Impartidas()
+begin
+	Select DISTINCT Materia.codMateria as Codigo, Materia.nombre as Nombre from Materia, impartido
+	where Materia.codMateria = impartido.codMateria;
+end$$
+call VerMateria_Impartidas();
+
 delimiter $$
 create procedure VerImpartido()
 begin
@@ -203,6 +212,15 @@ begin
     from Profesor join Materia join Impartido
     on Impartido.codMateria=Materia.codMateria and Impartido.codProfesor=Profesor.codProfesor;
 end$$
+call VerImpartido();
+
+delimiter $$
+create procedure VerMateria_Imparte_Profesor(in codMateria int(4))
+begin
+	Select impartido.codProfesor as Codigo_Profesor, profesor.nombre as Nombre_Profesor
+    from impartido,profesor where impartido.codMateria = codMateria and profesor.codProfesor=impartido.codProfesor;
+end$$
+call VerMateria_Imparte_Profesor(2000);
 
 delimiter $$
 create procedure VerSalon()

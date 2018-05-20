@@ -13,19 +13,24 @@ namespace Notification_Board
 {
     public partial class GUI_Pc : Form
     {
-        // ============================================================
-        //                      I N T E R F A Z
-        // ============================================================
+        // VARIABLES:
+        Boolean proyeccion=false;
+        GUI_Tv form;
 
+        // ============================================================
+        //                     I N T E R F A Z
+        // ============================================================
         // 1) Creacion del Form padre. Interfaz base.
         public GUI_Pc()
         {
             InitializeComponent();
+            // Creacion del Form Tv. Aunque este creado aun no es visible.
+            form = new GUI_Tv();
             // Creacion del Form hijo. Subinterfaz dentro de la Interfaz base.
             // La subinterfaz inicial sera la interfaz de Inicio.
             sub_GUI(new Inicio());
-        }
 
+        }
         // 2) Creamos las acciones para los botones
         // correspondientes a la barra superior de la Interfaz
         // Boton: Cerrar
@@ -36,14 +41,18 @@ namespace Notification_Board
         // Boton: Maximizar
         private void btn_Maximizar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+            Location = new Point(0, 0);
+            Rectangle workingRectangle = Screen.PrimaryScreen.WorkingArea;
+            this.Size = new Size(workingRectangle.Width, workingRectangle.Height);
             btn_Maximizar.Visible = false;
             btn_Restaurar.Visible = true;
         }
         // Boton: Restaurar
         private void btn_Restaurar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
+            this.Size = new Size(1300, 650);
+            this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
+                          (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
             btn_Restaurar.Visible = false;
             btn_Maximizar.Visible = true;
         }
@@ -52,13 +61,11 @@ namespace Notification_Board
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         // 3) Se carga la Interfaz creada
         private void GUI_Pc_Load(object sender, EventArgs e)
         {
 
         }
-
         // 4)  Elementos que permiten trasladar la interfaz 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -74,7 +81,6 @@ namespace Notification_Board
         // ============================================================
         //                     S U B I N T E R F A Z
         // ============================================================
-
         // Metodo que permite mostrar la seccion seleccionada
         private void sub_GUI(object subForm)
         {
@@ -87,15 +93,26 @@ namespace Notification_Board
             this.panel_Subinterfaz.Tag = fh;
             fh.Show();
         }
-
         // Creamos las acciones para los botones
         // correspondientes al menu lateral de la Interfaz
         // Boton: Iniciar proyeccion
         private void btn_GUI_Tv_Click(object sender, EventArgs e)
-        {
-            GUI_Tv form = new GUI_Tv();
-            form.Show();
-            sub_GUI(new GUI_Tv());
+        { 
+            if (proyeccion==false)
+            {
+                proyeccion = true;
+                btn_Iniciar_Proyeccion.Text = "Finalizar proyección";
+                btn_Iniciar_Proyeccion.Font = new Font(btn_Iniciar_Proyeccion.Font.FontFamily, 9);
+                form.Show();
+                sub_GUI(new GUI_Tv());
+            }
+            else
+            {
+                proyeccion = false;
+                btn_Iniciar_Proyeccion.Font = new Font(btn_Iniciar_Proyeccion.Font.FontFamily, 11);
+                btn_Iniciar_Proyeccion.Text = "Iniciar proyección";
+                form.Hide();
+            }
         }
         // Boton: Inicio
         private void btn_Inicio_Click(object sender, EventArgs e)
@@ -132,15 +149,15 @@ namespace Notification_Board
         {
             sub_GUI(new Tablas("Archivo"));
         }
-
+        // Boton: Consultar salones disponibles
         private void btn_Salones_Click(object sender, EventArgs e)
         {
-            sub_GUI(new Reportes("Salones"));
+            sub_GUI(new Tablas("Salones"));
         }
-
+        // Boton: Asistencias
         private void btn_Asistencia_Click(object sender, EventArgs e)
         {
-            sub_GUI(new Tablas("Asistencia"));
+            sub_GUI(new Tablas("Asistencias"));
         }
     }
 }

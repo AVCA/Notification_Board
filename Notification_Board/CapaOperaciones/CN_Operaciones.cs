@@ -15,23 +15,22 @@ namespace CapaOperaciones
         public String respuesta;
         private CD_Operaciones objetoCD = new CD_Operaciones();
 
-        public DataTable Mostrar(string titulo)
+        public DataTable Mostrar_DGV(string titulo)
         {
             DataTable tabla = new DataTable();
-            tabla = objetoCD.Mostrar(titulo);
+            tabla = objetoCD.Mostrar_DGV(titulo);
+            return tabla;
+        }
+        public DataTable Mostrar_CB(string titulo, string sub_titulo, string v1)
+        {
+            DataTable tabla = new DataTable();
+            tabla = objetoCD.Mostrar_CB(titulo, sub_titulo,v1);
             return tabla;
         }
         public String Operaciones(string tabla,string ope, string v1, string v2, string v3, string v4, string v5)
         {
             respuesta=objetoCD.Operaciones(tabla,ope,v1,v2,v3,v4,v5);
             return respuesta;
-        }
-
-        public DataTable Llenar(string nombre)
-        {
-            DataTable tabla = new DataTable();
-            tabla = objetoCD.Llenar(nombre);
-            return tabla;
         }
         public DataTable Asistencia(string v1, string v2)
         {

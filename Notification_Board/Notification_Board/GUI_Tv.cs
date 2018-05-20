@@ -101,7 +101,7 @@ namespace Notification_Board
             leer = comando.ExecuteReader();
             DataTable tabla2 = new DataTable();
             tabla2.Load(leer);
-            this.dataGridView1.DataSource = tabla2;
+            this.dgv_Horarios.DataSource = tabla2;
             Conexion.Close();
             numRows = tabla.Rows.Count;
             if (numRows != 0)
@@ -151,7 +151,7 @@ namespace Notification_Board
                 leer = comando.ExecuteReader();
                 DataTable tabla2 = new DataTable();
                 tabla2.Load(leer);
-                this.dataGridView1.DataSource = tabla2;
+                this.dgv_Horarios.DataSource = tabla2;
                 Conexion.Close();
 
             }

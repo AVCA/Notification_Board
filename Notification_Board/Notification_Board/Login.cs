@@ -72,5 +72,32 @@ namespace Notification_Board
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void btn_Cancelar_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void txtb_enter(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
+                {
+                    String pass = this.txtb_Password.Text;
+                    //Crea una conexion con la base de datos
+                    MySqlConnection Conexion = new MySqlConnection("server=127.0.0.1; database=escuela; Uid=root; pwd=" + pass + ";");
+                    Conexion.Open();
+                    Conexion.Close();
+                    GUI_Pc form = new GUI_Pc();
+                    form.Show();
+                    this.Hide();
+                }
+                catch (MySqlException)
+                {
+                    this.txtb_Password.BackColor = Color.Red;
+                }
+            }
+        }
     }
 }

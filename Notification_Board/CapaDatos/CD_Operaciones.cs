@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.Collections;
 
 namespace CapaDatos
 {
@@ -15,12 +16,12 @@ namespace CapaDatos
         MySqlDataReader leer;
         DataTable tabla = new DataTable();
         MySqlCommand comando = new MySqlCommand();
-        String respuesta="";
+        String respuesta = "";
 
-        public DataTable Mostrar(string titulo)
+        public DataTable Mostrar_DGV(string titulo)
         {
             comando.Connection = conexion.AbrirConexion();
-            switch(titulo)
+            switch (titulo)
             {
                 case "Profesor":
                     comando.CommandText = "call VerProfesor";
@@ -37,11 +38,52 @@ namespace CapaDatos
                 case "Impartido":
                     comando.CommandText = "call VerImpartido";
                     break;
-                case "Asistencia":
+                case "Asistencias":
                     comando.CommandText = "call VerImparte";
                     break;
+                case "Salones":
+                    DateTime ahora = DateTime.Now;
+                    int dia = (int)ahora.DayOfWeek;
+                    int hora = ahora.Hour;
+                    comando.CommandText = "call VerSalonesLibres(" + dia + "," + hora + ")";
+                    break;
+                case "Reporte de Asistencias":
+                    comando.CommandText = "call VerAsistencia()";
+                    break;
             }
-            
+
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conexion.CerrarConexion();
+            return tabla;
+        }
+        public DataTable Mostrar_CB(string titulo, string sub_titulo, string v1)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            switch (sub_titulo)
+            {
+                case "Dia":
+                    comando.CommandText = "call VerDia";
+                    break;
+                case "Hora":
+                    comando.CommandText = "call VerHorario";
+                    break;
+                case "Salon":
+                    comando.CommandText = "call VerSalon";
+                    break;
+                case "Profesor":
+                    comando.CommandText = "call VerProfesor";
+                    break;
+                case "Profesor_Imparte":
+                    comando.CommandText = "call VerMateria_Imparte_Profesor('" + v1 + "')";
+                    break;
+                case "Materia_Imparte":
+                    comando.CommandText = "call VerMateria_Impartidas";
+                    break;
+                case "Materia":
+                    comando.CommandText = "call VerMateria";
+                    break;
+            }
             leer = comando.ExecuteReader();
             tabla.Load(leer);
             conexion.CerrarConexion();
@@ -132,45 +174,16 @@ namespace CapaDatos
                     }
                     break;
             }
-            try { 
-            comando.ExecuteNonQuery();
-            }
-            catch
+            leer = comando.ExecuteReader();
+            while (leer.Read())
             {
-                respuesta = "ERROR";
+                respuesta = leer[0].ToString();
             }
             comando.Parameters.Clear();
             conexion.CerrarConexion();
+            leer.Close();
             return respuesta;
         }
-
-        public DataTable Llenar(string titulo)
-        {
-            comando.Connection = conexion.AbrirConexion();
-            switch (titulo)
-            {
-                case "Dia":
-                    comando.CommandText = "call VerDia";
-                    break;
-                case "Profesor":
-                    comando.CommandText = "call VerProfesor";
-                    break;
-                case "Materias":
-                    comando.CommandText = "call VerMateria";
-                    break;
-                case "Hora":
-                    comando.CommandText = "call VerHorario";
-                    break;
-                case "Salon":
-                    comando.CommandText = "call VerSalon";
-                    break;
-            }
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
-            conexion.CerrarConexion();
-            return tabla;
-        }
-
         public DataTable Asistencia(string v1, string v2)
         {
             comando.Connection = conexion.AbrirConexion();

@@ -35,18 +35,18 @@
             this.txtb_Password = new System.Windows.Forms.TextBox();
             this.btn_Autenticar = new System.Windows.Forms.Button();
             this.panel_Barra = new System.Windows.Forms.Panel();
+            this.btn_Cerrar = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Cancelar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_Cerrar = new System.Windows.Forms.PictureBox();
             this.panel_Barra.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -90,6 +90,7 @@
             this.txtb_Password.Size = new System.Drawing.Size(155, 32);
             this.txtb_Password.TabIndex = 4;
             this.txtb_Password.TextChanged += new System.EventHandler(this.txtb_Password_TextChanged);
+            this.txtb_Password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtb_enter);
             // 
             // btn_Autenticar
             // 
@@ -113,6 +114,19 @@
             this.panel_Barra.Size = new System.Drawing.Size(380, 38);
             this.panel_Barra.TabIndex = 7;
             this.panel_Barra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
+            // 
+            // btn_Cerrar
+            // 
+            this.btn_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
+            this.btn_Cerrar.Location = new System.Drawing.Point(342, 6);
+            this.btn_Cerrar.Name = "btn_Cerrar";
+            this.btn_Cerrar.Size = new System.Drawing.Size(25, 25);
+            this.btn_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_Cerrar.TabIndex = 0;
+            this.btn_Cerrar.TabStop = false;
+            this.btn_Cerrar.Click += new System.EventHandler(this.btn_Cerrar_Click);
             // 
             // panel1
             // 
@@ -151,6 +165,17 @@
             this.tableLayoutPanel1.TabIndex = 7;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::Notification_Board.Properties.Resources.Logo4_1000;
+            this.pictureBox1.Location = new System.Drawing.Point(51, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(276, 214);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btn_Cancelar);
@@ -171,30 +196,7 @@
             this.btn_Cancelar.TabIndex = 7;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::Notification_Board.Properties.Resources.Logo4_1000;
-            this.pictureBox1.Location = new System.Drawing.Point(51, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(276, 214);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btn_Cerrar
-            // 
-            this.btn_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
-            this.btn_Cerrar.Location = new System.Drawing.Point(342, 6);
-            this.btn_Cerrar.Name = "btn_Cerrar";
-            this.btn_Cerrar.Size = new System.Drawing.Size(25, 25);
-            this.btn_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_Cerrar.TabIndex = 0;
-            this.btn_Cerrar.TabStop = false;
-            this.btn_Cerrar.Click += new System.EventHandler(this.btn_Cerrar_Click);
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click_1);
             // 
             // LogIn
             // 
@@ -209,12 +211,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Autenticación";
             this.panel_Barra.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

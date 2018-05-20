@@ -29,101 +29,130 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel_barra_superior = new System.Windows.Forms.Panel();
+            this.panel_Horarios = new System.Windows.Forms.Panel();
+            this.dgv_Horarios = new System.Windows.Forms.DataGridView();
+            this.lbl_Horarios = new System.Windows.Forms.Label();
+            this.ImageTimer = new System.Windows.Forms.Timer(this.components);
+            this.tbl_l_panel_Contenido = new System.Windows.Forms.TableLayoutPanel();
+            this.panel_Avisos = new System.Windows.Forms.Panel();
+            this.panel_titulo_Avisos = new System.Windows.Forms.Panel();
+            this.lbl_Avisos = new System.Windows.Forms.Label();
+            this.panel_pbxImage = new System.Windows.Forms.Panel();
             this.pbxImagen2 = new System.Windows.Forms.PictureBox();
             this.pbxImagen1 = new System.Windows.Forms.PictureBox();
-            this.ImageTimer = new System.Windows.Forms.Timer(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.HourTimer = new System.Windows.Forms.Timer(this.components);
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.panel_Horarios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Horarios)).BeginInit();
+            this.tbl_l_panel_Contenido.SuspendLayout();
+            this.panel_Avisos.SuspendLayout();
+            this.panel_titulo_Avisos.SuspendLayout();
+            this.panel_pbxImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen1)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panel_barra_superior
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(0)))));
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(926, 39);
-            this.panel1.TabIndex = 0;
+            this.panel_barra_superior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(182)))), ((int)(((byte)(0)))));
+            this.panel_barra_superior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_barra_superior.Location = new System.Drawing.Point(0, 0);
+            this.panel_barra_superior.Name = "panel_barra_superior";
+            this.panel_barra_superior.Size = new System.Drawing.Size(926, 39);
+            this.panel_barra_superior.TabIndex = 0;
             // 
-            // panel4
+            // panel_Horarios
             // 
-            this.panel4.Location = new System.Drawing.Point(496, 57);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(38, 503);
-            this.panel4.TabIndex = 22;
+            this.panel_Horarios.Controls.Add(this.dgv_Horarios);
+            this.panel_Horarios.Controls.Add(this.lbl_Horarios);
+            this.panel_Horarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Horarios.Location = new System.Drawing.Point(3, 3);
+            this.panel_Horarios.Name = "panel_Horarios";
+            this.panel_Horarios.Size = new System.Drawing.Size(443, 512);
+            this.panel_Horarios.TabIndex = 1;
             // 
-            // panel2
+            // dgv_Horarios
             // 
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(443, 512);
-            this.panel2.TabIndex = 1;
+            this.dgv_Horarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
+            this.dgv_Horarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Horarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Horarios.Location = new System.Drawing.Point(0, 24);
+            this.dgv_Horarios.Name = "dgv_Horarios";
+            this.dgv_Horarios.Size = new System.Drawing.Size(443, 488);
+            this.dgv_Horarios.TabIndex = 0;
             // 
-            // dataGridView1
+            // lbl_Horarios
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 24);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(443, 488);
-            this.dataGridView1.TabIndex = 0;
+            this.lbl_Horarios.AutoSize = true;
+            this.lbl_Horarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_Horarios.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Horarios.Location = new System.Drawing.Point(0, 0);
+            this.lbl_Horarios.Name = "lbl_Horarios";
+            this.lbl_Horarios.Size = new System.Drawing.Size(88, 24);
+            this.lbl_Horarios.TabIndex = 0;
+            this.lbl_Horarios.Text = "Horarios:";
             // 
-            // label1
+            // ImageTimer
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Horarios:";
+            this.ImageTimer.Tick += new System.EventHandler(this.ImageTimer_Tick);
             // 
-            // label2
+            // tbl_l_panel_Contenido
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Avisos:";
+            this.tbl_l_panel_Contenido.ColumnCount = 3;
+            this.tbl_l_panel_Contenido.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.48812F));
+            this.tbl_l_panel_Contenido.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.915767F));
+            this.tbl_l_panel_Contenido.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.59611F));
+            this.tbl_l_panel_Contenido.Controls.Add(this.panel_Horarios, 0, 0);
+            this.tbl_l_panel_Contenido.Controls.Add(this.panel_Avisos, 2, 0);
+            this.tbl_l_panel_Contenido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbl_l_panel_Contenido.Location = new System.Drawing.Point(0, 39);
+            this.tbl_l_panel_Contenido.Name = "tbl_l_panel_Contenido";
+            this.tbl_l_panel_Contenido.RowCount = 1;
+            this.tbl_l_panel_Contenido.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tbl_l_panel_Contenido.Size = new System.Drawing.Size(926, 518);
+            this.tbl_l_panel_Contenido.TabIndex = 4;
             // 
-            // panel3
+            // panel_Avisos
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel3.Controls.Add(this.pbxImagen2);
-            this.panel3.Controls.Add(this.pbxImagen1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(444, 512);
-            this.panel3.TabIndex = 3;
+            this.panel_Avisos.Controls.Add(this.panel_titulo_Avisos);
+            this.panel_Avisos.Controls.Add(this.panel_pbxImage);
+            this.panel_Avisos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Avisos.Location = new System.Drawing.Point(479, 3);
+            this.panel_Avisos.Name = "panel_Avisos";
+            this.panel_Avisos.Size = new System.Drawing.Size(444, 512);
+            this.panel_Avisos.TabIndex = 4;
+            // 
+            // panel_titulo_Avisos
+            // 
+            this.panel_titulo_Avisos.Controls.Add(this.lbl_Avisos);
+            this.panel_titulo_Avisos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_titulo_Avisos.Location = new System.Drawing.Point(0, 0);
+            this.panel_titulo_Avisos.Name = "panel_titulo_Avisos";
+            this.panel_titulo_Avisos.Size = new System.Drawing.Size(444, 24);
+            this.panel_titulo_Avisos.TabIndex = 4;
+            // 
+            // lbl_Avisos
+            // 
+            this.lbl_Avisos.AutoSize = true;
+            this.lbl_Avisos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_Avisos.Font = new System.Drawing.Font("Tw Cen MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Avisos.Location = new System.Drawing.Point(0, 0);
+            this.lbl_Avisos.Name = "lbl_Avisos";
+            this.lbl_Avisos.Size = new System.Drawing.Size(67, 24);
+            this.lbl_Avisos.TabIndex = 2;
+            this.lbl_Avisos.Text = "Avisos:";
+            // 
+            // panel_pbxImage
+            // 
+            this.panel_pbxImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
+            this.panel_pbxImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel_pbxImage.Controls.Add(this.pbxImagen2);
+            this.panel_pbxImage.Controls.Add(this.pbxImagen1);
+            this.panel_pbxImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_pbxImage.Location = new System.Drawing.Point(0, 0);
+            this.panel_pbxImage.Name = "panel_pbxImage";
+            this.panel_pbxImage.Size = new System.Drawing.Size(444, 512);
+            this.panel_pbxImage.TabIndex = 3;
             // 
             // pbxImagen2
             // 
@@ -145,45 +174,6 @@
             this.pbxImagen1.TabIndex = 0;
             this.pbxImagen1.TabStop = false;
             // 
-            // ImageTimer
-            // 
-            this.ImageTimer.Tick += new System.EventHandler(this.ImageTimer_Tick);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.48812F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.915767F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.59611F));
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel5, 2, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 39);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(926, 518);
-            this.tableLayoutPanel1.TabIndex = 4;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Controls.Add(this.panel3);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(479, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(444, 512);
-            this.panel5.TabIndex = 4;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label2);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(444, 24);
-            this.panel6.TabIndex = 4;
-            // 
             // HourTimer
             // 
             this.HourTimer.Tick += new System.EventHandler(this.HourTimer_Tick);
@@ -193,43 +183,41 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 557);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.tbl_l_panel_Contenido);
+            this.Controls.Add(this.panel_barra_superior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GUI_Tv";
             this.Text = "p";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.tv_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel3.ResumeLayout(false);
+            this.panel_Horarios.ResumeLayout(false);
+            this.panel_Horarios.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Horarios)).EndInit();
+            this.tbl_l_panel_Contenido.ResumeLayout(false);
+            this.panel_Avisos.ResumeLayout(false);
+            this.panel_titulo_Avisos.ResumeLayout(false);
+            this.panel_titulo_Avisos.PerformLayout();
+            this.panel_pbxImage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen1)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.PictureBox pbxImagen1;
+        private System.Windows.Forms.Panel panel_barra_superior;
+        private System.Windows.Forms.Panel panel_Horarios;
+        private System.Windows.Forms.Label lbl_Horarios;
+        private System.Windows.Forms.DataGridView dgv_Horarios;
         private System.Windows.Forms.Timer ImageTimer;
-        private System.Windows.Forms.PictureBox pbxImagen2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TableLayoutPanel tbl_l_panel_Contenido;
         private System.Windows.Forms.Timer HourTimer;
+        private System.Windows.Forms.Panel panel_Avisos;
+        private System.Windows.Forms.Panel panel_pbxImage;
+        private System.Windows.Forms.PictureBox pbxImagen2;
+        private System.Windows.Forms.PictureBox pbxImagen1;
+        private System.Windows.Forms.Panel panel_titulo_Avisos;
+        private System.Windows.Forms.Label lbl_Avisos;
     }
 }

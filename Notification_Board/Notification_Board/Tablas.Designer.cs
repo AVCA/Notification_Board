@@ -178,7 +178,7 @@
             this.btn_Actualizar.TabIndex = 8;
             this.btn_Actualizar.Text = "Actualizar";
             this.btn_Actualizar.UseVisualStyleBackColor = true;
-            this.btn_Actualizar.Click += new System.EventHandler(this.btn_update_Click);
+            this.btn_Actualizar.Click += new System.EventHandler(this.Actualizar);
             // 
             // btn_Bajas
             // 
@@ -190,7 +190,7 @@
             this.btn_Bajas.TabIndex = 7;
             this.btn_Bajas.Text = "Bajas";
             this.btn_Bajas.UseVisualStyleBackColor = true;
-            this.btn_Bajas.Click += new System.EventHandler(this.btn_delete_Click_1);
+            this.btn_Bajas.Click += new System.EventHandler(this.Bajas);
             // 
             // panel_Tabla
             // 
@@ -246,6 +246,7 @@
             this.dgv_Tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Tabla.Size = new System.Drawing.Size(715, 501);
             this.dgv_Tabla.TabIndex = 3;
+            this.dgv_Tabla.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Mostrar_Imagen);
             // 
             // panel_Altas
             // 
@@ -535,6 +536,7 @@
             this.txt_v1.TabIndex = 8;
             this.txt_v1.Text = ".";
             this.txt_v1.Visible = false;
+            this.txt_v1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Numeros);
             // 
             // panel_v2
             // 
@@ -555,6 +557,7 @@
             this.cb_v2.Size = new System.Drawing.Size(237, 21);
             this.cb_v2.TabIndex = 20;
             this.cb_v2.Visible = false;
+            this.cb_v2.SelectedIndexChanged += new System.EventHandler(this.Hora_seleccionada);
             // 
             // txt_v2
             // 
@@ -565,6 +568,7 @@
             this.txt_v2.TabIndex = 7;
             this.txt_v2.Text = ".";
             this.txt_v2.Visible = false;
+            this.txt_v2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Letras);
             // 
             // panel_v3
             // 
@@ -607,7 +611,7 @@
             this.btn_Alta_v3.Text = "Agregar";
             this.btn_Alta_v3.UseVisualStyleBackColor = true;
             this.btn_Alta_v3.Visible = false;
-            this.btn_Alta_v3.Click += new System.EventHandler(this.btn_agregar_p_Click);
+            this.btn_Alta_v3.Click += new System.EventHandler(this.Altas_Actualizaciones);
             // 
             // panel_v4
             // 
@@ -651,7 +655,7 @@
             this.btn_Alta_v4.Text = "Agregar";
             this.btn_Alta_v4.UseVisualStyleBackColor = true;
             this.btn_Alta_v4.Visible = false;
-            this.btn_Alta_v4.Click += new System.EventHandler(this.btn_v4_Click);
+            this.btn_Alta_v4.Click += new System.EventHandler(this.Altas_Actualizaciones);
             // 
             // panel_v5
             // 
@@ -716,7 +720,7 @@
             this.pb_Imagen.TabIndex = 22;
             this.pb_Imagen.TabStop = false;
             this.pb_Imagen.Visible = false;
-            this.pb_Imagen.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pb_Imagen.Click += new System.EventHandler(this.Cargar_Imagen);
             // 
             // btn_v6
             // 
@@ -728,7 +732,7 @@
             this.btn_v6.Text = "Agregar";
             this.btn_v6.UseVisualStyleBackColor = true;
             this.btn_v6.Visible = false;
-            this.btn_v6.Click += new System.EventHandler(this.Altas);
+            this.btn_v6.Click += new System.EventHandler(this.Altas_Actualizaciones);
             // 
             // Tablas
             // 

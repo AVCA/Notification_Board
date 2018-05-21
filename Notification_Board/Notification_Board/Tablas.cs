@@ -21,10 +21,9 @@ namespace Notification_Board
         DataTable tHora = new DataTable();
         DataTable tProfesor = new DataTable();
         DataTable tMateria = new DataTable();
-        public string diaAct, horaAct, salonAct, profesorAct, materiaAct;
-        public string titulo,respuesta;
-        private string v1_u = null,v2_u,v3_u;
-        private bool editar = false;
+        public string titulo, respuesta;
+        private string v1_u = null, v2_u, v3_u;
+        private bool actualizar = false;
 
         // Metodo que permite mostrar la seccion seleccionada
         private void sub_GUI(object subForm)
@@ -72,37 +71,48 @@ namespace Notification_Board
             switch (sub_titulo)
             {
                 case "Dia":
-                    tDia = ObjetoCN.Mostrar_CB(titulo, sub_titulo,"");
-                    tabla_cb = tDia;j = 1;
+                    tDia = ObjetoCN.Mostrar_CB(titulo, sub_titulo, "", "", "", "", "", "");
+                    tabla_cb = tDia; j = 1;
                     break;
                 case "Profesor":
-                    tProfesor = ObjetoCN.Mostrar_CB(titulo, sub_titulo,"");
+                    tProfesor = ObjetoCN.Mostrar_CB(titulo, sub_titulo, "", "", "", "", "", "");
                     tabla_cb = tProfesor; j = 1;
                     break;
                 case "Profesor_Imparte":
                     String v1 = tMateria.Rows[cb_v4.SelectedIndex][0].ToString();
-                    MessageBox.Show(v1);
-                    tProfesor = ObjetoCN.Mostrar_CB(titulo, sub_titulo, v1);
+                    tProfesor = ObjetoCN.Mostrar_CB(titulo, sub_titulo, v1, "", "", "", "", "");
                     tabla_cb = tProfesor; j = 1;
                     break;
                 case "Materia":
-                    tMateria = ObjetoCN.Mostrar_CB(titulo, sub_titulo, "");
+                    tMateria = ObjetoCN.Mostrar_CB(titulo, sub_titulo, "", "", "", "", "", "");
                     tabla_cb = tMateria; j = 1;
                     break;
                 case "Materia_Imparte":
-                    tMateria = ObjetoCN.Mostrar_CB(titulo, sub_titulo, "");
+                    tMateria = ObjetoCN.Mostrar_CB(titulo, sub_titulo, "", "", "", "", "", "");
                     tabla_cb = tMateria; j = 1;
                     break;
                 case "Hora":
-                    tHora = ObjetoCN.Mostrar_CB(titulo, sub_titulo,"");
+                    tHora = ObjetoCN.Mostrar_CB(titulo, sub_titulo, "", "", "", "", "", "");
                     tabla_cb = tHora; j = 1;
                     break;
-                case "Salon":
-                    tSalon = ObjetoCN.Mostrar_CB(titulo, sub_titulo,"");
+                case "Salon_Hora_Dia":
+                    String Hora = tHora.Rows[cb_v2.SelectedIndex][0].ToString();
+                    String v2 = "0", v3 = "0", v4 = "0", v5 = "0", v6 = "0";
+                    if (chkb_Lunes.Checked)
+                        v2 = "1";
+                    if (chkb_Martes.Checked)
+                        v3 = "2";
+                    if (chkb_Miercoles.Checked)
+                        v4 = "3";
+                    if (chkb_Jueves.Checked)
+                        v5 = "4";
+                    if (chkb_Viernes.Checked)
+                        v6 = "5";
+                    tSalon = ObjetoCN.Mostrar_CB(titulo, sub_titulo, Hora, v2, v3, v4, v5, v6);
                     tabla_cb = tSalon; j = 0;
                     break;
             }
-            
+
             for (int i = 0; i < tabla_cb.Rows.Count; i++)
             {
                 cb.Items.Add(tabla_cb.Rows[i][j]);
@@ -164,8 +174,10 @@ namespace Notification_Board
             // TextBox
             txt_v1.Visible = true;
             txt_v1.Text = "";
+            txt_v1.MaxLength = 4;
             txt_v2.Visible = true;
             txt_v2.Text = "";
+            txt_v2.MaxLength = 60;
             // Paneles
             panel_Altas.Visible = true;
             tbl_l_panel_Altas.Visible = true;
@@ -265,7 +277,8 @@ namespace Notification_Board
             cb_v2.Visible = true;
             Mostrar_CB(cb_v2, "Hora");
             cb_v3.Visible = true;
-            Mostrar_CB(cb_v3, "Salon");
+            cb_v3.Enabled = false;
+            //Mostrar_CB(cb_v3, "Salon");
             cb_v4.Visible = true;
             Mostrar_CB(cb_v4, "Materia_Imparte");
             cb_v5.Visible = true;
@@ -308,7 +321,7 @@ namespace Notification_Board
                     break;
             }
         }
-        //
+        // Limpiar o vaciar elementos:
         private void limpiar()
         {
             switch (titulo)
@@ -341,22 +354,44 @@ namespace Notification_Board
                     txt_v1.Text = "";
                     txt_v2.Text = "";
                     txt_v3.Text = "Segundos";
-                    pb_Imagen.Image.Dispose();
+                    //pb_Imagen.Image.Dispose();
                     pb_Imagen.Image = null;
                     break;
             }
 
         }
-
         // Eventos:
         // =======================================================================================
+        // Validar entrada de datos:
+        private void Letras(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsControl(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsSeparator(e.KeyChar))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+        private void Numeros(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsControl(e.KeyChar))
+                e.Handled = false;
+            else if (Char.IsSeparator(e.KeyChar))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
         // Combobox:
-
         // Horarios: Metodo que permite obtener la lista de Maestros que imparten la materia seleccionada
         // Si un maestro no tiene ninguna materia asignada o una materia no tienen ningun maestro asignado
         // no se mostraran en las listas para generar Horarios.
         private void Materia_seleccionada(object sender, EventArgs e)
         {
+            cb_v5.SelectedIndex = -1;
             if (cb_v4.SelectedIndex != -1)
             {
                 cb_v5.Items.Clear();
@@ -364,9 +399,51 @@ namespace Notification_Board
                 cb_v5.Enabled = true;
             }
         }
-        // =======================================================================================
+        private void Hora_seleccionada(object sender, EventArgs e)
+        {
+            if (titulo == "Horarios")
+            {
+                cb_v3.SelectedIndex = -1;
+                if (cb_v2.SelectedIndex != -1)
+                {
+                    cb_v3.Items.Clear();
+                    Mostrar_CB(cb_v3, "Salon_Hora_Dia");
+                    cb_v3.Enabled = true;
+                }
+            }
+        }
+        // PictureBox:
+        // Metodo que carga la imagen para obtener su direccion
+        private void Cargar_Imagen(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            PictureBox p = sender as PictureBox;
+            if (p != null)
+            {
+
+                open.Filter = "(*.jpg;*.jpeg;*.bmp;*.png;)| *.jpg;*.jpeg;*.bmp;*.png; ";
+                if (open.ShowDialog() == DialogResult.OK)
+                {
+                    p.Image = Image.FromFile(open.FileName);
+                    string imagePath = open.FileName.ToString();
+                    string impath = imagePath.ToString();
+                    impath = impath.Substring(impath.LastIndexOf("\\"));
+                    impath = impath.Remove(0, 1);
+                    txt_v2.Text = impath;
+                }
+            }
+        }
+        // Metodo que muestra la imagen seleccionada de la tabla
+        private void Mostrar_Imagen(object sender, DataGridViewCellEventArgs e)
+        {
+            // Se utiliza FileStream ya que permite eliminar la imagen sin presentar problemas con el sistema.
+            FileStream fs = new FileStream("C:\\Fotos\\" + dgv_Tabla.CurrentRow.Cells[1].Value.ToString(), FileMode.Open, FileAccess.Read);
+            pb_Imagen.Image = Image.FromStream(fs);
+            fs.Close();
+        }
         // Botones:
-        private void Altas(object sender, EventArgs e)
+        // Metodos encargados de gestionar las Altas y Actualizaciones 
+        private void Altas_Actualizaciones(object sender, EventArgs e)
         {
             switch (titulo)
             {
@@ -374,24 +451,61 @@ namespace Notification_Board
                     Alta_Horario();
                     limpiar();
                     break;
+                case "Profesor":
+                    Alta_Profesor();
+                    limpiar();
+                    break;
                 case "Impartido":
                     Alta_Impartido();
                     limpiar();
                     break;
+                case "Materias":
+                    Alta_Materia();
+                    limpiar();
+                    break;
+                case "Archivo":
+                    Alta_Archivo();
+                    limpiar();
+                    break;
             }
         }
-
+        private void Actualizar(object sender, EventArgs e)
+        {
+            if (dgv_Tabla.SelectedCells.Count > 0 && dgv_Tabla.Rows.Count > 0)
+            {
+                actualizar = true;
+                switch (titulo)
+                {
+                    case "Profesor":
+                        txt_v1.Text = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
+                        txt_v2.Text = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
+                        btn_Alta_v3.Text = "Actualizar";
+                        break;
+                    case "Materias":
+                        txt_v1.Text = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
+                        txt_v2.Text = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
+                        btn_Alta_v3.Text = "Actualizar";
+                        break;
+                    case "Archivo":
+                        txt_v1.Text = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
+                        txt_v2.Text = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
+                        txt_v3.Text = dgv_Tabla.CurrentRow.Cells[2].Value.ToString();
+                        btn_Alta_v4.Text = "Actualizar";
+                        break;
+                }
+            }
+        }
         private void Alta_Horario()
         {
-            if(chkb_Lunes.Checked != false || chkb_Martes.Checked != false || chkb_Miercoles.Checked != false || chkb_Jueves.Checked != false || chkb_Viernes.Checked != false)
+            if (chkb_Lunes.Checked != false || chkb_Martes.Checked != false || chkb_Miercoles.Checked != false || chkb_Jueves.Checked != false || chkb_Viernes.Checked != false)
             {
                 if (cb_v2.SelectedItem != null && cb_v3.SelectedItem != null && cb_v4.SelectedItem != null
                  && cb_v5.SelectedItem != null)
                 {
                     // Alta
-                    if (editar == false)
+                    if (actualizar == false)
                     {
-                        DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas agregar?", "Confirmar Accion", MessageBoxButtons.YesNo);
+                        DialogResult resultado = MessageBox.Show("¿Esta seguro que desea dar de alta un nuevo horario?", "Confirmar Accion", MessageBoxButtons.YesNo);
                         if (resultado == DialogResult.Yes)
                         {
                             String v2 = tHora.Rows[cb_v2.SelectedIndex][0].ToString();
@@ -399,7 +513,7 @@ namespace Notification_Board
                             String v4 = tMateria.Rows[cb_v4.SelectedIndex][0].ToString();
                             String v5 = tProfesor.Rows[cb_v5.SelectedIndex][0].ToString();
                             if (chkb_Lunes.Checked)
-                                respuesta = ObjetoCN.Operaciones(titulo, "Insert","1", v2, v3, v4, v5);
+                                respuesta = ObjetoCN.Operaciones(titulo, "Insert", "1", v2, v3, v4, v5);
                             if (chkb_Martes.Checked)
                                 respuesta = ObjetoCN.Operaciones(titulo, "Insert", "2", v2, v3, v4, v5);
                             if (chkb_Miercoles.Checked)
@@ -407,8 +521,15 @@ namespace Notification_Board
                             if (chkb_Jueves.Checked)
                                 respuesta = ObjetoCN.Operaciones(titulo, "Insert", "4", v2, v3, v4, v5);
                             if (chkb_Viernes.Checked)
-                                respuesta = ObjetoCN.Operaciones(titulo, "Insert", "5", v2, v3, v4, v5); 
-                            MessageBox.Show(respuesta);
+                                respuesta = ObjetoCN.Operaciones(titulo, "Insert", "5", v2, v3, v4, v5);
+                            if (respuesta == "1")
+                                MessageBox.Show("Alta exitosa");
+                            if (respuesta == "0")
+                                MessageBox.Show("ERROR: Ya existe el horario que se intento dar de alta o se empalma con uno existente:"
+                                    + "\n " + cb_v2.Text + "|" + cb_v3.Text + "|" + cb_v4.Text + "|" + cb_v5.Text);
+                            if (respuesta == "-1")
+                                MessageBox.Show("ERROR: No es posible que el profesor de clase a la misma hora en distintos salones:"
+                                    + "\n " + cb_v2.Text + "|" + cb_v3.Text + "|" + cb_v4.Text + "|" + cb_v5.Text);
                             Mostrar_DGV();
                         }
                         else
@@ -430,15 +551,19 @@ namespace Notification_Board
             if (cb_v1.SelectedItem != null && cb_v2.SelectedItem != null)
             {
                 // Alta
-                if (editar == false)
+                if (actualizar == false)
                 {
-                    DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas agregar?", "Confirmar Accion", MessageBoxButtons.YesNo);
+                    DialogResult resultado = MessageBox.Show("¿Esta seguro que desea dar de alta la asignacion de Materia-Profesor?", "Confirmar Accion", MessageBoxButtons.YesNo);
                     if (resultado == DialogResult.Yes)
                     {
                         String v1 = tMateria.Rows[cb_v1.SelectedIndex][0].ToString();
                         String v2 = tProfesor.Rows[cb_v2.SelectedIndex][0].ToString();
-                        respuesta = ObjetoCN.Operaciones(titulo, "Insert",v1,v2,"","","");
-                        MessageBox.Show(respuesta);
+                        respuesta = ObjetoCN.Operaciones(titulo, "Insert", v1, v2, "", "", "");
+                        if (respuesta == "1")
+                            MessageBox.Show("Alta exitosa");
+                        if (respuesta == "0")
+                            MessageBox.Show("ERROR: Ya existe la asingnacion que se intento dar de alta:"
+                                + "\n " + cb_v1.Text + "|" + cb_v2.Text);
                         Mostrar_DGV();
                     }
                     else
@@ -451,75 +576,124 @@ namespace Notification_Board
                 MessageBox.Show("Por favor, seleccione un dato en cada uno de los campos.");
             dgv_Tabla.Refresh();
         }
-
-
-        private void btn_insert_Click(object sender, EventArgs e)
+        private void Alta_Profesor()
         {
-            if (dgv_Tabla.SelectedCells.Count>0 && dgv_Tabla.Rows.Count>0)
+            if (txt_v1.Text != "" && txt_v2.Text != "")
             {
-                editar = true;
-                switch (titulo)
+                // Alta
+                if (actualizar == false)
                 {
-                    case "Profesor":
-                        txt_v1.Text = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
-                        txt_v2.Text = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
-                        btn_Alta_v3.Text = "Actualizar";
-                        break;
-                    case "Materias":
-                        txt_v1.Text = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
-                        txt_v2.Text = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
-                        btn_Alta_v3.Text = "Actualizar";
-                        break;
-                }
-            }
-        }
-        private void btn_delete_Click(object sender, EventArgs e)
-        {
-            DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas eliminarlo?", "Confirmar", MessageBoxButtons.YesNo);
-            if (resultado == DialogResult.Yes)
-            {
-                if (dgv_Tabla.SelectedCells.Count > 0 && dgv_Tabla.Rows.Count > 1)
-                {
-                    switch (titulo)
+                    DialogResult resultado = MessageBox.Show("¿Esta seguro que desea dar de alta a " + txt_v2.Text + " ?", "Confirmar Accion", MessageBoxButtons.YesNo);
+                    if (resultado == DialogResult.Yes)
                     {
-                        case "Profesor":
-                            v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
-                            respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
-                            Mostrar_DGV();
-                            break;
-                        case "Materias":
-                            v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
-                            respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
-                            Mostrar_DGV();
-                            break;
-                        case "Horarios":
-                            v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
-                            v2_u = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
-                            v3_u = dgv_Tabla.CurrentRow.Cells[6].Value.ToString();
-                            respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
-                            Mostrar_DGV();
-                            break;
+                        respuesta = ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, "", "", "");
+                        if (respuesta == "1")
+                            MessageBox.Show("Alta exitosa");
+                        if (respuesta == "0")
+                            MessageBox.Show("ERROR: Ya fue dado de alta anteriormente");
+                        Mostrar_DGV();
                     }
+                    else
+                        MessageBox.Show("Se ha cancelado la acción.");
                 }
+                // Actualizacion
+                else
+                {
+                    String Profesor = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
+                    DialogResult resultado = MessageBox.Show("¿Esta seguro que desea actualizar los datos del profesor " + Profesor + " ?", "Confirmar Accion", MessageBoxButtons.YesNo);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
+                        respuesta = ObjetoCN.Operaciones(titulo, "Update", v1_u, txt_v1.Text, txt_v2.Text, "", "");
+                        if (respuesta == "1")
+                            MessageBox.Show("Actualizacion exitosa");
+                        if (respuesta == "-1")
+                            MessageBox.Show("ERROR: No existe el Profesor que desea actualizar");
+                        if (respuesta == "-2")
+                            MessageBox.Show("ERROR: La clave del Profesor ya existe");
+                        Mostrar_DGV();
+                        actualizar = false;
+                        limpiar();
+                        btn_Alta_v3.Text = "Agregar";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se ha cancelado la acción.");
+                        actualizar = false;
+                        limpiar();
+                        btn_Alta_v3.Text = "Agregar";
+                    }
 
-                MessageBox.Show(respuesta);
+                }
             }
             else
-            {
-                MessageBox.Show("Se ha cancelado la acción.");
-            }
+                MessageBox.Show("Por favor, seleccione un dato en cada uno de los campos.");
+            dgv_Tabla.Refresh();
         }
-        private void btn_v4_Click(object sender, EventArgs e)
+        private void Alta_Materia()
+        {
+            if (txt_v1.Text != "" && txt_v2.Text != "")
+            {
+                // Alta
+                if (actualizar == false)
+                {
+                    DialogResult resultado = MessageBox.Show("¿Esta seguro que desea dar de alta la materia " + txt_v2.Text + " ?", "Confirmar Accion", MessageBoxButtons.YesNo);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        respuesta = ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, "", "", "");
+                        if (respuesta == "1")
+                            MessageBox.Show("Alta exitosa");
+                        if (respuesta == "0")
+                            MessageBox.Show("ERROR: La materia fue dada de alta anteriormente");
+                        Mostrar_DGV();
+                    }
+                    else
+                        MessageBox.Show("Se ha cancelado la acción.");
+                }
+                // Actualizacion
+                else
+                {
+                    String Materia = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
+                    DialogResult resultado = MessageBox.Show("¿Esta seguro que desea actualizar los datos de la materia " + Materia + " ?", "Confirmar Accion", MessageBoxButtons.YesNo);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
+                        respuesta = ObjetoCN.Operaciones(titulo, "Update", v1_u, txt_v1.Text, txt_v2.Text, "", "");
+                        if (respuesta == "1")
+                            MessageBox.Show("Actualizacion exitosa");
+                        if (respuesta == "-1")
+                            MessageBox.Show("ERROR: No existe la materia que desea actualizar");
+                        if (respuesta == "-2")
+                            MessageBox.Show("ERROR: La clave de la materia ya existe");
+                        Mostrar_DGV();
+                        actualizar = false;
+                        limpiar();
+                        btn_Alta_v3.Text = "Agregar";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se ha cancelado la acción.");
+                        actualizar = false;
+                        limpiar();
+                        btn_Alta_v3.Text = "Agregar";
+                    }
+
+                }
+            }
+            else
+                MessageBox.Show("Por favor, seleccione un dato en cada uno de los campos.");
+            dgv_Tabla.Refresh();
+        }
+        private void Alta_Archivo()
         {
             if (pb_Imagen != null && txt_v1.Text != "" && txt_v2.Text != "" && txt_v3.Text != "")
             {
-                if (editar == false)
+                if (actualizar == false)
                 {
-                    DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas agregar?", "Confirmar Accion", MessageBoxButtons.YesNo);
+                    DialogResult resultado = MessageBox.Show("¿Esta seguro que desea dar de alta el aviso "+ txt_v2.Text + "?", "Confirmar Accion", MessageBoxButtons.YesNo);
                     if (resultado == DialogResult.Yes)
                     {
                         string name = txt_v2.Text;
-                        //Mi direccion de prueba
                         string folder = "C:\\Fotos";
                         //string folder = "C:\\Program Files\\NotificationBoard\\img";
                         string path = System.IO.Path.Combine(folder, name);
@@ -533,30 +707,34 @@ namespace Notification_Board
                             MessageBox.Show("x");
                         }
                         respuesta = ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, txt_v3.Text, "", "");
-                        MessageBox.Show(respuesta);
+                        if (respuesta == "1")
+                            MessageBox.Show("Alta exitosa");
+                        if (respuesta == "0")
+                            MessageBox.Show("ERROR: La imagen fue dada de alta anteriormente");
                         limpiar();
                         Mostrar_DGV();
                     }
                     else
                         MessageBox.Show("Se ha cancelado la acción.");
                 }
-                if (editar == true)
+                if (actualizar == true)
                 {
-                    DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas editar?", "Confirmar Accion", MessageBoxButtons.YesNo);
+                    DialogResult resultado = MessageBox.Show("¿Esta seguro que desea actualizar los datos de la imagen " + txt_v2.Text + "?", "Confirmar Accion", MessageBoxButtons.YesNo);
                     if (resultado == DialogResult.Yes)
                     {
                         v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
                         respuesta = ObjetoCN.Operaciones(titulo, "Update", v1_u, txt_v1.Text, txt_v2.Text, txt_v3.Text, "");
                         MessageBox.Show(respuesta);
                         Mostrar_DGV();
-                        editar = false;
+                        actualizar = false;
                         limpiar();
                         btn_Alta_v4.Text = "Guardar";
                     }
-                    else { 
-                    MessageBox.Show("Se ha cancelado la acción.");
+                    else
+                    {
+                        MessageBox.Show("Se ha cancelado la acción.");
                         Mostrar_DGV();
-                        editar = false;
+                        actualizar = false;
                         limpiar();
                         btn_Alta_v4.Text = "Guardar";
                     }
@@ -564,28 +742,152 @@ namespace Notification_Board
             }
             else
             {
-                MessageBox.Show("Elige una imagen");
+                MessageBox.Show("Por favor, seleccione un dato en cada uno de los campos.");
+                btn_Alta_v4.Text = "Guardar";
             }
         }
-        private void pictureBox1_Click(object sender, EventArgs e)
+        // Metodos encargados de gestionar las Bajas 
+        private void Bajas(object sender, EventArgs e)
         {
-            OpenFileDialog open = new OpenFileDialog();
-            PictureBox p = sender as PictureBox;
-            if (p != null)
+            switch (titulo)
             {
-
-                open.Filter = "(*.jpg;*.jpeg;*.bmp;*.png;)| *.jpg;*.jpeg;*.bmp;*.png; ";
-                if (open.ShowDialog() == DialogResult.OK)
+                case "Horarios":
+                    Baja_Horario();
+                    limpiar();
+                    break;
+                case "Profesor":
+                    Baja_Profesor();
+                    limpiar();
+                    break;
+                case "Impartido":
+                    Baja_Impartido();
+                    limpiar();
+                    break;
+                case "Materias":
+                    Baja_Materia();
+                    limpiar();
+                    break;
+                case "Archivo":
+                    Baja_Archivo();
+                    limpiar();
+                    break;
+            }
+        }
+        private void Baja_Horario()
+        {
+            String Horario = dgv_Tabla.CurrentRow.Cells[2].Value.ToString() + "|" + dgv_Tabla.CurrentRow.Cells[3].Value.ToString()
+                + "|" + dgv_Tabla.CurrentRow.Cells[4].Value.ToString() + "|" + dgv_Tabla.CurrentRow.Cells[5].Value.ToString()
+                + "|" + dgv_Tabla.CurrentRow.Cells[6].Value.ToString(); ;
+            DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas eliminar este horario?" +
+                "\n" + Horario, "Confirmar", MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.Yes)
+            {
+                if (dgv_Tabla.Rows.Count > 0)
                 {
-                    p.Image = Image.FromFile(open.FileName);
-                    string imagePath = open.FileName.ToString();
-                    string impath = imagePath.ToString();
-                    impath = impath.Substring(impath.LastIndexOf("\\"));
-                    impath = impath.Remove(0, 1);
-                    txt_v2.Text = impath;
+                    v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
+                    v2_u = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
+                    v3_u = dgv_Tabla.CurrentRow.Cells[6].Value.ToString();
+                    respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, v2_u, v3_u, "", "");
+                    MessageBox.Show("Baja exitosa");
+                    Mostrar_DGV();
                 }
             }
+            else
+            {
+                MessageBox.Show("Se ha cancelado la acción.");
+            }
         }
+        private void Baja_Impartido()
+        {
+            String Impartido = dgv_Tabla.CurrentRow.Cells[1].Value.ToString() + "|" + dgv_Tabla.CurrentRow.Cells[3].Value.ToString();
+            DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas eliminar este registro?" +
+                "\n" + Impartido, "Confirmar", MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.Yes)
+            {
+                if (dgv_Tabla.Rows.Count > 0)
+                {
+                    v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
+                    v2_u = dgv_Tabla.CurrentRow.Cells[2].Value.ToString();
+                    respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, v2_u, "", "", "");
+                    MessageBox.Show("Baja exitosa");
+                    Mostrar_DGV();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Se ha cancelado la acción.");
+            }
+        }
+        private void Baja_Profesor()
+        {
+            String Profesor = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
+            DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas eliminar al profesor " + Profesor + "?" +
+                "\n Si elimina al profesor se eliminaran sus horarios y asignaciones de materias.", "Confirmar", MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.Yes)
+            {
+                if (dgv_Tabla.Rows.Count > 0)
+                {
+                    v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
+                    respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
+                    MessageBox.Show("Baja exitosa");
+                    Mostrar_DGV();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Se ha cancelado la acción.");
+            }
+        }
+        private void Baja_Materia()
+        {
+            String Materia = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
+            DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas eliminar la materia " + Materia + "?" +
+                "\n Si elimina la materia se eliminaran sus horarios y asignaciones de profesor.", "Confirmar", MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.Yes)
+            {
+                if (dgv_Tabla.Rows.Count > 0)
+                {
+                    v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
+                    respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
+                    MessageBox.Show("Baja exitosa");
+                    Mostrar_DGV();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Se ha cancelado la acción.");
+            }
+        }
+        private void Baja_Archivo()
+        {
+            //pb_Imagen.Image = null;
+            String Aviso = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
+            DialogResult resultado = MessageBox.Show("¿Esta seguro que desea eliminar el aviso "+ Aviso + "?", "Confirmar", MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.Yes)
+            {
+                
+                if (dgv_Tabla.Rows.Count > 0)
+                {
+                    if(pb_Imagen.Image != null)
+                    pb_Imagen.Image.Dispose();
+                    v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
+                    respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
+                    
+                    string folder = "C:\\Fotos";
+                    string name = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
+                    string path = System.IO.Path.Combine(folder, name);
+                    File.Delete(path);
+                    Mostrar_DGV();
+                    MessageBox.Show("Se elimino correctamente");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Se ha cancelado la acción.");
+            }
+        }
+
+        // PENDIENTE POR REVISAR
         private void btn_asistencia_Click(object sender, EventArgs e)
         {
             String v1, v2, v3, v4, v5;
@@ -603,185 +905,6 @@ namespace Notification_Board
         {
             this.Controls.Clear();
             sub_GUI(new Tablas("Reporte de Asistencias"));
-        }
-
-        
-
-        private void btn_v4_Click_1(object sender, EventArgs e)
-        {
-
-        }
-        private void btn_delete_Click_1(object sender, EventArgs e)
-        {
-            DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas eliminarlo?", "Confirmar", MessageBoxButtons.YesNo);
-            if (resultado == DialogResult.Yes)
-            {
-                if (dgv_Tabla.Rows.Count > 0)
-                {
-                    switch (titulo)
-                    {
-                        case "Profesor":
-                            v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
-                            respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
-                            Mostrar_DGV();
-                            break;
-                        case "Materias":
-                            v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
-                            respuesta =  ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
-                            Mostrar_DGV();
-                            break;
-                        case "Horarios":
-                            v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
-                            v2_u = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
-                            v3_u = dgv_Tabla.CurrentRow.Cells[6].Value.ToString();
-                            respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, v2_u, v3_u, "", "");
-                            Mostrar_DGV();
-                            break;
-                        case "Impartido":
-                            v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
-                            v2_u = dgv_Tabla.CurrentRow.Cells[2].Value.ToString();
-                            respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, v2_u, "", "", "");
-                            Mostrar_DGV();
-                            break;
-                        case "Archivo":
-                            v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
-                            respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
-                            MessageBox.Show(respuesta);
-                            if (titulo == "Archivo")
-                            {
-                                string folder = "C:\\Fotos";
-                                string name = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
-                                MessageBox.Show(name);
-                                string path = System.IO.Path.Combine(folder, name);
-                                File.Delete(path);
-                            }
-                            Mostrar_DGV();
-                            break;
-                    }
-                    MessageBox.Show("Se elimino correctamente");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Se ha cancelado la acción.");
-            }
-        }
-        private void btn_update_Click(object sender, EventArgs e)
-        {
-            if (dgv_Tabla.SelectedCells.Count > 0 && dgv_Tabla.Rows.Count > 0)
-            {
-                editar = true;
-                switch (titulo)
-                {
-                    case "Profesor":
-                        txt_v1.Text = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
-                        txt_v2.Text = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
-                        btn_Alta_v3.Text = "Actualizar";
-                        break;
-                    case "Materias":
-                        txt_v1.Text = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
-                        txt_v2.Text = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
-                        btn_Alta_v3.Text = "Actualizar";
-                        break;
-                    case "Archivo":
-                        txt_v1.Text = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
-                        txt_v2.Text = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
-                        txt_v3.Text = dgv_Tabla.CurrentRow.Cells[2].Value.ToString();
-                        btn_Alta_v4.Text = "Actualizar";
-                        try { pb_Imagen.Image = Image.FromFile("C:\\Fotos\\" + txt_v2.Text); } catch (Exception)
-                        {
-                            MessageBox.Show("ERROR"+ txt_v2.Text);
-                        }
-                        
-                        break;
-                }
-            }
-        }
-        private void btn_v5_Click_1(object sender, EventArgs e)
-        {
-            if (cb_v1.SelectedItem != null && cb_v2.SelectedItem != null && cb_v3.SelectedItem != null && cb_v4.SelectedItem != null
-                && cb_v5.SelectedItem != null)
-            {
-                DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas agregar?", "Confirmar Accion", MessageBoxButtons.YesNo);
-                if (resultado == DialogResult.Yes)
-                {
-                    /*String v1, v2, v3, v4, v5;
-                    v1 = Convert.ToString(tDia.Rows[Convert.ToInt32(diaAct)][0]);
-                    v2 = Convert.ToString(tHora.Rows[Convert.ToInt32(horaAct)][0]);
-                    v3 = Convert.ToString(tSalon.Rows[Convert.ToInt32(salonAct)][0]);
-                    v4 = Convert.ToString(tMateria.Rows[Convert.ToInt32(materiaAct)][0]);
-                    v5 = Convert.ToString(tProfesor.Rows[Convert.ToInt32(profesorAct)][0]);
-
-                    respuesta = ObjetoCN.Operaciones(titulo, "Insert", v1, v2, v3, v4, v5);
-                    limpiar();
-                    MessageBox.Show(respuesta);
-                    Mostrar_DGV();*/
-                }
-                else
-                    MessageBox.Show("Se ha cancelado la acción.");
-            }   
-            else
-                MessageBox.Show("Por favor, seleccione un dato en cada uno de los campos.");
-            dgv_Tabla.Refresh();
-        }
-        private void btn_agregar_p_Click(object sender, EventArgs e)
-        {
-            if (txt_v1.Text != "" && txt_v2.Text != "" && txt_v3.Text != "" && txt_v4.Text != "" && txt_v5.Text != "")
-            {
-                if (editar == false)
-                {
-                    DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas agregar?", "Confirmar Accion", MessageBoxButtons.YesNo);
-                    if (resultado == DialogResult.Yes)
-                    {
-                        if (titulo == "Impartido")
-                        {
-                            if (cb_v1.SelectedIndex != -1 && cb_v2.SelectedIndex != -1)
-                            {
-                                String v1 = tMateria.Rows[cb_v1.SelectedIndex][0].ToString();
-                                String v2 = tProfesor.Rows[cb_v2.SelectedIndex][0].ToString();
-                                respuesta = ObjetoCN.Operaciones(titulo, "Insert", v1, v2, txt_v3.Text, txt_v4.Text, txt_v5.Text);
-                                MessageBox.Show(respuesta);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Existen campos vacios.");
-                                respuesta = "ERROR";
-                            }
-                           
-                        }
-                        else
-                        {
-                            respuesta = ObjetoCN.Operaciones(titulo, "Insert", txt_v1.Text, txt_v2.Text, txt_v3.Text, txt_v4.Text, txt_v5.Text);
-                            MessageBox.Show(respuesta);
-                        }
-                        limpiar();
-                        Mostrar_DGV();
-                    }
-                    else
-                        MessageBox.Show("Se ha cancelado la acción.");
-                }
-                if (editar == true)
-                {
-                    DialogResult resultado = MessageBox.Show("¿Estas seguro que deseas actualizar?", "Confirmar Accion", MessageBoxButtons.YesNo);
-                    if (resultado == DialogResult.Yes)
-                    {
-                        v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
-                        respuesta = ObjetoCN.Operaciones(titulo, "Update", v1_u, txt_v1.Text, txt_v2.Text, "", "");
-                        MessageBox.Show(respuesta);
-                        Mostrar_DGV();
-                        editar = false;
-                        limpiar();
-                        btn_Alta_v3.Text = "Agregar";
-                    }
-                    else
-                        MessageBox.Show("Se ha cancelado la acción.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Existen campos vacios.");
-            }
-            dgv_Tabla.Refresh();
         }
     }
 }

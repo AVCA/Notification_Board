@@ -296,6 +296,8 @@ begin
     order by Profesor.nombre;
 end$$
 
+call VerAsistencia();
+
 delimiter $$
 create procedure VerPorHora(in codD int(1), codH int(2))
 begin
@@ -312,6 +314,8 @@ begin
     and Imparte.codHora=codH
     order by Imparte.codSalon;
 end$$
+
+call VerPorHora(1,7);
 
 -- ================================== Son todos los Delete (Estan por orden) ===============================================
 delimiter $$

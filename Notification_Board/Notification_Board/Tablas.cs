@@ -130,13 +130,20 @@ namespace Notification_Board
             btn_Bajas.Visible = false;
             btn_Actualizar.Visible = false;
             btn_Reporte_.Visible = true;
-            //Creacion del boton dentro del DGV
+            //DGV: Boton
             DataGridViewButtonColumn dgv_btn_asistencia = new DataGridViewButtonColumn();
             dgv_btn_asistencia.Text = "Asistencia";
             dgv_btn_asistencia.UseColumnTextForButtonValue = true;
             dgv_btn_asistencia.FlatStyle = FlatStyle.Flat;
             dgv_btn_asistencia.Width = 30;
             dgv_Tabla.Columns.Add(dgv_btn_asistencia);
+            dgv_btn_asistencia.DataGridView.CellMouseDown += new DataGridViewCellMouseEventHandler(Alta_Asistencia);
+            //DGV: Columnas
+            dgv_Tabla.Columns[5].Visible = false;
+            dgv_Tabla.Columns[6].Visible = false;
+            dgv_Tabla.Columns[7].Visible = false;
+            dgv_Tabla.Columns[8].Visible = false;
+            //dgv_Tabla.Columns[9].Visible = false;
             // Paneles
             panel_Altas.Visible = true;
             tbl_l_panel_Altas.Visible = true;
@@ -436,12 +443,21 @@ namespace Notification_Board
         // Metodo que muestra la imagen seleccionada de la tabla
         private void Mostrar_Imagen(object sender, DataGridViewCellEventArgs e)
         {
-            // Se utiliza FileStream ya que permite eliminar la imagen sin presentar problemas con el sistema.
-            FileStream fs = new FileStream("C:\\Fotos\\" + dgv_Tabla.CurrentRow.Cells[1].Value.ToString(), FileMode.Open, FileAccess.Read);
-            pb_Imagen.Image = Image.FromStream(fs);
-            fs.Close();
+            if (titulo == "Archivo")
+            {
+                // Se utiliza FileStream ya que permite eliminar la imagen sin presentar problemas con el sistema.
+                FileStream fs = new FileStream("C:\\Fotos\\" + dgv_Tabla.CurrentRow.Cells[1].Value.ToString(), FileMode.Open, FileAccess.Read);
+                pb_Imagen.Image = Image.FromStream(fs);
+                fs.Close();
+            }
         }
         // Botones:
+        // Metodo encargado de mostrar el reporte de Asistencia
+        private void btn_Generar_Reporte_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            sub_GUI(new Tablas("Reporte de Asistencias"));
+        }
         // Metodos encargados de gestionar las Altas y Actualizaciones 
         private void Altas_Actualizaciones(object sender, EventArgs e)
         {
@@ -690,7 +706,7 @@ namespace Notification_Board
             {
                 if (actualizar == false)
                 {
-                    DialogResult resultado = MessageBox.Show("¿Esta seguro que desea dar de alta el aviso "+ txt_v2.Text + "?", "Confirmar Accion", MessageBoxButtons.YesNo);
+                    DialogResult resultado = MessageBox.Show("¿Esta seguro que desea dar de alta el aviso " + txt_v2.Text + "?", "Confirmar Accion", MessageBoxButtons.YesNo);
                     if (resultado == DialogResult.Yes)
                     {
                         string name = txt_v2.Text;
@@ -744,6 +760,25 @@ namespace Notification_Board
             {
                 MessageBox.Show("Por favor, seleccione un dato en cada uno de los campos.");
                 btn_Alta_v4.Text = "Guardar";
+            }
+        }
+        private void Alta_Asistencia(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                String v1, v2, v3, v4, v5;
+                v1 = dgv_Tabla.CurrentRow.Cells[6].Value.ToString();
+                v2 = dgv_Tabla.CurrentRow.Cells[7].Value.ToString();
+                v3 = dgv_Tabla.CurrentRow.Cells[8].Value.ToString();
+                v4 = dgv_Tabla.CurrentRow.Cells[9].Value.ToString();
+                v5 = DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day;
+                respuesta = ObjetoCN.Operaciones(titulo, "Insert", v1, v2, v3, v4, v5);
+                if (respuesta == "1")
+                    MessageBox.Show("Alta exitosa");
+                if (respuesta == "0")
+                    MessageBox.Show("ERROR: La asistencia fue dada de alta anteriormente");
+                DataGridViewTextBoxCell cell = new DataGridViewTextBoxCell();
+                dgv_Tabla.CurrentRow.Cells[0] = cell;
             }
         }
         // Metodos encargados de gestionar las Bajas 
@@ -862,17 +897,17 @@ namespace Notification_Board
         {
             //pb_Imagen.Image = null;
             String Aviso = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
-            DialogResult resultado = MessageBox.Show("¿Esta seguro que desea eliminar el aviso "+ Aviso + "?", "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult resultado = MessageBox.Show("¿Esta seguro que desea eliminar el aviso " + Aviso + "?", "Confirmar", MessageBoxButtons.YesNo);
             if (resultado == DialogResult.Yes)
             {
-                
+
                 if (dgv_Tabla.Rows.Count > 0)
                 {
-                    if(pb_Imagen.Image != null)
-                    pb_Imagen.Image.Dispose();
+                    if (pb_Imagen.Image != null)
+                        pb_Imagen.Image.Dispose();
                     v1_u = dgv_Tabla.CurrentRow.Cells[0].Value.ToString();
                     respuesta = ObjetoCN.Operaciones(titulo, "Delete", v1_u, "", "", "", "");
-                    
+
                     string folder = "C:\\Fotos";
                     string name = dgv_Tabla.CurrentRow.Cells[1].Value.ToString();
                     string path = System.IO.Path.Combine(folder, name);
@@ -885,26 +920,6 @@ namespace Notification_Board
             {
                 MessageBox.Show("Se ha cancelado la acción.");
             }
-        }
-
-        // PENDIENTE POR REVISAR
-        private void btn_asistencia_Click(object sender, EventArgs e)
-        {
-            String v1, v2, v3, v4, v5;
-            v1 = dgv_Tabla.CurrentRow.Cells[6].Value.ToString();
-            v2 = dgv_Tabla.CurrentRow.Cells[7].Value.ToString();
-            v3 = dgv_Tabla.CurrentRow.Cells[8].Value.ToString();
-            v4 = dgv_Tabla.CurrentRow.Cells[9].Value.ToString();
-            v5 = DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day;
-            Console.WriteLine(v1 + ".." + v2 + ".." + v3 + ".." + v4 + ".." + v5);
-            respuesta = ObjetoCN.Operaciones(titulo, "Insert", v1, v2, v3, v4, v5);
-            MessageBox.Show(respuesta);
-            dgv_Tabla.CurrentRow.Cells[0].Value = "En clase";
-        }
-        private void btn_Generar_Reporte_Click(object sender, EventArgs e)
-        {
-            this.Controls.Clear();
-            sub_GUI(new Tablas("Reporte de Asistencias"));
         }
     }
 }

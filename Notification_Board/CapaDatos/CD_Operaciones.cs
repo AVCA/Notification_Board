@@ -20,6 +20,11 @@ namespace CapaDatos
 
         public DataTable Mostrar_DGV(string titulo)
         {
+            // Dia y Hora al momento de realizar la consulta:
+            DateTime ahora = DateTime.Now;
+            int dia = (int)ahora.DayOfWeek;
+            int hora = ahora.Hour;
+
             comando.Connection = conexion.AbrirConexion();
             switch (titulo)
             {
@@ -39,12 +44,9 @@ namespace CapaDatos
                     comando.CommandText = "call VerImpartido";
                     break;
                 case "Asistencias":
-                    comando.CommandText = "call VerImparte";
+                    comando.CommandText = "call VerPorHora(" + 1 + "," + 7 + ")";
                     break;
                 case "Salones":
-                    DateTime ahora = DateTime.Now;
-                    int dia = (int)ahora.DayOfWeek;
-                    int hora = ahora.Hour;
                     comando.CommandText = "call VerSalonesLibres(" + dia + "," + hora + ")";
                     break;
                 case "Reporte de Asistencias":
@@ -167,7 +169,7 @@ namespace CapaDatos
                             break;
                     }
                     break;
-                case "Asistencia":
+                case "Asistencias":
                     switch (operacion)
                     {
                         case "Insert":
@@ -185,17 +187,6 @@ namespace CapaDatos
             conexion.CerrarConexion();
             leer.Close();
             return respuesta;
-        }
-
-        // PENDIENTE POR REVISAR
-        public DataTable Asistencia(string v1, string v2)
-        {
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "call VerPorHora(" + v1 + "," + v2 + ")";
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
-            conexion.CerrarConexion();
-            return tabla;
         }
     }
 }

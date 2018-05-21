@@ -32,13 +32,6 @@ namespace CapaOperaciones
             respuesta=objetoCD.Operaciones(tabla,Operaciones,v1,v2,v3,v4,v5);
             return respuesta;
         }
-        
-        // PENDIENTE POR REVISAR
-        public DataTable Asistencia(string v1, string v2)
-        {
-            DataTable tabla = new DataTable();
-            tabla = objetoCD.Asistencia(v1, v2);
-            return tabla;
-        }
+
     }
 }

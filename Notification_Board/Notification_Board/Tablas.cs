@@ -125,8 +125,8 @@ namespace Notification_Board
         {
             // Etiquetas
             lbl_Titulo.Text = titulo;
+            lbl_Altas.Visible = false;
             // Botones
-            btn_Reporte_Asistencia.Visible = true;
             btn_Bajas.Visible = false;
             btn_Actualizar.Visible = false;
             btn_Reporte_.Visible = true;
@@ -202,8 +202,10 @@ namespace Notification_Board
             // TextBox
             txt_v1.Visible = true;
             txt_v1.Text = "";
+            txt_v1.MaxLength = 4;
             txt_v2.Visible = true;
             txt_v2.Text = "";
+            txt_v2.MaxLength = 50;
             // Paneles
             panel_Altas.Visible = true;
             tbl_l_panel_Altas.Visible = true;
@@ -246,12 +248,14 @@ namespace Notification_Board
             // TextBox
             txt_v1.Visible = true;
             txt_v1.Text = "";
+            txt_v1.MaxLength = 4;
             txt_v2.Visible = true;
             txt_v2.Enabled = false;
             txt_v2.Text = "";
             txt_v3.Visible = true;
             txt_v3.Text = "Segundos";
             txt_v3.Enabled = true;
+            txt_v3.MaxLength = 11;
             // PictureBox
             pb_Imagen.Visible = true;
             // Paneles
@@ -274,7 +278,7 @@ namespace Notification_Board
             lbl_v5.Text = "Profesor:";
             lbl_5.Visible = true;
             // Botones
-            btn_v6.Visible = true;
+            btn_Alta_v6.Visible = true;
             btn_Actualizar.Visible = false;
             // CheckBox
             tbl_l_panel_Dias.Visible = true;
@@ -806,6 +810,13 @@ namespace Notification_Board
                     Baja_Archivo();
                     limpiar();
                     break;
+            }
+            if (actualizar)
+            {
+                actualizar = false;
+                btn_Alta_v3.Text = "Agregar";
+                btn_Alta_v4.Text = "Agregar";
+                btn_Alta_v6.Text = "Agregar";
             }
         }
         private void Baja_Horario()

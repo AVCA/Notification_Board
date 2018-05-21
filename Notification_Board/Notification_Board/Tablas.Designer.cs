@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbl_l_panel_tabla = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_Titulo = new System.Windows.Forms.Label();
             this.panel_Botones_Inferior = new System.Windows.Forms.Panel();
             this.btn_Reporte_ = new System.Windows.Forms.Button();
-            this.btn_Reporte_Asistencia = new System.Windows.Forms.Button();
             this.btn_Actualizar = new System.Windows.Forms.Button();
             this.btn_Bajas = new System.Windows.Forms.Button();
             this.panel_Tabla = new System.Windows.Forms.Panel();
@@ -80,7 +79,7 @@
             this.lbl_5 = new System.Windows.Forms.Label();
             this.panel_v6 = new System.Windows.Forms.Panel();
             this.pb_Imagen = new System.Windows.Forms.PictureBox();
-            this.btn_v6 = new System.Windows.Forms.Button();
+            this.btn_Alta_v6 = new System.Windows.Forms.Button();
             this.HourTimer = new System.Windows.Forms.Timer(this.components);
             this.tbl_l_panel_tabla.SuspendLayout();
             this.panel_Botones_Inferior.SuspendLayout();
@@ -133,7 +132,6 @@
             // 
             this.panel_Botones_Inferior.AutoSize = true;
             this.panel_Botones_Inferior.Controls.Add(this.btn_Reporte_);
-            this.panel_Botones_Inferior.Controls.Add(this.btn_Reporte_Asistencia);
             this.panel_Botones_Inferior.Controls.Add(this.btn_Actualizar);
             this.panel_Botones_Inferior.Controls.Add(this.btn_Bajas);
             this.panel_Botones_Inferior.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -146,26 +144,14 @@
             // 
             this.btn_Reporte_.AutoSize = true;
             this.btn_Reporte_.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_Reporte_.Location = new System.Drawing.Point(305, 0);
+            this.btn_Reporte_.Location = new System.Drawing.Point(201, 0);
             this.btn_Reporte_.Name = "btn_Reporte_";
-            this.btn_Reporte_.Size = new System.Drawing.Size(104, 53);
+            this.btn_Reporte_.Size = new System.Drawing.Size(162, 53);
             this.btn_Reporte_.TabIndex = 10;
-            this.btn_Reporte_.Text = "Generar reporte";
+            this.btn_Reporte_.Text = "Generar reporte de Asistencias";
             this.btn_Reporte_.UseVisualStyleBackColor = true;
             this.btn_Reporte_.Visible = false;
             this.btn_Reporte_.Click += new System.EventHandler(this.btn_Generar_Reporte_Click);
-            // 
-            // btn_Reporte_Asistencia
-            // 
-            this.btn_Reporte_Asistencia.AutoSize = true;
-            this.btn_Reporte_Asistencia.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_Reporte_Asistencia.Location = new System.Drawing.Point(201, 0);
-            this.btn_Reporte_Asistencia.Name = "btn_Reporte_Asistencia";
-            this.btn_Reporte_Asistencia.Size = new System.Drawing.Size(104, 53);
-            this.btn_Reporte_Asistencia.TabIndex = 9;
-            this.btn_Reporte_Asistencia.Text = "Marcar Asistencia";
-            this.btn_Reporte_Asistencia.UseVisualStyleBackColor = true;
-            this.btn_Reporte_Asistencia.Visible = false;
             // 
             // btn_Actualizar
             // 
@@ -211,14 +197,14 @@
             this.dgv_Tabla.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Tabla.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_Tabla.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(146)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(146)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_Tabla.ColumnHeadersHeight = 30;
             this.dgv_Tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_Tabla.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -229,19 +215,19 @@
             this.dgv_Tabla.Name = "dgv_Tabla";
             this.dgv_Tabla.ReadOnly = true;
             this.dgv_Tabla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.AppWorkspace;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Tabla.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.AppWorkspace;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Tabla.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_Tabla.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dgv_Tabla.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.dgv_Tabla.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_Tabla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Tabla.Size = new System.Drawing.Size(715, 501);
             this.dgv_Tabla.TabIndex = 3;
@@ -599,6 +585,7 @@
             this.txt_v3.TabIndex = 9;
             this.txt_v3.Text = ".";
             this.txt_v3.Visible = false;
+            this.txt_v3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Numeros);
             // 
             // btn_Alta_v3
             // 
@@ -701,7 +688,7 @@
             // panel_v6
             // 
             this.panel_v6.Controls.Add(this.pb_Imagen);
-            this.panel_v6.Controls.Add(this.btn_v6);
+            this.panel_v6.Controls.Add(this.btn_Alta_v6);
             this.panel_v6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_v6.Location = new System.Drawing.Point(103, 253);
             this.panel_v6.Name = "panel_v6";
@@ -721,17 +708,17 @@
             this.pb_Imagen.Visible = false;
             this.pb_Imagen.Click += new System.EventHandler(this.Cargar_Imagen);
             // 
-            // btn_v6
+            // btn_Alta_v6
             // 
-            this.btn_v6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_v6.Location = new System.Drawing.Point(0, 0);
-            this.btn_v6.Name = "btn_v6";
-            this.btn_v6.Size = new System.Drawing.Size(237, 34);
-            this.btn_v6.TabIndex = 17;
-            this.btn_v6.Text = "Agregar";
-            this.btn_v6.UseVisualStyleBackColor = true;
-            this.btn_v6.Visible = false;
-            this.btn_v6.Click += new System.EventHandler(this.Altas_Actualizaciones);
+            this.btn_Alta_v6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Alta_v6.Location = new System.Drawing.Point(0, 0);
+            this.btn_Alta_v6.Name = "btn_Alta_v6";
+            this.btn_Alta_v6.Size = new System.Drawing.Size(237, 34);
+            this.btn_Alta_v6.TabIndex = 17;
+            this.btn_Alta_v6.Text = "Agregar";
+            this.btn_Alta_v6.UseVisualStyleBackColor = true;
+            this.btn_Alta_v6.Visible = false;
+            this.btn_Alta_v6.Click += new System.EventHandler(this.Altas_Actualizaciones);
             // 
             // Tablas
             // 
@@ -799,7 +786,7 @@
         private System.Windows.Forms.ComboBox cb_v1;
         private System.Windows.Forms.TextBox txt_v1;
         private System.Windows.Forms.Panel panel_v6;
-        private System.Windows.Forms.Button btn_v6;
+        private System.Windows.Forms.Button btn_Alta_v6;
         private System.Windows.Forms.PictureBox pb_Imagen;
         private System.Windows.Forms.Button btn_Alta_v4;
         private System.Windows.Forms.Label lbl_5;
@@ -808,7 +795,6 @@
         private System.Windows.Forms.Label lbl_v3;
         private System.Windows.Forms.Label lbl_v4;
         private System.Windows.Forms.Label lbl_v5;
-        private System.Windows.Forms.Button btn_Reporte_Asistencia;
         private System.Windows.Forms.Timer HourTimer;
         private System.Windows.Forms.Button btn_Reporte_;
         private System.Windows.Forms.Label lbl_Altas;

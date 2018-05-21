@@ -236,7 +236,7 @@ begin
 		  Where codDia=codD and codHora=codH);
 	
 end$$
-call VerSalonesLibres(1,7);
+call VerSalonesLibres(1,0);
 
 drop procedure if exists VerSalon_Hora_Dias;
 delimiter $$

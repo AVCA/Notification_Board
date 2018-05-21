@@ -236,6 +236,19 @@ begin
 		  Where codDia=codD and codHora=codH);
 	
 end$$
+call VerSalonesLibres(1,7);
+
+drop procedure if exists VerSalon_Hora_Dias;
+delimiter $$
+create procedure VerSalon_Hora_Dias(in codD int(1), codH int(2))	
+begin
+	select Salon.codSalon as Salon
+    from Salon
+    where codSalon not in( Select codSalon from Imparte 
+		  Where codDia=codD and codHora=codH);
+	
+end$$
+call VerSalonesLibres(1,7);
 
 delimiter $$
 create procedure VerHorario()
@@ -439,14 +452,19 @@ end if;
     return respuesta;
 end$$
 
+drop function if exists InsertarImparte;
 delimiter $$
 create function InsertarImparte(codD int(1), codHor int(2), codSal varchar(3), codMat int(4), codProf int(4)) returns varchar(4)
 begin
 	declare respuesta varchar(4);
     if not exists(select * from Imparte where codDia=codD and codHora=codHor and codSalon=codSal) then
 		if exists(select * from Impartido where codMateria=codMat and codProfesor=codProf) then
-			insert into Imparte values(codD,codHor,codSal,codMat,codProf);
-			set respuesta=1; -- Insercion Exitosa en Materia
+			if exists(select * from Imparte where codDia=codD and codHora=codHor and codMateria=codMat and codProfesor=codProf) then
+				set respuesta=-1;
+			else
+				insert into Imparte values(codD,codHor,codSal,codMat,codProf);
+				set respuesta=1; -- Insercion Exitosa en Materia
+			end if;
 		else
 			set respuesta=2; -- No existe esa combinacion en Impartido
 		end if;
@@ -455,6 +473,10 @@ begin
 	end if;
     return respuesta;
 end$$
+
+-- select InsertarImparte(1,7,'FF1',100,15);
+select * from Imparte where codDia=1 and codHora=7 and codMateria=100 and codProfesor=15;
+select InsertarImparte(1,7,'FF2',100,15);
 
 delimiter $$
 create function InsertarArchivo(codArch int(4), nomb varchar(500), dur int) returns varchar(4)

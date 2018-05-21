@@ -57,7 +57,7 @@ namespace CapaDatos
             conexion.CerrarConexion();
             return tabla;
         }
-        public DataTable Mostrar_CB(string titulo, string sub_titulo, string v1)
+        public DataTable Mostrar_CB(string titulo, string sub_titulo,String v1, String v2, String v3, String v4, String v5, String v6)
         {
             comando.Connection = conexion.AbrirConexion();
             switch (sub_titulo)
@@ -70,6 +70,9 @@ namespace CapaDatos
                     break;
                 case "Salon":
                     comando.CommandText = "call VerSalon";
+                    break;
+                case "Salon_Hora_Dia":
+                    comando.CommandText = "call VerSalon_Hora_Dias('" + v1 + "','" + v2 + "','"  + v3 + "','" + v4 + "','" + v5 + "','"+ v6 + "')";
                     break;
                 case "Profesor":
                     comando.CommandText = "call VerProfesor";
@@ -89,7 +92,6 @@ namespace CapaDatos
             conexion.CerrarConexion();
             return tabla;
         }
-
         public String Operaciones(string tabla, string operacion, string v1, string v2, string v3, string v4, string v5)
         {
             comando.Connection = conexion.AbrirConexion();
@@ -184,6 +186,8 @@ namespace CapaDatos
             leer.Close();
             return respuesta;
         }
+
+        // PENDIENTE POR REVISAR
         public DataTable Asistencia(string v1, string v2)
         {
             comando.Connection = conexion.AbrirConexion();

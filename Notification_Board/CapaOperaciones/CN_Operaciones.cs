@@ -21,17 +21,19 @@ namespace CapaOperaciones
             tabla = objetoCD.Mostrar_DGV(titulo);
             return tabla;
         }
-        public DataTable Mostrar_CB(string titulo, string sub_titulo, string v1)
+        public DataTable Mostrar_CB(string titulo, string sub_titulo, String v1, String v2, String v3, String v4, String v5, String v6)
         {
             DataTable tabla = new DataTable();
-            tabla = objetoCD.Mostrar_CB(titulo, sub_titulo,v1);
+            tabla = objetoCD.Mostrar_CB(titulo, sub_titulo,v1,v2,v3,v4,v5,v6);
             return tabla;
         }
-        public String Operaciones(string tabla,string ope, string v1, string v2, string v3, string v4, string v5)
+        public String Operaciones(string tabla,string Operaciones, string v1, string v2, string v3, string v4, string v5)
         {
-            respuesta=objetoCD.Operaciones(tabla,ope,v1,v2,v3,v4,v5);
+            respuesta=objetoCD.Operaciones(tabla,Operaciones,v1,v2,v3,v4,v5);
             return respuesta;
         }
+        
+        // PENDIENTE POR REVISAR
         public DataTable Asistencia(string v1, string v2)
         {
             DataTable tabla = new DataTable();

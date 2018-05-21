@@ -44,16 +44,17 @@ namespace CapaDatos
                     comando.CommandText = "call VerImpartido";
                     break;
                 case "Asistencias":
-                    comando.CommandText = "call VerPorHora(" + 1 + "," + 7 + ")";
+                    comando.CommandText = "call VerPorHora(" + dia + "," + hora + ")";
                     break;
                 case "Salones":
+                    Console.WriteLine(dia+"|"+hora);
                     comando.CommandText = "call VerSalonesLibres(" + dia + "," + hora + ")";
                     break;
                 case "Reporte de Asistencias":
                     comando.CommandText = "call VerAsistencia()";
                     break;
             }
-
+            Console.WriteLine(dia + "|||||||||||||" + hora);
             leer = comando.ExecuteReader();
             tabla.Load(leer);
             conexion.CerrarConexion();

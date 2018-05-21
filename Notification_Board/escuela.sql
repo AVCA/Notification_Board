@@ -240,15 +240,16 @@ call VerSalonesLibres(1,7);
 
 drop procedure if exists VerSalon_Hora_Dias;
 delimiter $$
-create procedure VerSalon_Hora_Dias(in codD int(1), codH int(2))	
+create procedure VerSalon_Hora_Dias(codH int(2),in codD1 int(1),in codD2 int(1), in codD3 int(1),in codD4 int(1),in codD5 int(1))	
 begin
 	select Salon.codSalon as Salon
     from Salon
     where codSalon not in( Select codSalon from Imparte 
-		  Where codDia=codD and codHora=codH);
+		  Where codHora=codH and 
+			(codDia=codD1 or codDia=codD2 or codDia=codD3 or codDia=codD4 or codDia=codD5));
 	
 end$$
-call VerSalonesLibres(1,7);
+call VerSalon_Hora_Dias(7,1,0,0,0,0);
 
 delimiter $$
 create procedure VerHorario()

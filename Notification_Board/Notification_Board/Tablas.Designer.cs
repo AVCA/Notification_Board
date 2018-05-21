@@ -166,7 +166,6 @@
             this.btn_Reporte_Asistencia.Text = "Marcar Asistencia";
             this.btn_Reporte_Asistencia.UseVisualStyleBackColor = true;
             this.btn_Reporte_Asistencia.Visible = false;
-            this.btn_Reporte_Asistencia.Click += new System.EventHandler(this.btn_asistencia_Click);
             // 
             // btn_Actualizar
             // 

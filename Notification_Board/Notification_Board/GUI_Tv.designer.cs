@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.panel_barra_superior = new System.Windows.Forms.Panel();
             this.panel_Horarios = new System.Windows.Forms.Panel();
-            this.dgv_Horarios = new System.Windows.Forms.DataGridView();
+            this.dgv_Tabla = new System.Windows.Forms.DataGridView();
             this.lbl_Horarios = new System.Windows.Forms.Label();
             this.ImageTimer = new System.Windows.Forms.Timer(this.components);
             this.tbl_l_panel_Contenido = new System.Windows.Forms.TableLayoutPanel();
@@ -43,7 +43,7 @@
             this.pbxImagen1 = new System.Windows.Forms.PictureBox();
             this.HourTimer = new System.Windows.Forms.Timer(this.components);
             this.panel_Horarios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Horarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Tabla)).BeginInit();
             this.tbl_l_panel_Contenido.SuspendLayout();
             this.panel_Avisos.SuspendLayout();
             this.panel_titulo_Avisos.SuspendLayout();
@@ -63,7 +63,7 @@
             // 
             // panel_Horarios
             // 
-            this.panel_Horarios.Controls.Add(this.dgv_Horarios);
+            this.panel_Horarios.Controls.Add(this.dgv_Tabla);
             this.panel_Horarios.Controls.Add(this.lbl_Horarios);
             this.panel_Horarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Horarios.Location = new System.Drawing.Point(3, 3);
@@ -71,15 +71,15 @@
             this.panel_Horarios.Size = new System.Drawing.Size(443, 512);
             this.panel_Horarios.TabIndex = 1;
             // 
-            // dgv_Horarios
+            // dgv_Tabla
             // 
-            this.dgv_Horarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
-            this.dgv_Horarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Horarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_Horarios.Location = new System.Drawing.Point(0, 24);
-            this.dgv_Horarios.Name = "dgv_Horarios";
-            this.dgv_Horarios.Size = new System.Drawing.Size(443, 488);
-            this.dgv_Horarios.TabIndex = 0;
+            this.dgv_Tabla.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
+            this.dgv_Tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Tabla.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Tabla.Location = new System.Drawing.Point(0, 24);
+            this.dgv_Tabla.Name = "dgv_Tabla";
+            this.dgv_Tabla.Size = new System.Drawing.Size(443, 488);
+            this.dgv_Tabla.TabIndex = 0;
             // 
             // lbl_Horarios
             // 
@@ -192,7 +192,7 @@
             this.Load += new System.EventHandler(this.tv_Load);
             this.panel_Horarios.ResumeLayout(false);
             this.panel_Horarios.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Horarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Tabla)).EndInit();
             this.tbl_l_panel_Contenido.ResumeLayout(false);
             this.panel_Avisos.ResumeLayout(false);
             this.panel_titulo_Avisos.ResumeLayout(false);
@@ -209,7 +209,7 @@
         private System.Windows.Forms.Panel panel_barra_superior;
         private System.Windows.Forms.Panel panel_Horarios;
         private System.Windows.Forms.Label lbl_Horarios;
-        private System.Windows.Forms.DataGridView dgv_Horarios;
+        private System.Windows.Forms.DataGridView dgv_Tabla;
         private System.Windows.Forms.Timer ImageTimer;
         private System.Windows.Forms.TableLayoutPanel tbl_l_panel_Contenido;
         private System.Windows.Forms.Timer HourTimer;

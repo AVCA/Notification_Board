@@ -447,13 +447,7 @@ namespace Notification_Board
         // Metodo que muestra la imagen seleccionada de la tabla
         private void Mostrar_Imagen(object sender, DataGridViewCellEventArgs e)
         {
-            if (titulo == "Archivo")
-            {
-                // Se utiliza FileStream ya que permite eliminar la imagen sin presentar problemas con el sistema.
-                FileStream fs = new FileStream("C:\\Fotos\\" + dgv_Tabla.CurrentRow.Cells[1].Value.ToString(), FileMode.Open, FileAccess.Read);
-                pb_Imagen.Image = Image.FromStream(fs);
-                fs.Close();
-            }
+
         }
         // Botones:
         // Metodo encargado de mostrar el reporte de Asistencia

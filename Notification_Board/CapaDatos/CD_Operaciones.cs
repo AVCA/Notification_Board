@@ -31,6 +31,9 @@ namespace CapaDatos
                 case "Profesor":
                     comando.CommandText = "call VerProfesor";
                     break;
+                case "Tv":
+                    comando.CommandText = "call VerPorHora(" + dia + "," + hora + ")";
+                    break;
                 case "Materias":
                     comando.CommandText = "call VerMateria";
                     break;
@@ -52,6 +55,9 @@ namespace CapaDatos
                     break;
                 case "Reporte de Asistencias":
                     comando.CommandText = "call VerAsistencia()";
+                    break;
+                default:
+                    Console.WriteLine(dia + "|||||||||||||" + hora);
                     break;
             }
             Console.WriteLine(dia + "|||||||||||||" + hora);

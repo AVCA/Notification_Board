@@ -15,13 +15,16 @@ namespace Notification_Board
 {
     public partial class GUI_Tv : Form
     {   //Atributos de la clase
-        public DataTable tabla; //Tabla para almacenar consulta
+        CN_Operaciones ObjetoCN = new CN_Operaciones();
+        DataTable tabla = new DataTable(); //Tabla para almacenar consulta
         public bool flag = true; //Bandera de control
         public int numRows;    //Almacena el numero de filas
         public int count = 0;  //Contador para iteracion
+        public string titulo;
 
-        public GUI_Tv()
+        public GUI_Tv(String t)
         {   //Atributos del form
+            titulo = t;
             this.StartPosition = FormStartPosition.Manual;
             this.showOnScreen(1); //Manda form a segunda pantalla            
             this.FormBorderStyle = FormBorderStyle.None;
@@ -82,33 +85,25 @@ namespace Notification_Board
 
         private void tv_Load(object sender, EventArgs e)
         {
-            //Crea una conexion con la base de datos
-            MySqlConnection Conexion = new MySqlConnection("server=127.0.0.1; database=escuela; Uid=root; pwd=root;");
-            Conexion.Open();//Abre la conexion
-            MySqlCommand comando = new MySqlCommand();//Objeto que ejecuta comandos de MySQL
-            comando.Connection = Conexion;
-            comando.CommandText = "call VerArchivos";//Asigna el comando
-            MySqlDataReader leer = comando.ExecuteReader();//Ejecuta el comando
-            tabla = new DataTable();
-            tabla.Load(leer);//Guarda el resultado en el DataTable global    
-            //Rellena la tabla
-            DateTime ahora = DateTime.Now;
-            int dia = (int)ahora.DayOfWeek;
-            int hora = ahora.Hour;
-            comando.CommandText = "call VerPorHora(" + dia + "," + hora + ")";
             this.HourTimer.Interval = 30000;
             this.HourTimer.Start();
-            leer = comando.ExecuteReader();
-            DataTable tabla2 = new DataTable();
-            tabla2.Load(leer);
-            this.dgv_Horarios.DataSource = tabla2;
-            Conexion.Close();
+            Mostrar_DGV();
+            CN_Operaciones ObjetoCN = new CN_Operaciones();
+            tabla = ObjetoCN.Mostrar_DGV("Archivo");
             numRows = tabla.Rows.Count;
             if (numRows != 0)
             {
                 this.ImageTimer.Interval = 100;
                 this.ImageTimer.Start();
             }
+        }
+
+        // Se genera el DataGridView con los registros necesarios
+        // dependiendo de la seccion que se seleccione.
+        private void Mostrar_DGV()
+        {
+            CN_Operaciones ObjetoCN = new CN_Operaciones();
+            dgv_Tabla.DataSource = ObjetoCN.Mostrar_DGV(titulo);
         }
 
         private void ImageTimer_Tick(object sender, EventArgs e)
@@ -139,21 +134,7 @@ namespace Notification_Board
         {
             if (DateTime.Now.Minute == 0)
             {
-                //Crea una conexion con la base de datos
-                MySqlConnection Conexion = new MySqlConnection("server=127.0.0.1; database=escuela; Uid=root; pwd=root;");
-                Conexion.Open();//Abre la conexion
-                DateTime ahora = DateTime.Now;
-                int dia = (int)ahora.DayOfWeek;
-                int hora = ahora.Hour;
-                MySqlCommand comando = new MySqlCommand();
-                comando.CommandText = "call VerPorHora(" + dia + "," + hora + ")";
-                MySqlDataReader leer = comando.ExecuteReader();
-                leer = comando.ExecuteReader();
-                DataTable tabla2 = new DataTable();
-                tabla2.Load(leer);
-                this.dgv_Horarios.DataSource = tabla2;
-                Conexion.Close();
-
+                Mostrar_DGV();
             }
         }
     }

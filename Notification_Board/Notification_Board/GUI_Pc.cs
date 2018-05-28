@@ -14,7 +14,7 @@ namespace Notification_Board
     public partial class GUI_Pc : Form
     {
         // VARIABLES:
-        Boolean proyeccion=false;
+        Boolean proyeccion = false;
         GUI_Tv form;
 
         // ============================================================
@@ -24,6 +24,8 @@ namespace Notification_Board
         public GUI_Pc()
         {
             InitializeComponent();
+            // Creacion del Form Tv. Aunque este creado aun no es visible.
+            form = new GUI_Tv("Tv");
             // Creacion del Form hijo. Subinterfaz dentro de la Interfaz base.
             // La subinterfaz inicial sera la interfaz de Inicio.
             sub_GUI(new Inicio());
@@ -95,11 +97,9 @@ namespace Notification_Board
         // correspondientes al menu lateral de la Interfaz
         // Boton: Iniciar proyeccion
         private void btn_GUI_Tv_Click(object sender, EventArgs e)
-        { 
-            if (proyeccion==false)
+        {
+            if (proyeccion == false)
             {
-                // Creacion del Form Tv. Aunque este creado aun no es visible.
-                GUI_Tv form = new GUI_Tv("Tv");
                 proyeccion = true;
                 btn_Iniciar_Proyeccion.Text = "Finalizar proyección";
                 btn_Iniciar_Proyeccion.Font = new Font(btn_Iniciar_Proyeccion.Font.FontFamily, 9);
@@ -109,10 +109,9 @@ namespace Notification_Board
             else
             {
                 proyeccion = false;
-
                 btn_Iniciar_Proyeccion.Font = new Font(btn_Iniciar_Proyeccion.Font.FontFamily, 11);
                 btn_Iniciar_Proyeccion.Text = "Iniciar proyección";
-                form.Close();
+                form.Hide();
             }
         }
         // Boton: Inicio

@@ -104,6 +104,13 @@ namespace Notification_Board
         {
             CN_Operaciones ObjetoCN = new CN_Operaciones();
             dgv_Tabla.DataSource = ObjetoCN.Mostrar_DGV(titulo);
+            dgv_Tabla.Columns[0].Width =30;
+            dgv_Tabla.Columns[1].Width = 30;
+            dgv_Tabla.Columns[2].Width = 30;
+            dgv_Tabla.Columns[5].Visible = false;
+            dgv_Tabla.Columns[6].Visible = false;
+            dgv_Tabla.Columns[7].Visible = false;
+            dgv_Tabla.Columns[8].Visible = false;
         }
 
         private void ImageTimer_Tick(object sender, EventArgs e)
